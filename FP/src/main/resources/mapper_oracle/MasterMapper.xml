@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.MasterMapper">
+	<select id = "mutotalCount" resultType = "int">
+		select count(*) from tbl_user 
+		<if test="searchType=='id'">
+ 		where id like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='name'">
+ 		where name like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='birthday'">
+ 		where birthday like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='email'">
+ 		where email like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='gender'">
+ 		where gender like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='u_keyword'">
+ 		where u_keyword like '%'||#{keyword}||'%' 
+ 	</if>
+	</select>
+	
+	
+	<select id = "mulist" resultType = "com.example.domain.UserVO">
+		select * from 
+		(
+		select rownum rn, tbl_user.* from tbl_user 
+		<if test="searchType=='id'">
+ 		where id like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='name'">
+ 		where name like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='birthday'">
+ 		where birthday like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='email'">
+ 		where email like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='gender'">
+ 		where gender like '%'||#{keyword}||'%' 
+ 	</if>
+ 	<if test="searchType=='u_keyword'">
+ 		where u_keyword like '%'||#{keyword}||'%' 
+ 	</if>
+ 	)
+ 	where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})
+	</select>
+
+<!-- <select id = "mulist" resultType = "com.example.domain.UserVO"> -->
+<!--       select * from -->
+<!--       (select rownum rn, tbl_user.* from tbl_user ) tbl -->
+      
+<!--       where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum}) -->
+<!--    </select> -->
+</mapper>
