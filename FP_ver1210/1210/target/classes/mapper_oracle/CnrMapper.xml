@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.CnrMapper">
+   <insert id = "insertCnr">
+      insert into tbl_cnr(cnr_no, c_code, id, cnr_regdate, cnr_content, cn_no) 
+      values (seq_cnrno.nextval, #{c_code}, #{id}, sysdate, #{cnr_content},#{cn_no})
+   </insert>
+   
+   <select id="ListCnr" resultType="com.example.domain.CnrVO">
+       select * from 
+       (select rownum rn,tbl_cnr.* from tbl_cnr where cn_no=#{cn_no} order by cnr_no) 
+       where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})
+   </select>
+   
+   <select id="totalCount" resultType="int">
+      select count(*) from tbl_cnr
+      where cn_no=#{cn_no}
+   </select>
+   
+   <delete id="cnrDelete">
+      delete from tbl_cnr where cnr_no=#{cnr_no}
+   </delete>
+   
+   <delete id="deletecnr">
+      delete from tbl_cnr where id = #{id}
+   </delete>
+   
+   <delete id="deletepcnr">
+      delete from tbl_cnr where c_code = #{c_code}
+   </delete>
+   
+   <delete id="deletemycnr">
+      delete from tbl_cnr where id = #{id} and c_code = #{c_code}
+   </delete>
+</mapper>

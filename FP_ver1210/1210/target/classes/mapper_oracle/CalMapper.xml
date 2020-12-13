@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.CalMapper">
+
+	<insert id = "makeCal">
+		insert into tbl_cal(cal_no,id,cal_title, cal_stime, cal_etime,cal_content,cal_place, cal_schk, cal_sdchk,cal_sdate,cal_edate) 
+		values(seq_calno.nextval,#{id},#{cal_title},#{cal_stime},#{cal_etime},#{cal_content},#{cal_place},#{cal_schk},#{cal_sdchk},#{cal_sdate},#{cal_edate})
+	</insert>
+
+	<delete id = "deleteCal">
+      	delete from tbl_cal where id = #{id}
+   	</delete>
+</mapper>
