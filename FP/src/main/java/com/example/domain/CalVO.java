@@ -2,92 +2,89 @@ package com.example.domain;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CalVO {
-	private int cal_no;
-	private String id;
-	private String cal_title;
-	private Date cal_sdate;
-	private Date cal_edate;
-	private String cal_content;
-	private String cal_place;
-	private String cal_schk;
-	private String cal_sdchk;
-	private String cal_stime;
-	private String cal_etime;
-	public int getCal_no() {
-		return cal_no;
+	private int _id;
+	private String username;
+	@JsonFormat(pattern="yyyy-MM-dd hh:mm",timezone ="Asia/Seoul")
+	private Date start;
+	@JsonFormat(pattern="yyyy-MM-dd hh:mm",timezone ="Asia/Seoul")
+	private Date end;
+	private String title;
+	private String description;
+	private String type;
+	private String backgroundColor;
+	private String textColor;
+	private String allDay;
+	
+	
+	public int getCalno() {
+		return _id;
 	}
-	public void setCal_no(int cal_no) {
-		this.cal_no = cal_no;
+	public void setCalno(int calno) {
+		this._id = calno;
 	}
-	public String getId() {
-		return id;
+	public String getUsername() {
+		return username;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getCal_title() {
-		return cal_title;
+	public Date getStart() {
+		return start;
 	}
-	public void setCal_title(String cal_title) {
-		this.cal_title = cal_title;
+	public void setStart(Date start) {
+		this.start = start;
 	}
-	public Date getCal_sdate() {
-		return cal_sdate;
+	public Date getEnd() {
+		return end;
 	}
-	public void setCal_sdate(Date cal_sdate) {
-		this.cal_sdate = cal_sdate;
+	public void setEnd(Date end) {
+		this.end = end;
 	}
-	public Date getCal_edate() {
-		return cal_edate;
+	public String getTitle() {
+		return title;
 	}
-	public void setCal_edate(Date cal_edate) {
-		this.cal_edate = cal_edate;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getCal_content() {
-		return cal_content;
+	public String getDescription() {
+		return description;
 	}
-	public void setCal_content(String cal_content) {
-		this.cal_content = cal_content;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	public String getCal_place() {
-		return cal_place;
+	public String getType() {
+		return type;
 	}
-	public void setCal_place(String cal_place) {
-		this.cal_place = cal_place;
+	public void setType(String type) {
+		this.type = type;
 	}
-	public String getCal_schk() {
-		return cal_schk;
+	public String getBackgroundColor() {
+		return backgroundColor;
 	}
-	public void setCal_schk(String cal_schk) {
-		this.cal_schk = cal_schk;
+	public void setBackgroundColor(String backgroundColor) {
+		this.backgroundColor = backgroundColor;
 	}
-	public String getCal_sdchk() {
-		return cal_sdchk;
+	public String getTextColor() {
+		return textColor;
 	}
-	public void setCal_sdchk(String cal_sdchk) {
-		this.cal_sdchk = cal_sdchk;
+	public void setTextColor(String textColor) {
+		this.textColor = textColor;
 	}
-	public String getCal_stime() {
-		return cal_stime;
+	public String getAllDay() {
+		return allDay;
 	}
-	public void setCal_stime(String cal_stime) {
-		this.cal_stime = cal_stime;
-	}
-	public String getCal_etime() {
-		return cal_etime;
-	}
-	public void setCal_etime(String cal_etime) {
-		this.cal_etime = cal_etime;
+	public void setAllDay(String allDay) {
+		this.allDay = allDay;
 	}
 	@Override
 	public String toString() {
-		return "CalVO [cal_no=" + cal_no + ", id=" + id + ", cal_title=" + cal_title + ", cal_sdate=" + cal_sdate
-				+ ", cal_edate=" + cal_edate + ", cal_content=" + cal_content + ", cal_place=" + cal_place
-				+ ", cal_schk=" + cal_schk + ", cal_sdchk=" + cal_sdchk + ", cal_stime=" + cal_stime + ", cal_etime="
-				+ cal_etime + "]";
+		return "CalVO [_id=" + _id + ", username=" + username + ", start=" + start + ", end=" + end + ", title="
+				+ title + ", description=" + description + ", type=" + type + ", backgroundColor=" + backgroundColor
+				+ ", textColor=" + textColor + ", allDay=" + allDay + "]";
 	}
-	
 	
 	
 	

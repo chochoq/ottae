@@ -1,10 +1,15 @@
 package com.example.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.CalVO;
 import com.example.mapper_oracle.CalMapper;
@@ -19,15 +24,25 @@ public class CalController {
 	public void schedule(){}
 	
 	// 일정을 만드는 page로 연결해준다, groub에서도 사용한다. 
-	@RequestMapping("/schedule_makeSchedule")
+	@RequestMapping("schedule_makeSchedule")
 	public void schedule_makeSchedule(){	
 	}
 	
-	// 일정을 만들고, 일정 첫page로 연결한다.
-	@RequestMapping("makeCal")
-	public String makeCal(CalVO vo,HttpSession session){	
-		vo.setId((String) session.getAttribute("id"));
-		calMapper.makeCal(vo);
-		return "schedule_makeSchedule";
+	
+	
+	@RequestMapping("scheduleList")
+	@ResponseBody
+	public List<CalVO> scheduleList(HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		List<CalVO> list = calMapper.scheduleList(id);
+		for (int i =0; i<list.size(); i++){
+			CalVO vo = list.get(i);
+			if(vo.getAllDay().equals("0")){
+			}
+			SimpleDateFormat sdf = new SimpleDateFormat();
+			
+		}
+		
+		return calMapper.scheduleList(id);
 	}
 }

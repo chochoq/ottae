@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.example.domain.ClubVO;
 import com.example.domain.CuVO;
@@ -50,8 +54,17 @@ public class ClubController {
 	
 	// 동아리를 만들어준다.
 	@RequestMapping(value = "makeClubPost", method=RequestMethod.POST)
-	public String insert(ClubVO vo,HttpSession session , HttpServletResponse response){
+	public String insert(ClubVO vo,HttpSession session , HttpServletResponse response,MultipartHttpServletRequest multi)throws IllegalStateException, IOException{
 		String id = (String) session.getAttribute("id");
+		
+		// 사진 등록
+		MultipartFile file=multi.getFile("file");
+	    if(!file.isEmpty()){
+	    	String image=System.currentTimeMillis() + "_" + file.getOriginalFilename();
+	        file.transferTo(new File(path + "/" + image));
+	        vo.setC_pic(image);
+	    }
+
 //		String str = vo.getC_tag();
 //	    String[] array = str.split("#");
 //	      
@@ -158,7 +171,8 @@ public class ClubController {
 		System.out.println(vo.toString());
 		cuMapper.addMember(vo);
 		return "redirect:club_first?c_code="+c_code;
-	}	
+	}
+	
 	
 }
 

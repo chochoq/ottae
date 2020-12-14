@@ -16,4 +16,9 @@ public interface GroupMapper {
 	
 	public List<GuVO> GroupList(String id);
 	
+	public GroupVO gread(int g_code);
+	
+	//마스터 유저 삭제
+	public void deletegroup(int g_code);
+	
 }

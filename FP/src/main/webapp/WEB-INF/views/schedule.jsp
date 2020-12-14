@@ -9,7 +9,6 @@
 <body>
 	<h1>[일정 페이지]</h1>
 	<button onClick="location.href='/'">홈으로</button>
-	<button onClick="location.href='schedule_makeSchedule'">일정 추가</button>
+	<button onClick="location.href='makeSchedule'">일정 추가</button>
 </body>
 </html>
-

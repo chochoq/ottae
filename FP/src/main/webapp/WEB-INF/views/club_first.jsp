@@ -155,7 +155,7 @@ function getCulist(){
 				var chk=data;
 				var str="";
 				if(chk== 0){
-					str = "<input type='button' value='가입신청' id='btnJoinClub'onClick=location.href='club_join'>"
+					str = "<input type='button' value='가입신청' id='btnJoinClub' onClick=location.href='club_join'>"
 				}else if(chk==1){
 					str = "<h2>승인 대기중인 계정입니다.</h2>"
 				}else{

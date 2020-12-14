@@ -1,11 +1,18 @@
 package com.example.domain;
 
-import java.sql.Date;
+
+
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class EventVO{
 	public int e_no;
 	public String id;
 	public String e_title;
+	@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone ="Asia/Seoul")
+    private Date replyDate;
+	@JsonFormat(pattern="yyyy-MM-dd",timezone ="Asia/Seoul")
 	public Date e_regdate;
 	public String e_content;
 	

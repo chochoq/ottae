@@ -2,10 +2,15 @@ package com.example.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class QnAVO {
 	   private int q_no;
 	   private String id;
 	   private String q_title;
+	   @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",timezone ="Asia/Seoul")
+	    private Date replyDate;
+	   @JsonFormat(pattern="yyyy-MM-dd",timezone ="Asia/Seoul")
 	   private Date q_regdate;
 	   private String q_content;
 	public int getQ_no() {

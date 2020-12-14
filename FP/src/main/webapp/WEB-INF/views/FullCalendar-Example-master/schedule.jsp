@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,12 +13,11 @@
     <title>FullCalendar Example</title>
     <link rel=" shortcut icon" href="${path}/resources/image/favicon.ico">
 
-	
     <link rel="stylesheet" href="${path}/resources/vendor/css/fullcalendar.min.css" />
     <link rel="stylesheet" href="${path}/resources/vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href='${path}/resources/vendor/css/select2.min.css' />
     <link rel="stylesheet" href='${path}/resources/vendor/css/bootstrap-datetimepicker.min.css' />
-	<link rel="stylesheet" href="${path}/resources/vendor/css/fullcalendar.min.css" /> 
+   	<link rel="stylesheet" href="${path}/resources/vendor/css/fullcalendar.min.css" /> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="${path}/resources/css/main.css">
@@ -26,12 +25,21 @@
 </head>
 
 <body>
-
+                        
 <h1>[일정 페이지]</h1>
-	<button onClick="location.href='/'">홈으로</button>
-	<button onClick="location.href='/schedule_makeSchedule'">일정 추가</button>
+   <button onClick="location.href='/'">홈으로</button>
+   <button onClick="location.href='/schedule_makeSchedule'">일정 추가</button>
     <div class="container">
-
+        
+      <select id="myGroupList" name="g_code"></select>
+      <!-- 마이클럽 -->
+      <script id="tempMyList" type="text/x-handlebars-template">
+            {{#each .}}
+               <option value="{{g_code}}">{{g_name}}</option>
+            {{/each}}
+      </script>  
+      <!-- 마이클럽끝 -->
+        
         <!-- 일자 클릭시 메뉴오픈 -->
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
@@ -44,7 +52,7 @@
             <div id="loading"></div>
             <div id="calendar"></div>
         </div>
-        <!-- 일정 추가 MODAL -->
+       <!-- 일정 추가 MODAL -->
         <div class="modal fade" tabindex="-1" role="dialog" id="eventModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -58,7 +66,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-allDay">하루종일</label>
-                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox"></label>
+                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox">
                             </div>
                         </div>
 
@@ -84,13 +92,12 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-type">구분</label>
-                                <select class="inputModal" type="text" name="edit-type" id="edit-type"></select>
-                                <script id="temp" type="text/x-handlebars-template">
-									<option value="0">개인일정</option>
-										{{#each .}}
-										<option value="{{g_code}}">{{g_name}}</option>
-                  						{{/each}}
-								</script>
+                                <select class="inputModal" type="text" name="edit-type" id="edit-type">
+                                    <option value="카테고리1">카테고리1</option>
+                                    <option value="카테고리2">카테고리2</option>
+                                    <option value="카테고리3">카테고리3</option>
+                                    <option value="카테고리4">카테고리4</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -109,6 +116,7 @@
                                 </select>
                             </div>
                         </div>
+                        
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-desc">설명</label>
@@ -130,6 +138,7 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
+
         <div class="panel panel-default">
 
             <div class="panel-heading">
@@ -138,19 +147,17 @@
 
             <div class="panel-body">
 
-                <div class="col-lg-6">
-                    <label for="calendar_view">구분별</label>
+                  <div class="col-lg-6">
+                    <label for="calendar_view">등록자별</label>
                     <div class="input-group">
-                        <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="카테고리1">카테고리1</option>
-                            <option value="카테고리2">카테고리2</option>
-                            <option value="카테고리3">카테고리3</option>
-                            <option value="카테고리4">카테고리4</option>
-                        </select>
+                       <c:forEach items="${gulist}" var="GuVO">
+                           <label class="checkbox-inline"><input class='filter' type="checkbox" value="${GuVO.uname}"
+                                checked>${GuVO.uname}</label>
+                     </c:forEach>
+                  
                     </div>
                 </div>
 
-               
             </div>
         </div>
         <!-- /.filter panel -->
@@ -168,26 +175,130 @@
     <script src="${path}/resources/js/editEvent.js"></script>
     <script src="${path}/resources/js/etcSetting.js"></script>
 </body>
-<script>
-chkSdchk();
+	
+	<script>
+	myClubList();
+	var day=null;
+	
+	$("#calendar td a").click(function(e){
+	   e.preventDefault();
+	   day=$(this).attr("data-goto");
+	   alert(day);
+	});
+	
+	$("#calendar td").click(function(){
+	   
+	});
+	
+	
+	var eventModal = $('#eventModal');
+	
+	var modalTitle = $('.modal-title');
+	var editAllDay = $('#edit-allDay');
+	var editTitle = $('#cal_title');
+	var editStart = $('#cal_sdate');
+	var editEnd = $('#cal_edate');
+	var editType = $('#edit-type');
+	var editColor = $('#edit-color');
+	var editDesc = $('#cal_content');
+	
+	var addBtnContainer = $('.modalBtnContainer-addEvent');
+	var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
+	
+	
+	
+	
+	/* ****************
+	 *  새로운 일정 생성
+	 * ************** */
+	var newEvent = function (start, end, eventType) {
+	   
+	   
+	    $("#contextMenu").hide(); //메뉴 숨김
+	
+	    modalTitle.html('새로운 일정');
+	    editType.val(eventType).prop('selected', true);
+	    editTitle.val('');
+	    editStart.val(start);
+	    editEnd.val(end);
+	    editDesc.val('');
+	   
+	    addBtnContainer.show();
+	    modifyBtnContainer.hide();
+	    eventModal.modal('show');
+	
+	
+	    //새로운 일정 저장버튼 클릭
+	    $('#save-event').unbind();
+	    $('#save-event').on('click', function () {
+	
+	        var eventData = {
+	            title: editTitle.val(),
+	            start: editStart.val(),
+	            end: editEnd.val(),
+	            description: editDesc.val(),
+	            type: editType.val(),
+	            username: '사나',
+	            backgroundColor: editColor.val(),
+	            textColor: '#ffffff',
+	            allDay: false
+	        };
+	
+	        if (eventData.start > eventData.end) {
+	            alert('끝나는 날짜가 앞설 수 없습니다.');
+	            return false;
+	        }
+	
+	        if (eventData.title === '') {
+	            alert('일정명은 필수입니다.');
+	            return false;
+	        }
+	
+	        var realEndDay;
+	
+	        if (editAllDay.is(':checked')) {
+	            eventData.start = moment(eventData.start).format('YYYY-MM-DD');
+	            //render시 날짜표기수정
+	            eventData.end = moment(eventData.end).add(1, 'days').format('YYYY-MM-DD');
+	            //DB에 넣을때(선택)
+	            realEndDay = moment(eventData.end).format('YYYY-MM-DD');
+	
+	            eventData.allDay = true;
+	        }
+	
+	        $("#calendar").fullCalendar('renderEvent', eventData, true);
+	        eventModal.find('input, textarea').val('');
+	        editAllDay.prop('checked', false);
+	        eventModal.modal('hide');
+	
+	        //새로운 일정 저장
+	        $.ajax({
+	            type: "get",
+	            url: "",
+	            data: {
+	                //.....
+	            },
+	            success: function (response) {
+	                //DB연동시 중복이벤트 방지를 위한
+	                //$('#calendar').fullCalendar('removeEvents');
+	                //$('#calendar').fullCalendar('refetchEvents');
+	            }
+	        });
+	    });
+	};
+	
+	function myClubList(){
+	   $.ajax({
+	      type :"get",
+	      url : "myGroup",
+	       dataType : "json",
+	       success : function(data){
+	          var temp = Handlebars.compile($("#tempMyList").html());
+	         $("#myGroupList").html(temp(data));
+	      }
+	   });
+	}
+	
+	</script>
 
-$("#joinedGroup").on("change",function(){
-	var selectG_code = $("#joinedGroup").val();
-    if(selectG_code != "0"){
-    	$.ajax({
-        	type :"get",
-          	url : "guget",
-          	dataType : "json",
-          	data : {"g_code" : selectG_code},
-          	success : function(data){
-            	var temp = Handlebars.compile($("#temp1").html());
-               	$("#joinedMember").html(temp(data));
-          	}
-      	});
-   	}else{
-    	var str="개인 일정입니다."
-        $("#joinedMember").html(str);
-   	}
-})
-</script>
 </html>

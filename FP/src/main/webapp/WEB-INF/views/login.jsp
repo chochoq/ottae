@@ -206,7 +206,7 @@
 <body>
 
 <hgroup>
-  <h1>Making a Meetuing</h1>
+  <h1><a href="/">Making a Meeting</a></h1>
 </hgroup>
 
 <form name="frm" action="login" method="post">

@@ -97,25 +97,24 @@ var calendar = $('#calendar').fullCalendar({
       container: 'body'
     });
 
-    return filtering(event);
+//    return filtering(event);
+    return true;
 
   },
 
   /* ****************
    *  일정 받아옴 
    * ************** */
-  events: function (start, end, timezone, callback) {
+  //리스트
+  events: function (start, end, timezone, callback){
     $.ajax({
       type: "get",
-      url: "data.json",
-      data: {
-        // 화면이 바뀌면 Date 객체인 start, end 가 들어옴
-        //startDate : moment(start).format('YYYY-MM-DD'),
-        //endDate   : moment(end).format('YYYY-MM-DD')
-      },
-      success: function (response) {
+      url: "/scheduleList",
+      dataType:"json",
+      success: function (response){
+    	
         var fixedDate = response.map(function (array) {
-          if (array.allDay && array.start !== array.end) {
+          if (array.allDay == '1' && array.start != array.end) {
             array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
           }
           return array;
@@ -253,7 +252,7 @@ function getDisplayEventDate(event) {
 
   var displayEventDate;
 
-  if (event.allDay == false) {
+  if (event.allDay == '1') {
     var startTimeEventInfo = moment(event.start).format('HH:mm');
     var endTimeEventInfo = moment(event.end).format('HH:mm');
     displayEventDate = startTimeEventInfo + " - " + endTimeEventInfo;
@@ -266,24 +265,17 @@ function getDisplayEventDate(event) {
 
 function filtering(event) {
   var show_username = true;
-  var show_type = true;
+ 
 
   var username = $('input:checkbox.filter:checked').map(function () {
     return $(this).val();
   }).get();
-  var types = $('#type_filter').val();
 
   show_username = username.indexOf(event.username) >= 0;
 
-  if (types && types.length > 0) {
-    if (types[0] == "all") {
-      show_type = true;
-    } else {
-      show_type = types.indexOf(event.type) >= 0;
-    }
-  }
+  
 
-  return show_username && show_type;
+  return show_username;
 }
 
 function calDateWhenResize(event) {

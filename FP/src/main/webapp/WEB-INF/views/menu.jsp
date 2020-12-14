@@ -39,7 +39,7 @@
 				<nav class="clearfix">
 					<ul class="main-menu">
 						<li class="dropmenu"><a href="/" class="active">Home</a></li>
-						<li class="dropmenu"><a href="../FullCalendar-Example-master/schedule">일정</a>
+						<li class="dropmenu"><a href="FullCalendar-Example-master/schedule">일정</a>
 							<ul class="babymenu-ul">
 						        <li class="babymenu-li"><a href="schedule_makeSchedule">일정 만들기</a></li>
 						    </ul>
@@ -58,7 +58,7 @@
 							<ul class="babymenu-ul"> 
 						        <li class="babymenu-li"><a href="myPage_group">모임 관리</a></li>
 						        <li class="babymenu-li"><a href="myPage_club">동아리 관리</a></li>
-						        <li class="babymenu-li"><a href="user_update">회원정보수정</a></li>
+						        <li class="babymenu-li"><a href="myPage_userUpdate">회원정보수정</a></li>
 						    </ul>
 						</li>
 						<li class="dropmenu"><a href="notice">고객센터</a>

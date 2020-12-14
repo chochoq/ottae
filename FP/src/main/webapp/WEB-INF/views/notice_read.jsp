@@ -19,7 +19,6 @@
 		<div class="board_wrap01">
 			<div class="board_ty_list">
 				<ul>
-					<li><a href="/">홈으로</a></li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="event">이벤트</a></li>
 					<li><a href="QnA">Q&A</a></li>

@@ -46,10 +46,8 @@ public class CnrController {
       pm.setTotalCount(cnrmapper.totalCount(cn_no));
       
       map.put("pm", pm);
-      System.out.println(cri.toString());
-	System.out.println(pm.toString());
       map.put("list", cnrmapper.ListCnr(cn_no , cri));
-      System.out.println(map.toString());
+      
       return map;
    }
    

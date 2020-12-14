@@ -9,11 +9,13 @@
    <select id = "nread" resultType = "com.example.domain.NoticeVO">
       select * from tbl_notice where n_no = #{n_no}
    </select>
-   
-   <select id = "nlist" resultType = "com.example.domain.NoticeVO">
-      select * from 
-      (select rownum rn, tbl_notice.* from tbl_notice)
-      where rn between 1 and 10
+
+   <select id="nlist" resultType="com.example.domain.NoticeVO">
+      select * from
+      (select rownum rn, tbl_notice.* from tbl_notice where n_title like
+      '%'||#{query}||'%' order by n_regdate desc)
+      where rn between (#{cri.pageStart}+1) and
+      (#{cri.pageStart}+#{cri.perPageNum})
    </select>
    
    <update id = "nupdatepost" >
@@ -23,4 +25,8 @@
    <delete id = "ndelete">
       delete from tbl_notice where n_no = #{n_no}
    </delete>
+   
+      <select id="totalCount" resultType="int">
+      select count(*) from tbl_notice where n_title like '%'||#{query}||'%'
+   </select>
 </mapper>

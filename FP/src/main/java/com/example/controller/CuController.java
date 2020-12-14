@@ -23,7 +23,6 @@ public class CuController {
 	@ResponseBody
 	public HashMap<String , Object> waitCulist(CuVO vo, int page){
 		HashMap<String , Object> map= new HashMap<>();
-		System.out.println(page+"00000000000000000000000000000");
 		
 		PageMaker pm = new PageMaker();
 		Criteria cri = new Criteria();

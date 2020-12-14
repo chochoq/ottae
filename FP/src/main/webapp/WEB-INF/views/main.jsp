@@ -7,6 +7,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
       <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/popup.css">
       <title>final project</title>
       <style>
          @import url(https://fonts.googleapis.com/css?family=Open+Sans);   
@@ -100,131 +101,216 @@
    
    
    <!-- 추천 동아리 -->
-   	<div  class="detail" style="font-size:40px; margin-top:80px; "><h1>게임</h1></div>    
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<!-- Slides  넣을곳 -->
-			<c:forEach items="${gameList}" var="glist">
-	         	<div class="swiper-slide">
-	            	<div class="picture">                 
-	                   	<img class="imgc" src="display?fileName=${glist.c_pic}">
-		               	<div class=detail>
-		                   	<h3>${glist.c_name}</h3>
-		                </div>
-		       		</div>
-	          	</div>
-			</c:forEach>
-		</div>
-		<div class="swiper-button-prev"></div> 
-		<div class="swiper-button-next"></div> 
-   	</div>
-   	
-	<div  class="detail" style="font-size:40px; margin-top:80px; "><h1>운동</h1></div>    
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<!-- Slides  넣을곳 -->
-			<c:forEach items="${sportList}" var="splist">
-	         	<div class="swiper-slide">
-	            	<div class="picture">                 
-	                   	<img class="imgc" src="display?fileName=${splist.c_pic}">
-		               	<div class=detail>
-		                   	<h3>${splist.c_name}</h3>
-		                </div>
-		       		</div>
-	          	</div>
-			</c:forEach>
-		</div>
-		<div class="swiper-button-prev"></div> 
-		<div class="swiper-button-next"></div> 
-   	</div>
-   	
-   	<div  class="detail" style="font-size:40px; margin-top:80px; "><h1>공부</h1></div>    
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<!-- Slides  넣을곳 -->
-			<c:forEach items="${studyList}" var="stlist">
-	         	<div class="swiper-slide">
-	            	<div class="picture">                 
-	                   	<img class="imgc" src="display?fileName=${stlist.c_pic}">
-		               	<div class=detail>
-		                   	<h3>${stlist.c_name}</h3>
-		                </div>
-		       		</div>
-	          	</div>
-			</c:forEach>
-		</div>
-		<div class="swiper-button-prev"></div> 
-		<div class="swiper-button-next"></div> 
-   	</div>
-   	
-   	<div  class="detail" style="font-size:40px; margin-top:80px; "><h1>취미</h1></div>    
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<!-- Slides  넣을곳 -->
-			<c:forEach items="${hobbyList}" var="holist">
-	         	<div class="swiper-slide">
-	            	<div class="picture">                 
-	                   	<img class="imgc" src="display?fileName=${holist.c_pic}">
-		               	<div class=detail>
-		                   	<h3>${holist.c_name}</h3>
-		                </div>
-		       		</div>
-	          	</div>
-			</c:forEach>
-		</div>
-		<div class="swiper-button-prev"></div> 
-		<div class="swiper-button-next"></div> 
-   	</div>
-   	
-   	<div  class="detail" style="font-size:40px; margin-top:80px; "><h1>기타</h1></div>    
-	<div class="swiper-container">
-		<div class="swiper-wrapper">
-			<!-- Slides  넣을곳 -->
-			<c:forEach items="${etcList}" var="etclist">
-	         	<div class="swiper-slide">
-	            	<div class="picture">                 
-	                   	<img class="imgc" src="display?fileName=${etclist.c_pic}">
-		               	<div class=detail>
-		                   	<h3>${etclist.c_name}</h3>
-		                </div>
-		       		</div>
-	          	</div>
-			</c:forEach>
-		</div>
-		<div class="swiper-button-prev"></div> 
-		<div class="swiper-button-next"></div> 
-   	</div>
+	<div  class="detail" style="font-size:40px; margin-top:80px;" id="game_list"><h1>게임</h1></div>    
+   	<div class="swiper-container">
+      	<div class="swiper-wrapper">
+         	<!-- Slides  넣을곳 -->
+         	<c:forEach items="${gameList}" var="glist">
+               	<div class="swiper-slide">
+                  	<div class="picture">  
+                  		<a class="button2" href="#popup">              
+                            <img class="imgc" src="display?fileName=${glist.c_pic}" c_code="${glist.c_code}">
+                        </a> 
+                        <div class=detail>
+                            <h3>${glist.c_name}</h3>
+                      </div>
+                   </div>
+                </div>
+         </c:forEach>
+      </div>
+      <div class="swiper-button-prev"></div> 
+      <div class="swiper-button-next"></div> 
+   </div>
+      
+   <div  class="detail" style="font-size:40px; margin-top:80px; "><h1>운동</h1></div>    
+   <div class="swiper-container">
+      <div class="swiper-wrapper">
+         <!-- Slides  넣을곳 -->
+         <c:forEach items="${sportList}" var="splist">
+               <div class="swiper-slide">
+                  <div class="picture">   
+                     	<a class="button2" href="#popup">                 
+                            <img class="imgc" src="display?fileName=${splist.c_pic}">
+                         </a>                   
+                        <div class=detail>
+                            <h3>${splist.c_name}</h3>
+                      </div>
+                   </div>
+                </div>
+         </c:forEach>
+      </div>
+      <div class="swiper-button-prev"></div> 
+      <div class="swiper-button-next"></div> 
+      </div>
+      
+      <div  class="detail" style="font-size:40px; margin-top:80px; "><h1>공부</h1></div>    
+   <div class="swiper-container">
+      <div class="swiper-wrapper">
+         <!-- Slides  넣을곳 -->
+         <c:forEach items="${studyList}" var="stlist">
+               <div class="swiper-slide">
+                  <div class="picture">   
+                     	<a class="button2" href="#popup">                 
+                            <img class="imgc" src="display?fileName=${stlist.c_pic}">
+                        </a>               
+                        <div class=detail>
+                            <h3>${stlist.c_name}</h3>
+                      </div>
+                   </div>
+                </div>
+         </c:forEach>
+      </div>
+      <div class="swiper-button-prev"></div> 
+      <div class="swiper-button-next"></div> 
+      </div>
+      
+      <div  class="detail" style="font-size:40px; margin-top:80px; "><h1>취미</h1></div>    
+   <div class="swiper-container">
+      <div class="swiper-wrapper">
+         <!-- Slides  넣을곳 -->
+         <c:forEach items="${hobbyList}" var="holist">
+               <div class="swiper-slide">
+                  <div class="picture">  
+                     	<a class="button2" href="#popup">                 
+                        	<img class="imgc" src="display?fileName=${holist.c_pic}">
+                        </a>               
+                        <div class=detail>
+                            <h3>${holist.c_name}</h3>
+                      </div>
+                   </div>
+                </div>
+         </c:forEach>
+      </div>
+      <div class="swiper-button-prev"></div> 
+      <div class="swiper-button-next"></div> 
+      </div>
+      
+      <div  class="detail" style="font-size:40px; margin-top:80px; "><h1>기타</h1></div>    
+   <div class="swiper-container">
+      <div class="swiper-wrapper">
+         <!-- Slides  넣을곳 -->
+         <c:forEach items="${etcList}" var="etclist">
+               <div class="swiper-slide">
+                  	<div class="picture"> 
+                  		<a class="button2" href="#popup">                 
+                            <img class="imgc" src="display?fileName=${etclist.c_pic}">
+                        </a>                 
+                        <div class=detail>
+                            <h3>${etclist.c_name}</h3>
+                      </div>
+                   </div>
+                </div>
+         </c:forEach>
+      </div>
+      <div class="swiper-button-prev"></div> 
+      <div class="swiper-button-next"></div> 
+      </div>
 
    
 <div><jsp:include page="footer.jsp"/></div>
 
+<!-- 팝업창  -->
+<div class="popup" id="popup">
+	<div class="popup-inner">
+      	<div class="popupimg" id="c_pic"><!-- 사진 자리  --></div>
+        <div class="memo">
+        	<h1 class="memoname">동아리이름</h1>
+            <div class="left">
+            <h2 class="h42">동아리정보</h2>
+            <div class="memo3">
+            	<ul class="ul2">
+                	<li class="li2"><i class="fas fa-crown" style="font-size: 25px; color:yellow;"></i><span class="span2" id="c_pid"></span></li>
+                  	<li class="li2"><i class="fas fa-male" style="font-size: 35px; margin-left: 8px; margin-right: 13px;"></i><span class="span2" id="count"></span></li>
+                  	<li class="li2"><i class="fas fa-map-marker-alt" style="font-size: 25px; margin-left: 5px; margin-right: 5px;"></i><span class="span2" id="c_spot"></span></li>
+                  	<li class="li2"><i class="far fa-calendar-check" style="font-size: 21px; margin-left: 5px; margin-right: 5px;"></i><span class="span2" id="c_regdate"></span></li>
+               	</ul>
+            </div>
+		</div>
+        <div class="rigth">
+            <h2 class="h42">가입조건</h2>         
+            <div class="memo2">
+               	<ul class="ul2">
+                  	<li class="li2">
+                  		<span class="span2" id="c_condition"></span>
+                  	</li>
+               	</ul>
+            </div>
+      	</div>
+        <div class="footer">
+           	<h2 class="h43">소개하기</h2>
+           	<div class="memo4">
+               	<p class="p2" id="c_welcome"></p>
+          	</div>
+        </div>
+	</div>         
+        <a class="popup__close" id="close">X</a>
+        <input class="btncl" type="button" value="이동하기" id="joinClub">
+    </div>
+</div>
+
+
 </body>
 <script>
-   $(document).ready(function() {
-      var swiper = new Swiper(".swiper-container", {
-         effect : "coverflow", // 커버플로우 효과 사용
-         grabCursor : true,
-         centeredSlides : true,
-         loop : true, // 슬라이드 반복
-         slidesPerView : "auto",
-         coverflowEffect : {
-            rotate : 0, // 슬라이더 회전 각 : 클수록 슬라이딩시 회전이 커짐
-            stretch : -50, // 슬라이더간 거리(픽셀) : 클수록 슬라이더가 서로 많이 겹침
-            depth : 0, // 깊이 효과값 : 클수록 멀리있는 느낌이 강해짐
-            modifier : 1, // 효과 배수 : 위 숫자값들에 이 값을 곱하기 처리하여 효과를 강하게 처리함
-            slideShadows : false
-         // 슬라이더 그림자 : 3D 효과를 강조하기 위한 회전시 흐릿한 효과
-         },
-         speed : 500,// 슬라이드 속도 2초
+ 	$(document).ready(function() {
+    	var swiper = new Swiper(".swiper-container", {
+         	effect : "coverflow", // 커버플로우 효과 사용
+            grabCursor : true,
+            centeredSlides : true,
+            loop : true, // 슬라이드 반복
+            slidesPerView : "auto",
+            coverflowEffect : {
+            	rotate : 0, // 슬라이더 회전 각 : 클수록 슬라이딩시 회전이 커짐
+               	stretch : -50, // 슬라이더간 거리(픽셀) : 클수록 슬라이더가 서로 많이 겹침
+               	depth : 0, // 깊이 효과값 : 클수록 멀리있는 느낌이 강해짐
+               	modifier : 1, // 효과 배수 : 위 숫자값들에 이 값을 곱하기 처리하여 효과를 강하게 처리함
+               	slideShadows : false
+            	// 슬라이더 그림자 : 3D 효과를 강조하기 위한 회전시 흐릿한 효과
+            },
+            speed : 500,// 슬라이드 속도 2초
+            navigation : {
+               	nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+               	prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+            },
+            pagination : {
+				el : ".swiper-pagination"
+			}
+		});
+	});
+   
+ 	var c_code ="";
+	$(".imgc").on("click",function(){
+		c_code = $(this).attr("c_code");
+		$.ajax({
+			type : "get",
+			url : "readClub",
+			data : {"c_code":c_code},
+			dataType : "json",
+			success : function(data) {
+				$("#c_pic").html("<img class='popupimgc' src='display?fileName=" + data.cvo.c_pic + "'>");
+				$("#c_pid").text(data.cvo.c_pid);
+				$("#count").text(data.maincount);
+				$("#c_spot").text(data.cvo.c_spot);
+				$("#c_regdate").text(data.cvo.c_regdate);
+				$("#c_condition").text(data.cvo.c_condition);
+				$("#c_welcome").text(data.cvo.c_welcome);
+				
+			}
+		})
+    });
+	
+    // popup
+	$(document).ready(function() {
+		$("#close").click(function(){            
+			window.history.back()       
+		});       
+	});
+    
+	
+    // popup
+	$("#joinClub").click(function(){ 
+		location.href="club_first?c_code="+c_code; 
+	});       
 
-         navigation : {
-            nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-            prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-         },
-         pagination : {
-            el : ".swiper-pagination"
-         }
-      });
-   });   
+
 </script>
 </html>

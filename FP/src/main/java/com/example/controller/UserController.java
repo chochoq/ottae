@@ -37,10 +37,6 @@ public class UserController {
    @RequestMapping("index")
    public void index(){}
 
-   
-   // 회원정보 수정
-   @RequestMapping("user_update")
-   public void user_update(){}
 
    // 회원가입
    @RequestMapping("signup")
@@ -51,27 +47,27 @@ public class UserController {
    @RequestMapping(value = "signup", method = RequestMethod.POST)
    public String signup(UserVO vo, MultipartHttpServletRequest multi) throws Exception {
       MultipartFile file = multi.getFile("file");
-      // System.out.println(vo.toString());
       if(file.isEmpty()){
          vo.setImage("default.jpg");
       }else if (!file.isEmpty()) {
          String image = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-         // System.out.println(image);
          file.transferTo(new File(path + "/" + image));
          vo.setImage(image);
       } else {
          return "redirect:signup";
       }
-      System.out.println(vo.toString());
       mapper.signup(vo);
-      // System.out.println(vo.toString());
       return "redirect:login";
    }
 
    // 로그인
    @RequestMapping("login")
-   public void login() {
-
+   public String login(HttpSession session) {
+	   String dest=(String) session.getAttribute("dest");
+	   if(session.getAttribute("dest") !=null){
+		   
+	   }   
+	   return "login";
    }
 
    @ResponseBody

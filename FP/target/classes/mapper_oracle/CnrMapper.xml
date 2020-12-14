@@ -20,4 +20,16 @@
    <delete id="cnrDelete">
       delete from tbl_cnr where cnr_no=#{cnr_no}
    </delete>
+   
+   <delete id="deletecnr">
+      delete from tbl_cnr where id = #{id}
+   </delete>
+   
+   <delete id="deletepcnr">
+      delete from tbl_cnr where c_code = #{c_code}
+   </delete>
+   
+   <delete id="deletemycnr">
+      delete from tbl_cnr where id = #{id} and c_code = #{c_code}
+   </delete>
 </mapper>

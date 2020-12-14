@@ -89,7 +89,7 @@ public class UserVO extends GuVO{
 	public String toString() {
 		return "UserVO [id=" + id + ", pw=" + pw + ", name=" + name + ", birthday=" + birthday + ", phone=" + phone
 				+ ", addr=" + addr + ", addrDetail=" + addrDetail + ", email=" + email + ", gender=" + gender
-				+ ", u_keyword=" + u_keyword + ", image=" + image + ", uno=" + uno + "]";
+				+ ", keyword=" + u_keyword + ", image=" + image + ", uno=" + uno + "]";
 	}
 	
 	

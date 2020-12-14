@@ -2,7 +2,7 @@ package com.example.domain;
 
 import java.sql.Date;
 
-public class ClubVO {
+public class ClubVO extends CuVO{
 	private String c_code;
 	private String c_pid;
 	private String c_welcome;

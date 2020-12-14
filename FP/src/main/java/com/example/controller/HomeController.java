@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.mapper_oracle.ClubMapper;
+import com.example.mapper_oracle.CuMapper;
 
 
 @Controller
@@ -16,14 +20,20 @@ public class HomeController {
 	@Autowired
 	ClubMapper cMapper;
 	
+	@Autowired
+	CuMapper cuMapper;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpSession session,Model model) {
-		
-		String dest=(String) session.getAttribute("dest");
-	    if(session.getAttribute("dest") !=null){   
-	    	session.removeAttribute("dest");
-	        return"redirect:" + dest;
+
+		if(session.getAttribute("id") !=null){   
+			String dest=(String) session.getAttribute("dest");
+		    if(session.getAttribute("dest") !=null){   
+		    	session.removeAttribute("dest");
+		        return"redirect:" + dest;
+		    }
 	    }
+		
 	    model.addAttribute("gameList", cMapper.getGameList());
 	    model.addAttribute("sportList", cMapper.getSportList());
 	    model.addAttribute("studyList", cMapper.getStudyList());
@@ -33,19 +43,15 @@ public class HomeController {
 		return "main";
 	}
 	
+	
+	// 내가 가입한 동아리 list를 보내준다._ 검색기능 포함
+	@RequestMapping("readClub")
+	@ResponseBody
+	public HashMap<String, Object> myclist(String c_code) {
+		HashMap<String, Object> map = new HashMap<>();
 
-	    
-	   @RequestMapping("myPage_group")
-	   public void myPage_group(){
-		  
-		   
-	   }
-	   
-	   @RequestMapping("myPage_club")
-	   public void myPage_club(HttpSession session){}
-	   
-
-	   
-	   
-
+		map.put("cvo", cMapper.cread(c_code));
+		map.put("maincount", cuMapper.maincount(c_code));
+		return map;
+	}
 }

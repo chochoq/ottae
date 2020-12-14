@@ -20,4 +20,16 @@
    <delete id="cbrDelete">
       delete from tbl_cbr where cbr_no=#{cbr_no}
    </delete>
+   
+   <delete id="deletecbr">
+      delete from tbl_cbr where id = #{id}
+   </delete>
+   
+   <delete id="deletepcbr">
+      delete from tbl_cbr where c_code = #{c_code}
+   </delete>
+   
+   <delete id="deletemycbr">
+      delete from tbl_cbr where id = #{id} and c_code = #{c_code}
+   </delete>
 </mapper>

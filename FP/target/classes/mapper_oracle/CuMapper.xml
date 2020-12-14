@@ -32,5 +32,33 @@
   	<delete id="outCu">
   		delete from tbl_cu where c_code=#{c_code} and id=#{id}
   	</delete>
+  	
+  	<delete id = "deletecu">
+        delete from tbl_cu where id = #{id}
+   	</delete>
+     
+    <delete id = "deletepcu">
+      	delete from tbl_cu where c_code = #{c_code}
+   	</delete>
+   	
+   	<delete id ="deletemycn">
+      	delete from tbl_cn where id = #{id} and c_code = #{c_code}
+  	</delete>
+  	
+  	<select id = "countcuid" resultType = "int">
+        select count(*) from tbl_cu where id = #{id}
+     </select>
+     
+     <select id = "searchmax" resultType = "String">
+        select max(c_code) from tbl_cu where id = #{id}
+     </select>
+     
+     <select id = "searchpid" resultType = "int">
+        select count(*) from tbl_cir where c_pid = #{id} and c_code = #{c_code}
+     </select>
+     
+     <select id = "maincount" resultType = "int">
+      	select count(*) from tbl_cu where c_code = #{c_code}
+   	</select>
    
 </mapper>

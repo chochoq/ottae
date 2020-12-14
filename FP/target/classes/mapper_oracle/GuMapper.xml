@@ -7,4 +7,24 @@
 	<select id ="max" resultType = "int">
  		select max(g_code) from tbl_group <!-- 보완해야 할 점 : 동시에 그룹을 만들었을떄는 사용할수 없는 방법이다. 참고 : inner join tbl_gu on tbl_gu.g_code=tbl_group.g_code where id=#{id} -->
 	</select>
+	
+	<select id = "countgu" resultType = "int">
+      	select count(id) from tbl_gu where g_code = #{g_code}
+   	</select>
+   
+   	<select id = "searchgcode" resultType = "int">
+      	select max(g_code) from tbl_gu where id = #{id}
+   	</select>
+   
+   	<delete id = "deleteMember">
+      	delete from tbl_gu where id = #{id} and g_code = #{g_code}
+   	</delete>
+   
+   	<select id = "countgroup" resultType = "int">
+      	select count(g_code) from tbl_gu where id = #{id}
+   	</select>
+   	
+   	<delete id = "deleteMemberG_code">
+      	delete from tbl_gu where g_code = #{g_code}
+   	</delete>
 </mapper>

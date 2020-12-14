@@ -3,7 +3,7 @@
  * ************** */
 var editEvent = function (event, element, view) {
 
-    $('#deleteEvent').data('id', event._id); //클릭한 이벤트 ID
+    $('#deleteEvent').data('id', event.calno); //클릭한 이벤트 ID
 
     $('.popover.fade.top').remove();
     $(element).popover("hide");

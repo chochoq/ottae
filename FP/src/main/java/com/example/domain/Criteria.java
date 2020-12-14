@@ -1,6 +1,6 @@
 package com.example.domain;
 
-public class Criteria extends CbVO{
+public class Criteria extends ClubVO{
 	private int page;
 	private int perPageNum;
 	private String searchType;
