@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.EventMapper">
+   <insert id = "einsert">
+      insert into tbl_event(e_no, id, e_title, e_regdate, e_content) 
+      values(seq_eno.nextval, #{id}, #{e_title}, sysdate, #{e_content})
+   </insert>
+   
+   <select id = "eread" resultType = "com.example.domain.EventVO">
+      select * from tbl_event where e_no = #{e_no}
+   </select>
+   
+   <select id = "elist" resultType = "com.example.domain.EventVO">
+       select * from 
+      (select rownum rn, tbl_event.* from tbl_event where e_title like '%'||#{query}||'%' order by e_regdate desc)
+      where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})
+   </select>
+
+   <update id = "eupdatepost" >
+      update tbl_event set e_title = #{e_title}, e_content = #{e_content} where e_no = #{e_no}
+   </update>
+   
+   <delete id = "edelete">
+      delete from tbl_event where e_no = #{e_no}
+   </delete>
+      
+    <select id="totalCount" resultType="int">
+      select count(*) from tbl_event where e_title like '%'||#{query}||'%'
+   </select>
+</mapper>
