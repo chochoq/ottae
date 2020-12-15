@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.MasterMapper">
+
+   <select id = "mutotalCount" resultType = "int">
+      select count(*) from tbl_user 
+      <if test="searchType=='id'">
+          where id like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='name'">
+          where name like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='birthday'">
+          where birthday like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='email'">
+          where email like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='gender'">
+          where gender like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='u_keyword'">
+          where u_keyword like '%'||#{keyword}||'%' 
+       </if>
+   </select>
+   
+   <select id = "mulist" resultType = "com.example.domain.UserVO">
+      select * from 
+      ( select rownum rn, tbl_user.* from tbl_user 
+      <if test="searchType=='id'">
+          where id like '%'||#{keyword}||'%' order by uno desc) 
+       </if>
+       <if test="searchType=='name'">
+          where name like '%'||#{keyword}||'%' order by uno desc) 
+       </if>
+       <if test="searchType=='birthday'">
+          where birthday like '%'||#{keyword}||'%' order by uno desc) 
+       </if>
+       <if test="searchType=='email'">
+          where email like '%'||#{keyword}||'%' order by uno desc)
+       </if>
+       <if test="searchType=='gender'">
+          where gender like '%'||#{keyword}||'%' order by uno desc) 
+       </if>
+       <if test="searchType=='u_keyword'">
+          where u_keyword like '%'||#{keyword}||'%' order by uno desc) 
+       </if>
+       where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})
+   </select>
+   
+   <select id = "mctotalCount" resultType = "int">
+      select count(*) from tbl_cir 
+      <if test="searchType=='c_pid'">
+          where c_pid like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='c_name'">
+          where c_name like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='c_category'">
+          where c_category like '%'||#{keyword}||'%' 
+       </if>
+       <if test="searchType=='c_regdate'">
+          where c_regdate like '%'||#{keyword}||'%' 
+       </if>
+   </select>
+   
+   <select id = "mclist" resultType = "com.example.domain.ClubVO">
+      select * from 
+      ( select rownum rn, tbl_cir.* from tbl_cir 
+      <if test="searchType=='c_pid'">
+          where c_pid like '%'||#{keyword}||'%' order by c_regdate desc)
+       </if>
+       <if test="searchType=='c_name'">
+          where c_name like '%'||#{keyword}||'%' order by c_regdate desc)
+       </if>
+       <if test="searchType=='c_category'">
+          where c_category like '%'||#{keyword}||'%' order by c_regdate desc) 
+       </if>
+       <if test="searchType=='c_regdate'">
+          where c_regdate like '%'||#{keyword}||'%' order by c_regdate desc)
+       </if>
+       where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})
+   </select>
+   
+   <select id = "mgtotalCount" resultType = "int">
+      select count(*) from tbl_group
+      where g_name like '%'||#{keyword}||'%' 
+
+   </select>
+   
+   <select id = "mglist" resultType = "com.example.domain.GroupVO">
+      select * from 
+      (select rownum rn, tbl_group.* from tbl_group where g_name like '%'||#{keyword}||'%' order by tbl_group.g_regdate desc)
+       where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})
+   </select>
+   
+   <delete id = "mudelete">
+         delete from tbl_user where id = #{id}
+      </delete>
+
+</mapper>

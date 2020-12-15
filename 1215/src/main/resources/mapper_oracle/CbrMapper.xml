@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.CbrMapper">
+   <insert id = "insertCbr">
+      insert into tbl_cbr(cbr_no, c_code, id, cbr_regdate, cbr_content, cb_no) 
+      values (seq_cbrno.nextval, #{c_code}, #{id}, sysdate, #{cbr_content},#{cb_no})
+   </insert>
+   
+   <select id="ListCbr" resultType="com.example.domain.CbrVO">
+       select * from 
+       (select rownum rn,tbl_cbr.* from tbl_cbr where cb_no=#{cb_no} order by cbr_no) 
+       where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})
+   </select>
+   
+   <select id="totalCount" resultType="int">
+      select count(*) from tbl_cbr
+      where cb_no=#{cb_no}
+   </select>
+   
+   <delete id="cbrDelete">
+      delete from tbl_cbr where cbr_no=#{cbr_no}
+   </delete>
+   
+   <delete id="deletecbr">
+      delete from tbl_cbr where id = #{id}
+   </delete>
+   
+   <delete id="deletepcbr">
+      delete from tbl_cbr where c_code = #{c_code}
+   </delete>
+   
+   <delete id="deletemycbr">
+      delete from tbl_cbr where id = #{id} and c_code = #{c_code}
+   </delete>
+</mapper>
