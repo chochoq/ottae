@@ -28,8 +28,15 @@
 
 <h1>[일정 페이지]</h1>
    <button onClick="location.href='/'">홈으로</button>
-   <button onClick="location.href='/schedule_makeSchedule'">일정 추가</button>
     <div class="container">
+                  <select id="joinedGroup"></select> 
+               <script id="temp" type="text/x-handlebars-template">
+                  <option value="0">개인일정</option>
+                  {{#each .}}
+                     <option value="{{g_code}}">{{g_name}}</option>
+                        {{/each}}
+               </script>
+         
          
         <!-- 일자 클릭시 메뉴오픈 -->
         <div id="contextMenu" class="dropdown clearfix">
@@ -56,10 +63,10 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-allDay">하루종일</label>
-                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox" value="1">
+                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox">
                             </div>
                         </div>
-						<div class="row">
+                        <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-schk">공유여부</label>
                                 <input class='allDayNewEvent' id="edit-schk" type="checkbox" value="1">
@@ -88,17 +95,19 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-type">구분</label>
-                                <select class="inputModal" type="text" name="edit-type" id="edit-type">
-                                    <option value="카테고리1">카테고리1</option>
-                                    <option value="카테고리2">카테고리2</option>
-                                    <option value="카테고리3">카테고리3</option>
-                                    <option value="카테고리4">카테고리4</option>
-                                </select>
+                                <select class="inputModal" type="text" name="edit-type" id="edit-type"></select>
+                                <script id="temp" type="text/x-handlebars-template">
+                                 <option value="0">개인일정</option>
+                              {{#each .}}
+                                 <option value="{{g_code}}">{{g_name}}</option>
+                                    {{/each}}
+                           </script>
+                                
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <label class="col-xs-4" for="edit-color">배경 색상</label>
+                                <label class="col-xs-4" for="edit-color">색상</label>
                                 <select class="inputModal" name="color" id="edit-color">
                                     <option value="#D25565" style="color:#D25565;">빨간색</option>
                                     <option value="#9775fa" style="color:#9775fa;">보라색</option>
@@ -141,17 +150,16 @@
             </div>
 
             <div class="panel-body">
-
+            
                 <div class="col-lg-6">
-                    <label for="calendar_view">구분별</label>
-                    <div class="input-group">
-                        <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="카테고리1">카테고리1</option>
-                            <option value="카테고리2">카테고리2</option>
-                            <option value="카테고리3">카테고리3</option>
-                            <option value="카테고리4">카테고리4</option>
-                        </select>
-                    </div>
+                    <label for="calendar_view" >등록자별</label>
+                    <div class="input-group" id="joinedMember"></div>    
+                    <script id="temp1" type="text/x-handlebars-template">
+                  {{#each .}}
+                       <label class="checkbox-inline"><input class='filter' type="checkbox" value="{{id}}"  checked>{{name}}</label>
+                    {{/each}}
+                  </script>        
+                    
                 </div>
 
                
@@ -174,31 +182,72 @@
 </body>
 
 <script>
-	var day=null;
-	
-	$("#calendar td a").click(function(e){
-	   	e.preventDefault();
-	   	day=$(this).attr("data-goto");
-	   	alert(day);
-	});
-	
-	$("#calendar td").click(function(){
-	});
-	
-	
-	var eventModal = $('#eventModal');
-	
-	var modalTitle = $('.modal-title');
-	var editAllDay = $('#edit-allDay');
-	var editTitle = $('#cal_title');
-	var editStart = $('#cal_sdate');
-	var editEnd = $('#cal_edate');
-	var editType = $('#edit-type');
-	var editColor = $('#edit-color');
-	var editDesc = $('#cal_content');
-	
-	var addBtnContainer = $('.modalBtnContainer-addEvent');
-	var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
+chkSdchk();
+chk();
+   
+   var eventModal = $('#eventModal');
+   
+   var modalTitle = $('.modal-title');
+   var editAllDay = $('#edit-allDay');
+   var editTitle = $('#edit-title');
+   var editStart = $('#edit-start');
+   var editEnd = $('#edit-end');
+   var editType = $('#edit-type');
+   var editColor = $('#edit-color');
+   var editDesc = $('#edit-desc');
+   
+   var addBtnContainer = $('.modalBtnContainer-addEvent');
+   var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
+   
+   
+   
+   function chk(){
+      $.ajax({
+         type :"get",
+         url : "myGroup",
+             dataType : "json",
+             success : function(data){
+              var temp = Handlebars.compile($("#temp").html());
+               $("#edit-type").html(temp(data));
+              
+         }
+      });
+   }
+   
+
+   function chkSdchk(){
+      $.ajax({
+         type :"get",
+         url : "myGroup",
+             dataType : "json",
+             success : function(data){
+              var temp = Handlebars.compile($("#temp").html());
+               $("#joinedGroup").html(temp(data));
+               $("#joinedMember").html("개인일정입니다. ");
+         }
+      });
+   }
+   
+
+   $("#joinedGroup").on("change",function(){
+      var selectG_code = $("#joinedGroup").val();
+       if(selectG_code != "0"){
+          $.ajax({
+              type :"get",
+                url : "guget",
+                dataType : "json",
+                data : {"g_code" : selectG_code},
+                success : function(data){
+                  var temp = Handlebars.compile($("#temp1").html());
+                     $("#joinedMember").html(temp(data));
+                }
+            });
+         }else{
+          var str="개인 일정입니다."
+           $("#joinedMember").html(str);
+         }
+   })
+   
 </script>
 
 </html>
