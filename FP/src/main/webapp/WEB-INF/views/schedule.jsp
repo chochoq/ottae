@@ -54,8 +54,8 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
@@ -63,10 +63,10 @@
                         <div class="row">
                              <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-allDay">하루종일</label>
-                                <c:if test="${edit-allDay == 1}">
+                                <c:if test="${edit-allDay == '1'}">
                                 <input class='allDayNewEvent' id="edit-allDay" type="checkbox" value="1" checked>
                                 </c:if>
-                                <c:if test="${edit-allDay != 1}">
+                                <c:if test="${edit-allDay != '1'}">
                                 <input class='allDayNewEvent' id="edit-allDay" type="checkbox" value="0">
                                 </c:if>
                             </div>
@@ -146,7 +146,10 @@
         </div><!-- /.modal -->
 
 
-        <div class="panel panel-default">
+        
+    </div>
+    
+    <div class="panel panel-default">
 
             <div class="panel-heading">
                 <h3 class="panel-title">필터</h3>
@@ -169,7 +172,6 @@
             </div>
         </div>
         <!-- /.filter panel -->
-    </div>
     <!-- /.container -->
     <script src="${path}/resources/vendor/js/jquery.min.js"></script>
     <script src="${path}/resources/vendor/js/bootstrap.min.js"></script>

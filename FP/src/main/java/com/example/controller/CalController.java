@@ -39,9 +39,30 @@ public class CalController {
 	@ResponseBody
 	public List<CalVO> group_scheduleList(int g_code,HttpSession session) {
 		session.setAttribute("g_code", g_code);
-		System.out.println(calMapper.scheduleList(g_code));
-		return calMapper.scheduleList(g_code);
+		
+		List<CalVO> listvo = calMapper.scheduleList(g_code);
+		for(CalVO vo : listvo){
+			if(vo.getAllDay().equals("1")){
+				vo.setAllDayjs(true);
+				
+			}else if(vo.getAllDay().equals("0")){
+				vo.setAllDayjs(false);
+	
+			}
+			
+			if(vo.getSchk().equals("1")){
+				vo.setSchkjs(true);
+			}else if(vo.getSchk().equals("0")){
+				vo.setSchkjs(false);
+			}
+			
+		}	
+		return listvo;
+		
 	}
+		
+	
+	
 
 	@RequestMapping("scheduleinsert")
 	public void scheduleinsert(CalVO vo,HttpSession session) {
@@ -51,17 +72,34 @@ public class CalController {
 		String[] array = color.split("#");
 		color = array[1];
 		vo.setBackgroundColor(color);	
-		System.out.println(vo.toString());
 		calMapper.scheduleinsert(vo);
 	}
 
 	@RequestMapping("scheduleupdate")
 	public void scheduleupdate(CalVO vo) {
+		System.out.println("컨트롤러");
+		if(vo.getAllDay().equals("true")){
+			vo.setAllDay("1");
+		}else{
+			vo.setAllDay("0");
+		}
+		String color = vo.getBackgroundColor();
+		String[] array = color.split("#");
+		color = array[1];
+		vo.setBackgroundColor(color);
+		System.out.println(vo);
 		calMapper.scheduleupdate(vo);
 	}
 
 	@RequestMapping("dragupdate")
 	public void dragupdate(CalVO vo) {
+		System.out.println(vo);
 		calMapper.dragupdate(vo);
 	}
+	
+	@RequestMapping("scheduledelete")
+	   public void scheduledelete(int calno){
+		
+	      calMapper.scheduledelete(calno);
+	   }
 }

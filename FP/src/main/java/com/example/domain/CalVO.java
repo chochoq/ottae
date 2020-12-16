@@ -17,10 +17,23 @@ public class CalVO extends GuVO {
 	private String backgroundColor;
 	private String textColor;
 	private String allDay;
+	private Boolean allDayjs;
 	private String schk;
-	
+	private Boolean schkjs;
 	
 
+	public Boolean getSchkjs() {
+		return schkjs;
+	}
+	public void setSchkjs(Boolean schkjs) {
+		this.schkjs = schkjs;
+	}
+	public Boolean getAllDayjs() {
+		return allDayjs;
+	}
+	public void setAllDayjs(Boolean allDayjs) {
+		this.allDayjs = allDayjs;
+	}
 	public String getSchk() {
 		return schk;
 	}
@@ -91,9 +104,10 @@ public class CalVO extends GuVO {
 	public String toString() {
 		return "CalVO [calno=" + calno + ", username=" + username + ", start=" + start + ", end=" + end + ", title="
 				+ title + ", description=" + description + ", type=" + type + ", backgroundColor=" + backgroundColor
-				+ ", textColor=" + textColor + ", allDay=" + allDay + ", schk=" + schk + "]";
+				+ ", textColor=" + textColor + ", allDay=" + allDay + ", allDayjs=" + allDayjs + ", schk=" + schk
+				+ ", schkjs=" + schkjs + "]";
 	}
-
+	
 	
 	
 }

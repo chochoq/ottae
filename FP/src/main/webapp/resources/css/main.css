@@ -164,6 +164,10 @@ body {
   padding: 4px 20px 10px 22px !important;
 }
 
+.fc-day-grid-event .fc-time{
+    display:none;
+}
+
 .fc-time-grid-event .fc-avatar-image {
   top: 9px;
 }
