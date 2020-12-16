@@ -4,8 +4,8 @@ import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class CalVO {
-	private int _id;
+public class CalVO extends GuVO {
+	private int calno;
 	private String username;
 	@JsonFormat(pattern="yyyy-MM-dd hh:mm",timezone ="Asia/Seoul")
 	private Date start;
@@ -17,13 +17,21 @@ public class CalVO {
 	private String backgroundColor;
 	private String textColor;
 	private String allDay;
+	private String schk;
 	
 	
+
+	public String getSchk() {
+		return schk;
+	}
+	public void setSchk(String schk) {
+		this.schk = schk;
+	}
 	public int getCalno() {
-		return _id;
+		return calno;
 	}
 	public void setCalno(int calno) {
-		this._id = calno;
+		this.calno = calno;
 	}
 	public String getUsername() {
 		return username;
@@ -81,11 +89,11 @@ public class CalVO {
 	}
 	@Override
 	public String toString() {
-		return "CalVO [_id=" + _id + ", username=" + username + ", start=" + start + ", end=" + end + ", title="
+		return "CalVO [calno=" + calno + ", username=" + username + ", start=" + start + ", end=" + end + ", title="
 				+ title + ", description=" + description + ", type=" + type + ", backgroundColor=" + backgroundColor
-				+ ", textColor=" + textColor + ", allDay=" + allDay + "]";
+				+ ", textColor=" + textColor + ", allDay=" + allDay + ", schk=" + schk + "]";
 	}
-	
+
 	
 	
 }

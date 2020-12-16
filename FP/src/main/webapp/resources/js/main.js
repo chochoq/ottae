@@ -1,7 +1,9 @@
 var draggedEventIsAllDay;
 var activeInactiveWeekends = true;
+//var g_code = $("#g_code").val();
 
 var calendar = $('#calendar').fullCalendar({
+	
 
  /** ******************
    *  OPTIONS
@@ -22,7 +24,7 @@ var calendar = $('#calendar').fullCalendar({
                               },
   eventLimitClick           : 'week', //popover
   navLinks                  : true,
-  defaultDate               : moment('2019-05'), //실제 사용시 현재 날짜로 수정
+  defaultDate               : moment('2020-12'), //실제 사용시 현재 날짜로 수정
   timeFormat                : 'HH:mm',
   defaultTimedEventDuration : '01:00:00',
   editable                  : true,
@@ -69,9 +71,8 @@ var calendar = $('#calendar').fullCalendar({
                                 }
                                },
 
-
+//  여기 부분을 건드리면 출력에 영향을 미친다
   eventRender: function (event, element, view) {
-
     //일정에 hover시 요약
     element.popover({
       title: $('<div />', {
@@ -97,7 +98,7 @@ var calendar = $('#calendar').fullCalendar({
       container: 'body'
     });
 
-//    return filtering(event);
+    // return filtering(event);
     return true;
 
   },
@@ -109,14 +110,15 @@ var calendar = $('#calendar').fullCalendar({
   events: function (start, end, timezone, callback){
     $.ajax({
       type: "get",
-      url: "/scheduleList",
+      url: "/group_scheduleList",
+      data:{"g_code" : 363},// {"g_code" : g_code}
       dataType:"json",
-      success: function (response){
-    	
+      success: function (response){     
         var fixedDate = response.map(function (array) {
           if (array.allDay == '1' && array.start != array.end) {
             array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
           }
+          array.backgroundColor = "#"+array.backgroundColor;
           return array;
         });
         callback(fixedDate);
@@ -130,7 +132,7 @@ var calendar = $('#calendar').fullCalendar({
 
   //일정 리사이즈
   eventResize: function (event, delta, revertFunc, jsEvent, ui, view) {
-    $('.popover.fade.top').remove();
+    $(".popover.fade.top").remove();
 
     /** 리사이즈시 수정된 날짜반영
      * 하루를 빼야 정상적으로 반영됨. */

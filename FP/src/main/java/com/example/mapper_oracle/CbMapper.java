@@ -8,7 +8,8 @@ import com.example.domain.CbVO;
 
 public interface CbMapper {
 
-	public List<CbVO> cblist(String c_code);
+	public List<CbVO> first_cblist(String c_code);
+	public List<CbVO> list_cblist(String c_code);
 
 	public void cbInsert(CbVO vo);
 

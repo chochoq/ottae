@@ -9,12 +9,18 @@
    <select id = "cnread" resultType = "com.example.domain.CnVO">
       select * from tbl_cn where cn_no = #{cn_no}
    </select>
-   
-   <select id = "cnlist" resultType = "com.example.domain.CnVO">
+<!--    /////////////////////////////////////////////////////// -->
+   <select id = "first_cnlist" resultType = "com.example.domain.CnVO">
+      select * from 
+      (select rownum rn, tbl_cn.* from tbl_cn where c_code = #{c_code} order by cn_regdate desc)
+      where rn between 1 and 4
+   </select>
+   <select id = "list_cnlist" resultType = "com.example.domain.CnVO">
       select * from 
       (select rownum rn, tbl_cn.* from tbl_cn where c_code = #{c_code} order by cn_regdate desc)
       where rn between 1 and 10
    </select>
+<!--    /////////////////////////////////////////////////////// -->
    
    <update id = "cnupdatepost" >
       update tbl_cn set cn_title = #{cn_title}, cn_content = #{cn_content}, cn_bold = #{cn_bold}, cn_rchk = #{cn_rchk} where cn_no = #{cn_no}

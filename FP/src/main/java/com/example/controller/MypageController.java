@@ -21,7 +21,6 @@ import org.springframework.web.util.WebUtils;
 import com.example.domain.Criteria;
 import com.example.domain.PageMaker;
 import com.example.domain.UserVO;
-import com.example.mapper_oracle.GroupMapper;
 import com.example.mapper_oracle.MypageMapper;
 import com.example.service.ClubService;
 import com.example.service.GroupService;

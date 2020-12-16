@@ -3,33 +3,36 @@
  * ************** */
 var editEvent = function (event, element, view) {
 
-    $('#deleteEvent').data('id', event.calno); //클릭한 이벤트 ID
+    $("#deleteEvent").data("id", event.calno); //클릭한 이벤트 ID
 
-    $('.popover.fade.top').remove();
+    $(".popover.fade.top").remove();
     $(element).popover("hide");
 
-    if (event.allDay === true) {
-        editAllDay.prop('checked', true);
+    if (event.allDay == '1') {
+    	$("#edit-allDay").prop('checked', true);
+    	$("#edit-allDay").val("1");
     } else {
-        editAllDay.prop('checked', false);
+    	$("#edit-allDay").prop('checked', false);
+    	$("#edit-allDay").val("0");
     }
 
     if (event.end === null) {
         event.end = event.start;
     }
 
-    if (event.allDay === true && event.end !== event.start) {
-        editEnd.val(moment(event.end).subtract(1, 'days').format('YYYY-MM-DD HH:mm'))
+    if (event.allDay == '1' && event.end !== event.start) {
+    	$("#edit-end").val(moment(event.end).subtract(1, 'days').format('YYYY-MM-DD HH:mm'))
     } else {
-        editEnd.val(event.end.format('YYYY-MM-DD HH:mm'));
+    	$("#edit-end").val(event.end.format('YYYY-MM-DD HH:mm'));
     }
 
     modalTitle.html('일정 수정');
-    editTitle.val(event.title);
-    editStart.val(event.start.format('YYYY-MM-DD HH:mm'));
-    editType.val(event.type);
-    editDesc.val(event.description);
-    editColor.val(event.backgroundColor).css('color', event.backgroundColor);
+    $("#edit-title").val(event.title);
+    $("#edit-start").val(event.start.format('YYYY-MM-DD HH:mm'));
+    $("#edit-type").val(event.type);
+    $("#edit-desc").val(event.description);
+    $("#edit-color").val(event.backgroundColor).css('color', event.backgroundColor);
+    $("#edit-allDay").val(event.allDay);
 
     addBtnContainer.hide();
     modifyBtnContainer.show();
@@ -39,12 +42,12 @@ var editEvent = function (event, element, view) {
     $('#updateEvent').unbind();
     $('#updateEvent').on('click', function () {
 
-        if (editStart.val() > editEnd.val()) {
+        if ($("#edit-start").val() > $("#edit-end").val()) {
             alert('끝나는 날짜가 앞설 수 없습니다.');
             return false;
         }
 
-        if (editTitle.val() === '') {
+        if ( $("#edit-title").val() === '') {
             alert('일정명은 필수입니다.')
             return false;
         }
@@ -54,27 +57,27 @@ var editEvent = function (event, element, view) {
         var endDate;
         var displayDate;
 
-        if (editAllDay.is(':checked')) {
+        if ($("#edit-allDay").is(':checked')) {
             statusAllDay = true;
-            startDate = moment(editStart.val()).format('YYYY-MM-DD');
-            endDate = moment(editEnd.val()).format('YYYY-MM-DD');
-            displayDate = moment(editEnd.val()).add(1, 'days').format('YYYY-MM-DD');
+            startDate = moment($("#edit-start").val()).format('YYYY-MM-DD');
+            endDate = moment($("#edit-end").val()).format('YYYY-MM-DD');
+            displayDate = moment($("#edit-end").val()).add(1, 'days').format('YYYY-MM-DD');
         } else {
             statusAllDay = false;
-            startDate = editStart.val();
-            endDate = editEnd.val();
+            startDate = $("#edit-start").val();
+            endDate = $("#edit-end").val();
             displayDate = endDate;
         }
 
         eventModal.modal('hide');
 
-        event.allDay = statusAllDay;
-        event.title = editTitle.val();
+        event.title = $("#edit-title").val();
         event.start = startDate;
         event.end = displayDate;
-        event.type = editType.val();
-        event.backgroundColor = editColor.val();
-        event.description = editDesc.val();
+        event.type = $("#edit-type").val();
+        event.backgroundColor = $("#edit-color").val();
+        event.description = $("#edit-desc").val();
+        event.allDay = $("#edit-allDay").val();
 
         $("#calendar").fullCalendar('updateEvent', event);
 
@@ -83,8 +86,11 @@ var editEvent = function (event, element, view) {
             type: "get",
             url: "",
             data: {
-                //...
-            },
+            	"calno":event.calno ,"username":event.username,
+            	"description":event.description,"start":event.start,
+            	"end":event.end,"type":event.type,
+            	"backgroundColor":event.backgroundColor,
+            	"textColor":event.textColor,"allDay":event.allDay, "title":event.title},
             success: function (response) {
                 alert('수정되었습니다.')
             }

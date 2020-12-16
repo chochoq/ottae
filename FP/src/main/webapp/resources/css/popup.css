@@ -27,8 +27,9 @@
     right: -100vh;
     display: flex;
     align-items: center;
+    width: 70%;
     height: 80%;
-    background-color: rgba(0,0,0,0.22);
+    background-image: url("https://t1.daumcdn.net/cfile/tistory/9968AA3A5BACE4751C");
     transform: rotate(32deg);
     transition: 0.64s ease-in-out;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -106,13 +107,15 @@
   transform: translateY(-7px);
 }
 
-.memo{  
+.memo{
+   position: fixed;
    width:700px;
    padding:25px;
    height:600px;
    border-radius: 20px;
    background-color: rgba(225,225,225,0.5);
-   box-shadow: 10px 14px 28px rgba(0,0,0,0.25),5px 10px 10px 10px rgba(0,0,0,0.22)
+   box-shadow: 10px 14px 28px rgba(0,0,0,0.25),5px 10px 10px 10px rgba(0,0,0,0.22);
+   margin-left: 580px;
 }
 
 .memo2{
@@ -211,8 +214,8 @@
 }
 
 .popupimgc{   
-    width: 194.5%;
-    height: 775px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 

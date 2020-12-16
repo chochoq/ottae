@@ -39,7 +39,7 @@
 				<nav class="clearfix">
 					<ul class="main-menu">
 						<li class="dropmenu"><a href="/" class="active">Home</a></li>
-						<li class="dropmenu"><a href="FullCalendar-Example-master/schedule">일정</a>
+						<li class="dropmenu"><a href="schedule">일정</a>
 							<ul class="babymenu-ul">
 						        <li class="babymenu-li"><a href="schedule_makeSchedule">일정 만들기</a></li>
 						    </ul>

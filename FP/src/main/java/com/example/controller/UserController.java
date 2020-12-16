@@ -63,7 +63,6 @@ public class UserController {
    // 로그인
    @RequestMapping("login")
    public String login(HttpSession session) {
-	   String dest=(String) session.getAttribute("dest");
 	   if(session.getAttribute("dest") !=null){
 		   
 	   }   
