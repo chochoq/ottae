@@ -100,7 +100,10 @@ var editEvent = function (event, element, view) {
             	"description":event.description,"start":event.start,
             	"end":event.end,"type":event.type,
             	"backgroundColor":event.backgroundColor,
-            	"textColor":event.textColor,"allDay":statusAllDay, "title":event.title, "schk":event.schk},
+            	"textColor":event.textColor,
+            	"allDay":statusAllDay, 
+            	"title":event.title, 
+            	"schk":event.schk},
             success: function (response) {
                 alert('수정되었습니다.')
             }

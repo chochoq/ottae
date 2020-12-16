@@ -76,6 +76,7 @@ var newEvent = function (start, end, eventType) {
             alert("if 문 성공")
 
         }else if (!$("#edit-allDay").is(':checked')){
+        	 
         	eventData.allDay = "0";
         	alert("왜 안들어가")
         }
@@ -95,10 +96,13 @@ var newEvent = function (start, end, eventType) {
 	            url: "scheduleinsert",
 	            data: {
 	            	"schk":eventData.schk,
-	            	"description":eventData.description,"start":eventData.start,
+	            	"description":eventData.description,
+	            	"start":eventData.start,
 	            	"end":eventData.end,"type":eventData.type,
 	            	"backgroundColor":eventData.backgroundColor,
-	            	"textColor":eventData.textColor,"allDay":eventData.allDay, "title":eventData.title
+	            	"textColor":eventData.textColor,
+	            	"allDay":eventData.allDay, 
+	            	"title":eventData.title
 	            },
 	            success: function() {
 	            	location.href="schedule";

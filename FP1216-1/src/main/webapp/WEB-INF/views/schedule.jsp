@@ -103,7 +103,7 @@
                                  <option value="0">개인일정</option>
                               {{#each .}}
                                  <option value="{{g_code}}">{{g_name}}</option>
-                                    {{/each}}
+                              {{/each}}
                            </script>
                                 
                             </div>
@@ -193,12 +193,12 @@ chk();
    
    var modalTitle = $('.modal-title');
    var editAllDay = $('#edit-allDay');
-   var editTitle = $('#cal_title');
-   var editStart = $('#cal_sdate');
-   var editEnd = $('#cal_edate');
+   var editTitle = $('#edit-title');
+   var editStart = $('#edit-start');
+   var editEnd = $('#edit-end');
    var editType = $('#edit-type');
    var editColor = $('#edit-color');
-   var editDesc = $('#cal_content');
+   var editDesc = $('#edit-desc');
    var editschk = $('#edit-schk');
    var addBtnContainer = $('.modalBtnContainer-addEvent');
    var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
