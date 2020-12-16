@@ -32,6 +32,7 @@ var editEvent = function (event, element, view) {
     $("#edit-type").val(event.type);
     $("#edit-desc").val(event.description);
     $("#edit-color").val(event.backgroundColor).css('color', event.backgroundColor);
+   
 
     addBtnContainer.hide();
     modifyBtnContainer.show();

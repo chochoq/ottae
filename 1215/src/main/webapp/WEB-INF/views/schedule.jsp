@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-allDay">하루종일</label>
-                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox">
+                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox" value="0">
                             </div>
                         </div>
                         <div class="row">
@@ -247,6 +247,16 @@ chk();
            $("#joinedMember").html(str);
          }
    })
+   
+   
+   $("#edit-allDay").change(function() {
+         if ($("#edit-allDay").is(":checked")) {
+            $("#edit-allDay").val(1);
+         }else {
+            $("#edit-allDay").val(0);
+         }
+      });
+   
    
 </script>
 
