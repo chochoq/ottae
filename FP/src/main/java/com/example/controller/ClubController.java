@@ -82,8 +82,15 @@ public class ClubController {
 	public String club_first(String c_code, Model model, HttpSession session){
 		session.setAttribute("c_code", c_code);
 		String id = (String) session.getAttribute("id");
-		model.addAttribute("cnlist", cnMapper.cnlist(c_code));
-		model.addAttribute("cblist", cbMapper.cblist(c_code));
+		
+		// 동아리 정보를 가져온다
+		model.addAttribute("cvo",cMapper.cread(c_code));
+		// 동아리 회원수를 가져온다
+		model.addAttribute("maincount", cuMapper.maincount(c_code));
+		// 공지사항을 4개 가져온다
+		model.addAttribute("cnlist", cnMapper.first_cnlist(c_code));
+		// 자유게시판 게시물을 4개 가져온다
+		model.addAttribute("cblist", cbMapper.first_cblist(c_code));
 		
 
 		// 동아리 회장이라면 clubMaster 값에 1이 들어가도록 했다.
@@ -100,16 +107,24 @@ public class ClubController {
 	// 선택된 동아리의 공지사항page로 연결해준다, session값에 c_code를 넣어준다.
 	@RequestMapping("club_notice")
 	public String club_notice(String c_code, Model model, HttpSession session){
-		model.addAttribute("cnlist", cnMapper.cnlist(c_code));
-
+		model.addAttribute("cnlist", cnMapper.list_cnlist(c_code));
+		
+		// 동아리 정보를 가져온다
+		model.addAttribute("cvo",cMapper.cread(c_code));
+		// 동아리 회원수를 가져온다
+		model.addAttribute("maincount", cuMapper.maincount(c_code));
 		return "club_notice";
 	}
 	
 	// 선택된 동아리의 자유게시판 page로 연결해준다, session값에 c_code를 넣어준다.
 	@RequestMapping("club_board")
 	public String club_board(String c_code, Model model, HttpSession session){
-		model.addAttribute("cblist", cbMapper.cblist(c_code));
-
+		model.addAttribute("cblist", cbMapper.list_cblist(c_code));
+		
+		// 동아리 정보를 가져온다
+		model.addAttribute("cvo",cMapper.cread(c_code));
+		// 동아리 회원수를 가져온다
+		model.addAttribute("maincount", cuMapper.maincount(c_code));
 		return "club_board";
 	}	
 	
@@ -168,7 +183,6 @@ public class ClubController {
 		vo.setC_code(c_code);
 		vo.setId(id);
 		vo.setCu_schk('n');
-		System.out.println(vo.toString());
 		cuMapper.addMember(vo);
 		return "redirect:club_first?c_code="+c_code;
 	}

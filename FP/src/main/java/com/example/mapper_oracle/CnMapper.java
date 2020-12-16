@@ -15,7 +15,8 @@ public interface CnMapper {
 
 	public CnVO cnread(int cn_no);
 
-	public List<CnVO> cnlist(String c_code);
+	public List<CnVO> first_cnlist(String c_code);
+	public List<CnVO> list_cnlist(String c_code);
 
 	public void cndelete(int cn_no);
 

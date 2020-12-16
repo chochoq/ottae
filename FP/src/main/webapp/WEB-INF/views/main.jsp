@@ -130,7 +130,7 @@
                <div class="swiper-slide">
                   <div class="picture">   
                      	<a class="button2" href="#popup">                 
-                            <img class="imgc" src="display?fileName=${splist.c_pic}">
+                            <img class="imgc" src="display?fileName=${splist.c_pic}"  c_code="${splist.c_code}">
                          </a>                   
                         <div class=detail>
                             <h3>${splist.c_name}</h3>
@@ -151,7 +151,7 @@
                <div class="swiper-slide">
                   <div class="picture">   
                      	<a class="button2" href="#popup">                 
-                            <img class="imgc" src="display?fileName=${stlist.c_pic}">
+                            <img class="imgc" src="display?fileName=${stlist.c_pic}"  c_code="${stlist.c_code}">
                         </a>               
                         <div class=detail>
                             <h3>${stlist.c_name}</h3>
@@ -172,7 +172,7 @@
                <div class="swiper-slide">
                   <div class="picture">  
                      	<a class="button2" href="#popup">                 
-                        	<img class="imgc" src="display?fileName=${holist.c_pic}">
+                        	<img class="imgc" src="display?fileName=${holist.c_pic}"  c_code="${holist.c_code}">
                         </a>               
                         <div class=detail>
                             <h3>${holist.c_name}</h3>
@@ -193,7 +193,7 @@
                <div class="swiper-slide">
                   	<div class="picture"> 
                   		<a class="button2" href="#popup">                 
-                            <img class="imgc" src="display?fileName=${etclist.c_pic}">
+                            <img class="imgc" src="display?fileName=${etclist.c_pic}"  c_code="${etclist.c_code}">
                         </a>                 
                         <div class=detail>
                             <h3>${etclist.c_name}</h3>
@@ -292,8 +292,7 @@
 				$("#c_spot").text(data.cvo.c_spot);
 				$("#c_regdate").text(data.cvo.c_regdate);
 				$("#c_condition").text(data.cvo.c_condition);
-				$("#c_welcome").text(data.cvo.c_welcome);
-				
+				$("#c_welcome").text(data.cvo.c_welcome);			
 			}
 		})
     });

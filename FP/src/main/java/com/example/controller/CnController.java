@@ -9,12 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.domain.CnVO;
+import com.example.mapper_oracle.ClubMapper;
 import com.example.mapper_oracle.CnMapper;
+import com.example.mapper_oracle.CuMapper;
 import com.example.service.ClubService;
 
 @Controller
 public class CnController {
-   
+	
+	
+	@Autowired
+	ClubMapper cMapper;
+	@Autowired
+	CuMapper cuMapper;
    @Autowired
    CnMapper mapper;
    @Autowired
@@ -22,7 +29,13 @@ public class CnController {
    
    // 공지사항을 읽을때 작성자(동아리 회장)가 들어갔을떄는 update page로, 일반 회원이 들어갔을떄는 read page로 연결해준다
    @RequestMapping("cnRead")
-	public String cnRead(int cn_no, Model model,HttpSession session) {
+		public String cnRead(int cn_no, Model model,HttpSession session) {
+	   String c_code = (String) session.getAttribute("c_code");
+		// 동아리 정보를 가져온다
+		model.addAttribute("cvo",cMapper.cread(c_code));
+		// 동아리 회원수를 가져온다
+		model.addAttribute("maincount", cuMapper.maincount(c_code));
+	   
 	   session.setAttribute("cn_no", cn_no);
 	   CnVO cnVO = mapper.cnread(cn_no);
 	   System.out.println(cnVO.toString());

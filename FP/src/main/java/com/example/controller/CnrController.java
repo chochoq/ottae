@@ -36,7 +36,8 @@ public class CnrController {
    // 댓글 list 가져오기
    @RequestMapping(value="getCnReply")
    public HashMap<String , Object> getCnReply(int page,HttpSession session){
-      HashMap<String , Object> map= new HashMap<>();
+	   System.out.println("확인");
+      HashMap<String,Object> map= new HashMap<>();
       int cn_no = (Integer) session.getAttribute("cn_no");
 
       PageMaker pm = new PageMaker();

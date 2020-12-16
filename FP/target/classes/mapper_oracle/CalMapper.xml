@@ -12,7 +12,28 @@
 		delete from tbl_cal where username = #{id}
 	</delete>
 
+	
 	<select id="scheduleList" resultType="com.example.domain.CalVO">
-		select * from tbl_cal where username = #{id}
-	</select>
+      	select tbl_cal.*, tbl_gu.g_code from tbl_gu inner join tbl_cal on tbl_gu.id = tbl_cal.username
+      	where g_code = #{g_code}
+   	</select>
+   
+   	<select id="calmygroup"  resultType = "com.example.domain.GuVO">
+     	select * from tbl_gu where id = #{id} and g_code = #{g_code}
+   	</select>
+   	
+   	<insert id = "scheduleinsert">
+      	insert into tbl_cal(calno, username, "start", "end", title, "description", "type", backgroundColor, textColor, allDay, schk)  
+      	values(seq_calno.nextval, #{username}, #{start}, #{end}, #{title}, #{description}, #{type}, #{backgroundColor}, #{textColor}, #{allDay}, #{schk})
+   	</insert>
+   
+   	<update id = "scheduleupdate">
+      	update tbl_cal set "start" = #{start}, "end" = #{end}, title = #{title}, 
+      	"description" = #{description}, "type" = #{type}, backgroundColor = #{backgroundColor}, textColor = #{textColor}, allDay = #{allDay}, schk = #{schk} 
+      	where calno = #{calno}
+   	</update>
+   
+   	<update id = "dragupdate">
+      	update tbl_cal set "start" = #{start}, "end" = #{end} where calno = #{calno}
+   	</update>
 </mapper>
