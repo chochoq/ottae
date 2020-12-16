@@ -71,7 +71,11 @@
                                 </c:if>
                             </div>
                         </div>
-
+                        <div class="row">
+                           <div class="col-xs-12">
+                               <label class="col-xs-4" for="edit-schk">공유여부</label>
+                               <input class='allDayNewEvent' id="edit-schk" type="checkbox" value="1">
+                        </div>
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-title">일정명</label>
@@ -188,12 +192,12 @@ chk();
    
    var modalTitle = $('.modal-title');
    var editAllDay = $('#edit-allDay');
-   var editTitle = $('#cal_title');
-   var editStart = $('#cal_sdate');
-   var editEnd = $('#cal_edate');
+   var editTitle = $('#edit-title');
+   var editStart = $('#edit-start');
+   var editEnd = $('#edit-end');
    var editType = $('#edit-type');
    var editColor = $('#edit-color');
-   var editDesc = $('#cal_content');
+   var editDesc = $('#edit-desc');
    
    var addBtnContainer = $('.modalBtnContainer-addEvent');
    var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');

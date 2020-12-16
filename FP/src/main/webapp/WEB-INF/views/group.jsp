@@ -189,12 +189,12 @@
 	
 	var modalTitle = $('.modal-title');
 	var editAllDay = $('#edit-allDay');
-	var editTitle = $('#cal_title');
-	var editStart = $('#cal_sdate');
-	var editEnd = $('#cal_edate');
+	var editTitle = $('#edit-title');
+	var editStart = $('#edit-start');
+	var editEnd = $('#edit-end');
 	var editType = $('#edit-type');
 	var editColor = $('#edit-color');
-	var editDesc = $('#cal_content');
+	var editDesc = $('#edit-desc');
 	
 	var addBtnContainer = $('.modalBtnContainer-addEvent');
 	var modifyBtnContainer = $('.modalBtnContainer-modifyEvent');
