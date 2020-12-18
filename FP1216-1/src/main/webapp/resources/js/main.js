@@ -12,8 +12,8 @@ var calendar = $('#calendar').fullCalendar({
   timezone                  : "local", 
   nextDayThreshold          : "09:00:00",
   allDaySlot                : true,
-  displayEventTime          : true,
-  displayEventEnd           : true,
+  displayEventTime          : false,
+  displayEventEnd           : false,
   firstDay                  : 0, //월요일이 먼저 오게 하려면 1
   weekNumbers               : false,
   selectable                : true,
@@ -105,6 +105,8 @@ var calendar = $('#calendar').fullCalendar({
 
   /* ****************
    *  일정 받아옴 
+   *  
+   *  
    * ************** */
   //리스트
   events: function (start, end, timezone, callback){
