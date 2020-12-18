@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.MypageMapper">
+
+   <select id="myinfo" resultType="com.example.domain.UserVO">
+      select * from tbl_user where id =
+      #{id}
+   </select>
+
+   <update id="myinfoupdate">
+      update tbl_user set pw = #{pw}, name = #{name}, phone
+      = #{phone}, addr = #{addr}, addrDetail = #{addrDetail},
+      email =
+      #{email}, u_keyword = #{u_keyword}, image = #{image}
+      where id = #{id}
+   </update>
+
+   <select id="myclist" resultType="com.example.domain.ClubVO">
+      select * from
+      (select rownum rn, tbl_cir.c_code, tbl_cir.c_name, tbl_cir.c_pid,
+      tbl_cir.c_category, tbl_cir.c_regdate, tbl_cu.cu_schk
+      from tbl_cu inner join tbl_cir on tbl_cu.c_code = tbl_cir.c_code
+      <if test="searchType=='c_pid'">
+         where c_pid like '%'||#{keyword}||'%' and tbl_cu.id = #{id} order by c_regdate desc)
+      </if>
+      <if test="searchType=='c_name'">
+         where c_name like '%'||#{keyword}||'%' and tbl_cu.id = #{id} order by c_regdate desc)
+      </if>
+      <if test="searchType=='c_category'">
+         where c_category like '%'||#{keyword}||'%' and tbl_cu.id = #{id} order by c_regdate desc)
+      </if>
+      <if test="searchType=='c_regdate'">
+         where c_regdate like '%'||#{keyword}||'%' and tbl_cu.id = #{id} order by c_regdate desc)
+      </if>
+      where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})
+   </select>
+
+   <select id="myctotalCount" resultType="int">
+      select count(*) from tbl_cu inner join tbl_cir on tbl_cu.c_code = tbl_cir.c_code
+      <if test="searchType=='c_pid'">
+         where c_pid like '%'||#{keyword}||'%' and id = #{id}
+      </if>
+      <if test="searchType=='c_name'">
+         where c_name like '%'||#{keyword}||'%' and id = #{id}
+      </if>
+      <if test="searchType=='c_category'">
+         where c_category like '%'||#{keyword}||'%' and id = #{id}
+      </if>
+      <if test="searchType=='c_regdate'">
+         where c_regdate like '%'||#{keyword}||'%' and id = #{id}
+      </if>
+
+   </select>
+
+   <select id="mygtotalCount" resultType="int">
+      select count(*) from tbl_group inner join tbl_gu on tbl_group.g_code = tbl_gu.g_code
+      where g_name like '%'||#{keyword}||'%' and tbl_gu.id = #{id}
+   </select>
+   
+   <select id ="myglist" resultType = "com.example.domain.GuVO">
+         select tbl_group.*, tbl_gu.id, tbl_gu.gu_pwchk from tbl_group INNER JOIN tbl_gu on tbl_group.g_code = tbl_gu.g_code
+         where tbl_group.g_name like '%'||#{keyword}||'%' and tbl_gu.id = #{id} and tbl_gu.gu_pwchk='Y' order by tbl_group.g_regdate desc
+      </select>
+      
+	<update id="setGu_pwchk">
+		update tbl_gu set gu_pwchk = 'Y' where id=#{id} and g_code=#{g_code} 
+	</update>
+
+
+</mapper>

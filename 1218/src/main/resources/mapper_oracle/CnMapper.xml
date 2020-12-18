@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.CnMapper">
+   <insert id = "cninsert">
+      insert into tbl_cn(cn_no, c_code, id, cn_title, cn_regdate, cn_content, cn_bold, cn_rchk) 
+      values (seq_cnno.nextval, #{c_code}, #{id}, #{cn_title}, sysdate, #{cn_content}, #{cn_bold}, #{cn_rchk})
+   </insert>
+   
+   <select id = "cnread" resultType = "com.example.domain.CnVO">
+      select * from tbl_cn where cn_no = #{cn_no}
+   </select>
+<!--    /////////////////////////////////////////////////////// -->
+   <select id = "first_cnlist" resultType = "com.example.domain.CnVO">
+      select * from 
+      (select rownum rn, tbl_cn.* from tbl_cn where c_code = #{c_code} order by cn_regdate desc)
+      where rn between 1 and 4
+   </select>
+   <select id = "list_cnlist" resultType = "com.example.domain.CnVO">
+      select * from 
+      (select rownum rn, tbl_cn.* from tbl_cn where c_code = #{c_code} order by cn_regdate desc)
+       where rn between (#{pageStart}+1) and (#{pageStart}+#{perPageNum})
+   </select>
+<!--    /////////////////////////////////////////////////////// -->
+   
+   <update id = "cnupdatepost" >
+      update tbl_cn set cn_title = #{cn_title}, cn_content = #{cn_content}, cn_bold = #{cn_bold}, cn_rchk = #{cn_rchk} where cn_no = #{cn_no}
+   </update>
+   
+   <delete id = "cndelete">
+      delete from tbl_cn where cn_no = #{cn_no}
+   </delete>
+   
+   <select id = "cnrlist" resultType = "com.example.domain.CnrVO">
+      select * from 
+      (select rownum rn, tbl_cnr.* from tbl_cnr where cnr_no = #{cnr_no} order by cnr_no)
+      where rn between 1 and 10
+   </select>
+   
+   <delete id = "cnrdelete">
+      delete from tbl_cnr where cn_no = #{cn_no}
+   </delete>
+   
+   <delete id ="deletecn">
+         delete from tbl_cn where id = #{id}
+      </delete>
+   <delete id = "deletemycn">
+   		delete from tbl_cn where id = #{id} and c_code = #{c_code}
+   </delete>
+      <delete id ="deletepcn">
+         delete from tbl_cn where c_code = #{c_code}
+      </delete>
+
+      <select id = "total" resultType = "int">
+         select count(*) from tbl_cn where c_code = #{c_code}
+      </select>
+</mapper>
