@@ -27,13 +27,13 @@
 			<!-- 오른쪽 회원검색 역역  -->
 			<div class="sub_sps_sch">
 				<div class="search_box"> 
-					<select name="searchType" id="sfl" class="select-cus">
+					<select name="searchType" id="sfl" class="select-cus" style="width: 7%;">
 						<option id="id" value="c_pid">ID</option>
 						<option value="c_name">동아리 이름</option>
 						<option value="c_category">카테고리</option>
 						<option value="c_regdate">개설날짜</option>
 					</select> 
-					<input type="text" id="stx" class="frm_input required" style="width: 50%;" size="15" maxlength="20">
+					<input type="text" id="stx" class="frm_input required" style="width: 20%;" size="15" maxlength="20">
 					<input type="button" value="검색하기" class="btn_submit" id="btnSearch" style="width: 70px;">
 				</div>
 			</div>
@@ -42,6 +42,7 @@
 			</div>
 			<!-- 전체유저수:<span id="total"></span> -->
 			<table class="clupMain" id="clupMain"> </table>
+			<table id="result" class="resultUser" ></table>
 			<script id="temp" type="text/x-handlebars-template">
 				<thead>                                     
 					<tr style="margin-bottom: 15px;">
@@ -137,6 +138,10 @@
 				var temp = Handlebars.compile($("#temp").html());
 				$("#clupMain").html(temp(data));
 				$("#total").html(data.pm.totalCount);
+				
+				if(data.pm.totalCount==0){
+					$("#result").html("검색결과가 없습니다");
+				}
 								
 	           	var str="";
 	           	var endPage=0;

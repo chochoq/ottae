@@ -29,10 +29,10 @@
 			<!-- 오른쪽 회원검색 역역  -->
 			<div class="sub_sps_sch">
 				<div class="search_box"> 
-					<select name="searchType" id="sfl" class="select-cus">
-						<option value="g_name">모임 이름</option>
+					<select name="searchType" id="sfl" class="select-cus" style="width: 7%;">
+						<option value="g_name" >모임 이름</option>
 					</select> 
-					<input type="text" id="stx" class="frm_input required" style="width: 50%;" size="15" maxlength="20">
+					<input type="text" id="stx" class="frm_input required" style="width: 20%;"  maxlength="20">
 					<input type="button" value="검색하기" class="btn_submit" id="btnSearch" style="width: 70px;">
 				</div>
 			</div>
@@ -41,6 +41,7 @@
 			</div>
 			<!-- 전체유저수:<span id="total"></span> -->
 			<table class="clupMain2" id="clupMain"> </table>
+			<table id="result" class="resultUser" ></table>
 			<script id="temp" type="text/x-handlebars-template">
 				<thead>                                     
 					<tr style="margin-bottom: 15px;">
@@ -113,6 +114,7 @@
 	$("#btnSearch").on("click",function(){
 		getList();
 	});
+	
 	$("#stx").keydown(function(key){
 		if(key.keyCode==13){
 			getList();	
@@ -160,13 +162,6 @@
 		
 	});
 		
-	
-	
-	
-	
-	
-	
-	
 	//체크박스선택삭제
  	$("#del_all").on("click", function() {
  		if (!confirm("선택한 모임을 나가시겠습니까?")) return;
@@ -197,10 +192,21 @@
 			data : {"page":page,"keyword":keyword,"searchType":searchType},
 			dataType : "json",
 			success : function(data) {
+				
+				var row =$(this).parent().parent();
+ 				var g_code =row.attr("g_code");
+
+				/* $("#result").html("검색결과 없음"); */
+
+					
 				var temp = Handlebars.compile($("#temp").html());
 				$("#clupMain").html(temp(data));
 				$("#total").html(data.pm.totalCount);
-								
+				
+				if(data.pm.totalCount==0){
+					$("#result").html("검색결과 없음");
+				}
+				
 	           	var str="";
 	           	var endPage=0;
 	           	if(data.pm.prev){
