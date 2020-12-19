@@ -32,7 +32,7 @@
 				{{#each nlist}}
 					<li>
 						<div class="type">공지</div> 
-						<dl>
+						<dl> <!--여기클릭시 리드페이지로 가고싶음-->
 							<dt>
 								<a href="notice_read?n_no={{n_no}}">{{n_title}}</a>
 							</dt>
