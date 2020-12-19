@@ -41,7 +41,7 @@
 							<div class="SectionCreateCafeKeyword">							
 								<div class="cafe_keyword_input_area">
 									<div class="FormInputText">
-										<input type="text"class="input_text input_txt2" name="g_pass">									
+										<input type="password"class="input_text input_txt2" name="g_pass">									
 									</div>															
 								</div>
 								<p class="txt">8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</p>							
@@ -93,13 +93,32 @@
 		e.preventDefault();
 	    var g_name = $(frm.g_name).val();
 	    var g_pass = $(frm.g_pass).val();
-	      
+	    var num = g_pass.search(/[0-9]/g);
+	    var eng = g_pass.search(/[a-z]/ig);
+	    var spe = g_pass.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+	    var file = $(frm.file)[0].files[0];
+	    
 	    if ($(frm.g_name).val() == "") {
 	    	alert("제목을 입력해주세요");
 	        $(frm.g_name).focus();
-	    } else if ($(frm.g_pass).val() == "") {
-	        alert("내용을 입력해주세요");
+	        return false;
+	    }else if ($(frm.g_pass).val() == "") {
+	        alert("비밀번호를 입력해주세요");
 	        $(frm.g_pass).focus();
+	        return false;
+	    }else if(g_pass.length < 8 || g_pass.length > 20){
+	       	alert("8자리 ~ 20자리 이내로 입력해주세요.");
+	        return false;
+	    }else if(g_pass.search(/\s/) != -1){
+	       	alert("비밀번호는 공백 없이 입력해주세요.");
+	        return false;
+	    }else if(num < 0 || eng < 0 || spe < 0 ){
+	       	alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
+	        return false;
+	    } else if ($(frm.file).val() == "") {
+	        alert("모임에 사용할 사진을 입력해주세요");
+	        $(frm.g_pass).focus();
+	        return false;
 	    } else {
 	        if (!confirm("모임을 만드시겟습니까?")) return;
 	        frm.submit();
