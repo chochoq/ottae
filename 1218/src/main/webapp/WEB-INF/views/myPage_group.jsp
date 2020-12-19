@@ -196,7 +196,6 @@
 				var row =$(this).parent().parent();
  				var g_code =row.attr("g_code");
 
-				/* $("#result").html("검색결과 없음"); */
 
 					
 				var temp = Handlebars.compile($("#temp").html());
@@ -204,7 +203,7 @@
 				$("#total").html(data.pm.totalCount);
 				
 				if(data.pm.totalCount==0){
-					$("#result").html("검색결과 없음");
+					$("#result").html("검색결과가 없습니다");
 				}
 				
 	           	var str="";

@@ -130,7 +130,9 @@ footer img:focus, footer a:focus {
 				<td>ID</td>
 				<td>
 					<input type="text" name="id" size="20" maxlength="20" minlength="4" required class="id" oninput="checkId()" id="checkaa">
+					<p class="cafe_keyword_input_area">4~20자의 영문 소문자만 사용 가능합니다.</p>     
 				</td>
+				
 			</tr>
 			
 			<tr>

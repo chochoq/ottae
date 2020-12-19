@@ -31,7 +31,6 @@
                                 <div class="FormInputText">
                                    <input type="text"class="input_text input_txt2" value="${id}" readonly="readonly">                                                   
                                 </div>   
-                                 <p class="txt">5~20자의 영문 소문자 만 사용 가능합니다.</p>                                                                        
                               </div>
                            </div>               
                         </td>
@@ -73,7 +72,7 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                       <input type="text" name="name" class="input_text input_txt2">
+                                       <input type="text" name="name" class="input_text input_txt2" value="${name}이름받아와야해">
                                  </div>                                                                        
                               </div>
                            </div>               
