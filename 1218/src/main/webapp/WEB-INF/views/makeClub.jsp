@@ -1058,7 +1058,7 @@
 </head>
 <body>
 	<div><jsp:include page="menu.jsp" /></div>
-	<h1 class="clupMake-hedder">동아리 만들기</h1>
+	<h1 class="clupMake-hedder">동아리 생성</h1>
 	<div class="SectionCreateCafe CreateCafe">
 		<form action="makeClubPost" method="post" name="frm" enctype="multipart/form-data">
 			<table class="cafe_input">
@@ -1077,7 +1077,7 @@
 									<input type="text" class="input_text input_txt" name="c_name" maxlength="5">
 								</div>
 							</div>
-							<p class="txt">동아리주제와 어울리는 이름으로 입력하면 많은 사람들이 동아리를 찾기가 쉬워집니다.</p>
+							<p class="txt">동아리 주제와 어울리는 이름으로 입력하면 많은 사람들이 동아리를 찾기가 쉬워집니다.</p>
 						</td>
 					</tr>
 					<tr class="cafe_public_type">
@@ -1086,11 +1086,11 @@
 						</th>
 						<td>
 							<div class="txt_area cafe_public_type">
-								<input id="publicCafe" type="radio" name="c_pchk" value="YInfo" class="input_rdo">
+								<input id="publicCafe" type="radio" name="c_pchk" value="YInfo" class="input_rdo" checked>
 								<label for="publicCafe">공개</label>
 								<input id="privateCafe" type="radio" name="c_pchk" value="NInfo" class="input_rdo">
 								<label for="privateCafe">비공개</label>
-								<p class="txt">동아리 개설자의 전화번호 공개여부입니다.</p>
+								<p class="txt">전화번호 공개여부를 선택해주세요</p>
 							</div>					
 					    </td>
 					</tr>
@@ -1116,18 +1116,18 @@
 					</tr>
 				    <tr class="cafe_keyword">
 						<th scope="row">
-					       	<h2 style="margin-top: 19px; font-size:15px; margin-left:5px;font-weight:bold; text-shadow: 0 0 1px #000;">테그</h2>
+					       	<h2 style="margin-top: 19px; font-size:15px; margin-left:5px;font-weight:bold; text-shadow: 0 0 1px #000;">태그</h2>
 						</th>
 						<td>
 							<div class="SectionCreateCafeKeyword">							
 								<div class="cafe_keyword_input_area">
 									<div class="FormInputText">
-										<input type="text" class="input_text input_txt2" id="tag" >
+										<input type="text" class="input_text input_txt2" id="tag">
 									</div>
-									<button type="button" title="테그 등록" class="btn_srch" id="btn_srch"></button>																	
+									<button type="button" title="태그등록" class="btn_srch" id="btn_srch"></button>																	
 								</div>
 							</div>
-							<textarea name="c_tag" placeholder="여기에 태그가 등록됩니다." class="title_input" style="height: 20px;overflow-y:visible" id="c_tag" ></textarea>						
+							<textarea name="c_tag" placeholder="동아리 성격에 맞는 해쉬태그를 입력해주세요" class="title_input" style="height: 20px; overflow-y:visible" id="c_tag"></textarea>						
 					    </td>
 					</tr>
 					<tr class="cafe_keyword">
@@ -1156,7 +1156,7 @@
 									</div>																								
 								</div>
 							</div>
-							<p class="txt">주로활동 하는 지역을 선택해주세요.</p>						
+							<p class="txt">주로 활동하는 지역을 선택해주세요.</p>						
 					    </td>
 					</tr>
 					<tr class="cafe_keyword">
@@ -1167,11 +1167,10 @@
 							<div>							
 								<div>
 									<div class="FormInputText" >
-										<textarea name="c_welcome" placeholder="내용을 입력해 주세요." class="title_input" style="height: 40px;overflow-y:visible"></textarea>
+										<textarea name="c_welcome" placeholder="동아리를 소개하는 안삿말을 적어주세요." class="title_input" style="height: 40px;overflow-y:visible"></textarea>
 									</div>
 								</div>
 							</div>
-							<p class="txt">동아리를 소개하는 안삿말을 적어주세요.</p>						
 					    </td>
 					</tr>	
 					<tr>
@@ -1242,10 +1241,10 @@
         	alert("동아리이름을 입력하세요");
             $(frm.c_name).focus();
         } else if ($(frm.c_tag).val() == "") {
-            alert("해쉬태그설정해주세요");
+            alert("해쉬태그를 입력해주세요");
             $(frm.c_tag).focus();
         } else if (imageChk == 0) {
-            alert("사진을 설정해주세요");
+            alert("메인사진을 입력해주세요");
         } else {
             if (!confirm("동아리를 등록하시겠습니까??")) return;
             frm.submit();
