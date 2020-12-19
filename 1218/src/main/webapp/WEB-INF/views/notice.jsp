@@ -32,7 +32,7 @@
 				{{#each nlist}}
 					<li>
 						<div class="type">공지</div> 
-						<dl> <!--여기클릭시 리드페이지로 가고싶음-->
+						<dl> <!--여기클릭시 리드페이지로 가고싶음, 고객센터 페이지확인하기-->
 							<dt>
 								<a href="notice_read?n_no={{n_no}}">{{n_title}}</a>
 							</dt>
@@ -123,6 +123,5 @@
          
          getnlist();
       });
-
 </script>
 </html>
