@@ -43,7 +43,7 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                       <input type="password" name="pw" maxlength="20" minlength="4" class="input_text input_txt2" id="pw" oninput="checkPwd()">
+                                       <input type="text" name="pw"  maxlength="20" minlength="4" class="input_text input_txt2" id="pw" oninput="checkPwd()" value="${vo.pw}">
                                  </div>
                                  <p class="txt">8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</p>                                                                           
                               </div>

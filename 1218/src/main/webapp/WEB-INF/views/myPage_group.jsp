@@ -130,7 +130,6 @@
 		// 입력한 비밀번호를 pw에 저장한다. 
 		var pw = $(pwinput).val();
 		$(pwinput).val("");
-		alert(pw);
 		$.ajax({
 			type:"post",
 			url:"chkGroupPw",
@@ -150,7 +149,6 @@
 	// 비밀번호 입력하지 않고 삭제하기
 	$("#chkPW").on("click",".no", function(){
 		var g_code = $(this).attr("g_code");
-		alert(g_code);
 		$.ajax({
 			type:"get",
 			url:"deleteGu",
@@ -202,6 +200,7 @@
 				$("#clupMain").html(temp(data));
 				$("#total").html(data.pm.totalCount);
 				
+				//검색결과없음
 				if(data.pm.totalCount==0){
 					$("#result").html("검색결과가 없습니다");
 				}

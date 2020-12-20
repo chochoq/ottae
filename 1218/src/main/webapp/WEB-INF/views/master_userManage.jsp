@@ -35,7 +35,7 @@
 						<option value="gender">성별</option>
 						<option value="u_keyword">키워드</option>
 					</select> 
-					<input type="text" id="stx" class="frm_input required" style="width: 50%;" size="15" maxlength="20" >
+					<input type="text" id="stx" class="frm_input required" style="width: 20%;" size="15" maxlength="20" >
 					<input type="button" value="검색하기" class="btn_submit" id="btnSearch" style="width: 70px;">
 				</div>
 			</div>
@@ -44,6 +44,7 @@
 			</div>
 			<!-- 전체유저수:<span id="total"></span> -->
 			<table class="clupMain" id="clupMain"> </table>
+			<table id="result" class="resultUser" ></table>
 			<script id="temp" type="text/x-handlebars-template">
 				<thead>                                       
 	            	<tr style="margin-bottom: 15px;">
@@ -146,6 +147,11 @@
 				$("#clupMain").html(temp(data));
 				$("#total").html(data.pm.totalCount);
 								
+				//검색결과없음
+				if(data.pm.totalCount==0){
+					$("#result").html("검색결과가 없습니다");
+				}
+				
 	           	var str="";
 	           	var endPage=0;
 	           	if(data.pm.prev){

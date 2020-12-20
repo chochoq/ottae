@@ -178,7 +178,6 @@
 	$("#calendar td a").click(function(e){
 	   	e.preventDefault();
 	   	day=$(this).attr("data-goto");
-	   	alert(day);
 	});
 	
 	$("#calendar td").click(function(){

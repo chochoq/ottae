@@ -137,7 +137,6 @@
 		var cn_rchk = $(frm.cn_rchk).val();
 		var cn_content = $(frm.cn_content).val();
 
-		alert(cn_title);
 		if ($(frm.cn_title).val() == "") {
 			alert("글제목");
 			$(frm.cn_title).focus();

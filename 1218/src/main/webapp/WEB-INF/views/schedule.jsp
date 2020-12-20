@@ -370,7 +370,6 @@
                 url : "addMembers",
                 data : {"g_code" : g_code, "gu_pwchk" :gu_pwchk,"id":id},
                 success : function(){
-                	alert("완료");
                 	$("#query").val("");
                 	$("#result").html("검색결과 없음");
                 	var selectG_code = $("#joinedGroup").val();
