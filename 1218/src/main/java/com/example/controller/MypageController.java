@@ -26,6 +26,7 @@ import com.example.domain.UserVO;
 import com.example.mapper_oracle.GroupMapper;
 import com.example.mapper_oracle.GuMapper;
 import com.example.mapper_oracle.MypageMapper;
+import com.example.mapper_oracle.UserMapper;
 import com.example.service.ClubService;
 import com.example.service.GroupService;
 import com.example.service.MasterService;
@@ -35,6 +36,9 @@ public class MypageController {
 
 	@Resource(name = "uploadPath")
 	String path;
+	
+	@Autowired
+	UserMapper umapper;
 
 	@Autowired
 	MypageMapper mapper;
@@ -53,7 +57,9 @@ public class MypageController {
 
 	// 회원정보 수정page로 연결한다
 	@RequestMapping("myPage_userUpdate")
-	public void myPage_userUpdate() {
+	public void myPage_userUpdate(Model model,HttpSession session) {
+		String id =(String)session.getAttribute("id");
+		model.addAttribute("userVO", umapper.read(id));
 	}
 
 	// 내 정보 수정

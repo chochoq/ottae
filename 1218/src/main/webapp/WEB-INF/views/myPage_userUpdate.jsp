@@ -43,7 +43,7 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                       <input type="text" name="pw"  maxlength="20" minlength="4" class="input_text input_txt2" id="pw" oninput="checkPwd()" value="${vo.pw}">
+                                       <input type="password" name="pw"  maxlength="20" minlength="4" class="input_text input_txt2" id="pw" oninput="checkPwd()" value="${userVO.pw}">
                                  </div>
                                  <p class="txt">8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</p>                                                                           
                               </div>
@@ -52,7 +52,7 @@
                   </tr>
                   <tr class="cafe_keyword">
                         <th scope="row">
-                            <h2 style="margin-top: 19px; font-size:15px; margin-left:5px;font-weight:bold; text-shadow: 0 0 1px #000;">비밀번호 확인</h2>
+                            <h2 style="margin-top: 19px; font-size:15px; margin-left:5px; font-weight:bold; text-shadow: 0 0 1px #000;">비밀번호 확인</h2>
                         </th>
                         <td>
                            <div class="SectionCreateCafeKeyword">                     
@@ -72,7 +72,7 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                       <input type="text" name="name" class="input_text input_txt2" value="${name}이름받아와야해">
+                                       <input type="text" name="name" class="input_text input_txt2" value="${userVO.name}">
                                  </div>                                                                        
                               </div>
                            </div>               
@@ -106,7 +106,7 @@
                                        <input type="text" id="sample6_postcode" placeholder="우편번호" size="5"> 
                               <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="selectPost">
                               <br>
-                              <input type="text" id="sample6_address" placeholder="주소" name="addr" required class="id" oninput="checkId()" >
+                              <input type="text" id="sample6_address" placeholder="주소" name="addr" required class="id" oninput="checkId()" value="${userVO.addr}">
                                  </div>                                                                                                   
                               </div>
                            </div>               
@@ -120,7 +120,7 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                       <input type="text" name="addrDetail" class="input_text input_txt2" id="sample6_detailAddress">
+                                       <input type="text" name="addrDetail" class="input_text input_txt2" id="sample6_detailAddress" value="${userVO.addrDetail}">
                                  </div>
                                  <p class="txt">상세주소를 입력해주세요.</p>                                                                        
                                </div>
@@ -135,7 +135,7 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                 <input type="text" name="Femail" size="5" class="input_text input_txt2" oninput="makeEmail()"> @ 
+                                 <input type="text" name="Femail" size="5" class="input_text input_txt2" oninput="makeEmail()" value="${userVO.email}"> @ 
                               <select style="font-size: 18px; height: 30px; width: 205px;" name="Lemail">
                                  <option value="@naver.com">naver.com</option>
                                  <option value="@gmail.com">gmail.com</option>
@@ -156,7 +156,7 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                       <input type="text"class="input_text input_txt2" name="u_keyword">
+                                       <input type="text"class="input_text input_txt2" name="u_keyword" value="${userVO.u_keyword}">
                                  </div>                                                                        
                               </div>
                            </div>               
@@ -185,6 +185,13 @@
    </div>                               
 </body>
 <script>
+
+	var mail = $(userVO.email);
+	var mailSpilt = mail.split('@');
+	for ( var i in mailSpilt ) {
+		console.log('<p>' + mailSpilt[i] + '</p>');
+      }
+
    // 뒤로가기
    $(document).ready(function() {
       $("#return").click(function(){            
