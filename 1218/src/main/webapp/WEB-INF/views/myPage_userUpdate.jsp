@@ -206,6 +206,7 @@
          window.history.back()       
       });       
    });
+   
    //사진
    $(frm.file).hide();
    $("#image").on("click", function() {
@@ -227,6 +228,9 @@
         var c_condition = $(frm.c_condition).val();
         var c_pic = $(frm.c_pic).val();
         var c_spot = $(frm.c_spot).val();
+        
+        makePhone();
+        makeEmail();
 
         if ($(frm.c_name).val() == "") {
            alert("동아리이름을 입력하세요");
