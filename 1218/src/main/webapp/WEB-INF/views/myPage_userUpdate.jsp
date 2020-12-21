@@ -234,24 +234,13 @@
       //서밋시
       $(frm).submit( function(e) {
          e.preventDefault();
-        var c_name = $(frm.c_name).val();
-        var c_tag = $(frm.c_tag).val();
-        var c_pchk = $(frm.c_pchk).val();
-        var c_category = $(frm.c_category).val();
-        var c_welcome = $(frm.c_welcome).val();
-        var c_condition = $(frm.c_condition).val();
-        var c_pic = $(frm.c_pic).val();
-        var c_spot = $(frm.c_spot).val();
         
         makePhone();
         makeEmail();
 
-        if ($(frm.c_name).val() == "") {
-           alert("동아리이름을 입력하세요");
+        if ($(frm.repwd).val() == "") {
+           alert("비밀번호를 입력하세요");
             $(frm.c_name).focus();
-        } else if ($(frm.c_tag).val() == "") {
-            alert("해쉬태그설정해주세요");
-            $(frm.c_tag).focus();
         } else {
             if (!confirm("회원정보를 수정하시겟습니까?")) return;
             frm.submit();
