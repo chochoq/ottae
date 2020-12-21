@@ -361,7 +361,7 @@ footer img:focus, footer a:focus {
 
 </body>
 <script>
-
+//삭제
 $(frm).submit( function(e) {
 	var id = $(frm.id).val();
 	var pw = $(frm.pw).val();

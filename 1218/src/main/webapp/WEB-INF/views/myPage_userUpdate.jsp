@@ -107,7 +107,7 @@
                                        <input type="text" id="sample6_postcode" placeholder="우편번호" size="5"> 
                               <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="selectPost">
                               <br>
-                              <input type="text" id="sample6_address" placeholder="주소" name="addr" required class="id" oninput="checkId()" value="${userVO.addr}">
+                              <input type="text" id="sample6_address" placeholder="주소" name="addr" required class="id" oninput="checkId()" value="${userVO.addr}" readonly>
                                  </div>                                                                                                   
                               </div>
                            </div>               
@@ -169,8 +169,9 @@
                             <h2 style="margin-top: 19px; font-size:15px; margin-left:5px;font-weight:bold; text-shadow: 0 0 1px #000;">메인사진</h2>
                       </th>
                       <td width=500>
-                            <img src="http://placehold.it/150x120" id="image" width=150> 
                             <input type="file" name="file" class="imgSel">
+                            <img src="display?fileName=${userVO.image}" id="image" width=150> 
+                            
                       </td>
                   </tr>                            
             </tbody>
@@ -208,14 +209,27 @@
    });
    
    //사진
-   $(frm.file).hide();
-   $("#image").on("click", function() {
-         $(frm.file).click();
-   });
-   $(frm.file).on("change", function() {
-      var file = $(frm.file)[0].files[0];
-         $("#image").attr("src", URL.createObjectURL(file));
-   });
+   	$(frm.files).hide();
+	$(frm.file).hide();
+	
+	
+	$("#image").on("click",function(){
+		$(frm.file).click();
+	});
+	$(frm.files).on("change",function(){
+		var files=$(frm.files)[0].files;
+		var str="";
+		$.each(files,function(index,file){
+			str+= "<img src='" + URL.createObjectURL(file) + "'>";
+		});
+		$("#listFile").html(str);
+	});
+	
+	
+	$(frm.file).on("change",function(){
+		var file=$(frm.file)[0].files[0];
+		$("#image").attr("src",URL.createObjectURL(file));
+	});
    
       //서밋시
       $(frm).submit( function(e) {
@@ -239,7 +253,7 @@
             alert("해쉬태그설정해주세요");
             $(frm.c_tag).focus();
         } else {
-            if (!confirm("동아리를 등록하시겠습니까??")) return;
+            if (!confirm("회원정보를 수정하시겟습니까?")) return;
             frm.submit();
         }
    });
