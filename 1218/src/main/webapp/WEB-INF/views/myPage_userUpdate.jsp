@@ -208,7 +208,7 @@
       });       
    });
    
-   //사진
+   //이미지받기
    	$(frm.files).hide();
 	$(frm.file).hide();
 	
@@ -231,10 +231,21 @@
 		$("#image").attr("src",URL.createObjectURL(file));
 	});
    
+	//핸드폰, 메일 합치기
+		function makePhone(){
+	      var phone = $(frm.Fphone).val() + "-" + $(frm.Sphone).val() + "-" + $(frm.Lphone).val();
+	      $(frm.phone).val(phone);
+	   }
+	   
+	   function makeEmail(){
+	      var email = $(frm.Femail).val() + $(frm.Lemail).val();
+	      $(frm.email).val(email);
+	   }
+	   
       //서밋시
       $(frm).submit( function(e) {
          e.preventDefault();
-        
+         
         makePhone();
         makeEmail();
 
@@ -303,15 +314,7 @@
       }
    }
    
-   function makePhone(){
-      var phone = $(frm.Fphone).val() + "-" + $(frm.Sphone).val() + "-" + $(frm.Lphone).val();
-      $(frm.phone).val(phone);
-   }
    
-   function makeEmail(){
-      var email = $(frm.Femail).val() + $(frm.Lemail).val();
-      $(frm.email).val(email);
-   }
 
 </script>
 </html>
