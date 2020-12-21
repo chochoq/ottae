@@ -186,11 +186,11 @@
 </body>
 <script>
 
-	var mail = $(userVO.email);
+/* 	var mail = $(userVO.email);
 	var mailSpilt = mail.split('@');
 	for ( var i in mailSpilt ) {
 		console.log('<p>' + mailSpilt[i] + '</p>');
-      }
+      } */
 
    // 뒤로가기
    $(document).ready(function() {
