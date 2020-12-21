@@ -85,10 +85,11 @@
                         <td>
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
-                                 <div class="FormInputText">             
-                                 <input type="text" name="Fphone" class="input_text input_txt12" oninput="makePhone()">-
-                                 <input type="text" name="Sphone" class="input_text input_txt12" oninput="makePhone()">-
-                                 <input type="text" name="Lphone" class="input_text input_txt12" oninput="makePhone()">
+                                 <div class="FormInputText">
+                                 <input type="hidden" value="${userVO.phone}" id="hiddenPhone">             
+                                 <input type="text" name="Fphone" class="input_text input_txt12" oninput="makePhone()" id="Fphone">-
+                                 <input type="text" name="Sphone" class="input_text input_txt12" oninput="makePhone()" id="Sphone">-
+                                 <input type="text" name="Lphone" class="input_text input_txt12" oninput="makePhone()" id="Lphone">
                                  <input type="hidden" name="phone">
                                  </div>                                                                        
                               </div>
@@ -135,7 +136,8 @@
                            <div class="SectionCreateCafeKeyword">                     
                               <div class="cafe_keyword_input_area">
                                  <div class="FormInputText">
-                                 <input type="text" name="Femail" size="5" class="input_text input_txt2" oninput="makeEmail()" value="${userVO.email}"> @ 
+                                 <input type="hidden" value="${userVO.email}" id="hiddenEmail">
+                                 <input type="text" name="Femail" size="5" class="input_text input_txt2" oninput="makeEmail()" id="Femail"> @ 
                               <select style="font-size: 18px; height: 30px; width: 205px;" name="Lemail">
                                  <option value="@naver.com">naver.com</option>
                                  <option value="@gmail.com">gmail.com</option>
@@ -186,12 +188,18 @@
 </body>
 <script>
 
-/* 	var mail = $(userVO.email);
-	var mailSpilt = mail.split('@');
-	for ( var i in mailSpilt ) {
-		console.log('<p>' + mailSpilt[i] + '</p>');
-      } */
-
+	//메일 나눠서 받아오기
+    var mail = $("#hiddenEmail").val().split('@');
+    $("#Femail").val(mail[0]);
+    
+    //전화번호 나눠서 받아오기
+    var phone = $("#hiddenPhone").val().split('-');
+    $("#Fphone").val(phone[0]);
+    $("#Sphone").val(phone[1]);
+    $("#Lphone").val(phone[2]);
+    
+    
+    
    // 뒤로가기
    $(document).ready(function() {
       $("#return").click(function(){            
@@ -290,7 +298,7 @@
    
    function makePhone(){
       var phone = $(frm.Fphone).val() + "-" + $(frm.Sphone).val() + "-" + $(frm.Lphone).val();
-      $(frm.phone).val(콜);
+      $(frm.phone).val(phone);
    }
    
    function makeEmail(){
