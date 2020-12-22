@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.CbMapper">
+<!-- /////////////////////////////////////////////////////// -->
+   <select id = "first_cblist" resultType = "com.example.domain.CbVO">
+      select * from 
+      (select rownum rn, tbl_cb.* from tbl_cb where c_code = #{c_code} order by cb_regdate desc)
+      where rn between 1 and 4
+   </select>
+   <select id = "list_cblist" resultType = "com.example.domain.CbVO">
+      select * from 
+      (select rownum rn, tbl_cb.* from tbl_cb where c_code = #{c_code} order by cb_regdate desc)
+      where rn between (#{pageStart}+1) and (#{pageStart}+#{perPageNum})
+   </select>
+<!-- /////////////////////////////////////////////////////// -->
+   
+   <insert id = "cbInsert">
+      insert into tbl_cb(cb_no, c_code, id, cb_title, cb_regdate, cb_content) 
+      values (seq_cbno.nextval, #{c_code}, #{id}, #{cb_title}, sysdate, #{cb_content})
+   </insert>
+   
+   <select id = "cbread" resultType = "com.example.domain.CbVO">
+      select * from tbl_cb where cb_no = #{cb_no}
+   </select>
+
+   <update id = "cbUpdatepost" >
+      update tbl_cb set cb_title = #{cb_title}, cb_content = #{cb_content} where cb_no = #{cb_no}
+   </update>
+   
+   <delete id = "cbDelete">
+      delete from tbl_cb where cb_no = #{cb_no}
+   </delete>
+
+   <delete id = "cbrDelete">
+      delete from tbl_cbr where cb_no = #{cb_no}
+   </delete>
+   
+   <delete id = "deletecb">
+         delete from tbl_cb where id = #{id}
+      </delete>
+   
+      <delete id = "deletepcb">
+         delete from tbl_cb where c_code = #{c_code}
+      </delete>
+      
+      <delete id = "deletemycb">
+          delete from tbl_cb where id = #{id} and c_code = #{c_code}
+     </delete>
+     
+	<select id = "total" resultType = "int">     
+		select count(*) from tbl_cb where c_code = #{c_code}
+    </select>
+</mapper>

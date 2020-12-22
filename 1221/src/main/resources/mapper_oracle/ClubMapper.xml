@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.ClubMapper">
+   
+   <insert id = "insert">
+      insert into tbl_cir(c_code, c_pid, c_welcome, c_condition, c_name, c_category, c_tag, c_pic, c_spot, c_pchk, c_regDate) 
+      values(seq_cno.nextval, #{c_pid} , #{c_welcome}, #{c_condition}, #{c_name}, #{c_category}, '태그', #{c_pic}, #{c_spot}, #{c_pchk}, sysdate)
+   </insert>
+   
+   <select id = "cread" resultType = "com.example.domain.ClubVO">
+      select * from tbl_cir where c_code = #{c_code}
+   </select>
+
+   <select id = "getGameList" resultType = "com.example.domain.ClubVO">
+         select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='게임' order by c_regdate desc) 
+         where rn between 1 and 10
+      </select>
+      
+      <select id = "getSportList" resultType = "com.example.domain.ClubVO">
+         select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='운동' order by c_regdate desc) 
+         where rn between 1 and 10
+      </select>
+      
+      <select id = "getStudyList" resultType = "com.example.domain.ClubVO">
+         select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='공부' order by c_regdate desc) 
+         where rn between 1 and 10
+      </select>
+      
+      <select id = "getHobbyList" resultType = "com.example.domain.ClubVO">
+         select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='취미' order by c_regdate desc) 
+         where rn between 1 and 10
+      </select>
+      
+      <select id = "getEtcList" resultType = "com.example.domain.ClubVO">
+         select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='기타' order by c_regdate desc) 
+         where rn between 1 and 10
+      </select>
+
+      <select id="max" resultType="String">
+         select c_code from
+      (select rownum rn,chk.* from (select tbl_cir.* from tbl_cir where c_pid=#{c_pid} ORDER BY c_regdate desc) chk) where rn between 1 and 1
+      </select>
+      
+      <delete id = "deleteclub">
+          delete from tbl_cir where c_code = #{c_code}
+    </delete>
+      
+    <select id = "selectclub" resultType = "String">
+          select c_code from tbl_cir where c_pid = #{id} and c_code = #{c_code}
+      </select>
+      
+      <select id = "selectpid" resultType = "int">
+         select count(c_pid) from tbl_cir where c_pid = #{id}
+      </select>
+      
+	<update id = "updateClub">
+      update tbl_cir set c_welcome=#{c_welcome},c_condition=#{c_condition},c_name=#{c_name},c_category=#{c_category},c_tag=#{c_tag},c_spot=#{c_spot},c_pchk=#{c_pchk},c_pic=#{c_pic}
+      where c_code=#{c_code}
+   	</update>      
+   	
+   	<select id="countcir" resultType="int">
+      select count(*) from tbl_cir where c_name like '%'||#{keyword}||'%'
+   </select>
+
+   <select id="searchcir" resultType="com.example.domain.ClubVO">
+      select * from
+      (select rownum rn, tbl_cir.* from tbl_cir where c_name like '%'||#{keyword}||'%' order by c_code desc)
+      where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})
+   </select>
+<!-- <<<<<<<<<<<<<<<<<<<<<임시>>>>>>>>>>>>>>>>>>>>>>> -->
+      <select id = "clubList" resultType = "com.example.domain.ClubVO">
+         select * from tbl_cir
+      </select>
+</mapper>
