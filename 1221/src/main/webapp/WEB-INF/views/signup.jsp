@@ -303,11 +303,11 @@ footer img:focus, footer a:focus {
                   <label>전화번호</label>
                </h3>
                      <span class="ps_box2">
-                      <input type="text" class="pone" name="Fphone" maxlength="3" required class="int2" oninput="checkId()" >
+                      <input type="text" class="pone" name="Fphone" minlength ="3" maxlength="3" required class="int2" oninput="checkId()" >
                       <span class="span-font">─</span>
-                      <input type="text" class="pone" name="Sphone" maxlength="4" required class="int2" oninput="checkId()" >
+                      <input type="text" class="pone" name="Sphone" minlength ="4" maxlength="4" required class="int2" oninput="checkId()" >
                       <span class="span-font">─</span>
-                      <input type="text" class="pone" name="Lphone" maxlength="4" required class="int" oninput="checkId()" >
+                      <input type="text" class="pone" name="Lphone" minlength ="4" maxlength="4" required class="int" oninput="checkId()" >
                       <input type="hidden" name="phone">
                     </span>               
             </div>
@@ -334,8 +334,7 @@ footer img:focus, footer a:focus {
                   <label style="margin-left:300px;">프로필사진</label>
                </h3>
                  <div>
-                     <textarea rows="3" cols="30" name="u_keyword" required class="int2" oninput="checkId()" style="height:150px; width:350px; resize: none; font-size: 20px; ">
-                     </textarea>
+                     <textarea rows="3" cols="30" name="u_keyword" required class="int2" oninput="checkId()" style="height:150px; width:350px; resize: none; font-size: 20px; "></textarea>
                      <span style="float:right;">                       
                             
                    <img src="http://placehold.it/150x120" id="image" name="image" width=130 height=150> 
@@ -368,20 +367,36 @@ footer img:focus, footer a:focus {
 <script>
 //삭제해야할것
 $(frm).submit( function(e) {
-   var id = $(frm.id).val();
-   var pw = $(frm.pw).val();
-   var mail = $(frm.Femail).val();
-   var gender = $(frm.gender).val();
-   var name = $(frm.name).val();
-   var birthday = $(frm.birthday).val();
-   var tel = $(frm.Fphone).val();
-   var addr = $(frm.addr).val();
-   var addrDetail = $(frm.addrDetail).val();
-   var keyword = $(frm.u_keyword).val();
+	e.preventDefault();
+	
    var email = $(frm.Femail).val() + $(frm.Lemail).val();
     $(frm.email).val(email);
     var phone = $(frm.Fphone).val() + "-" + $(frm.Sphone).val() + "-"
           + $(frm.Lphone).val();
+    $(frm.phone).val(phone);
+    
+    var pw = $(frm.pw).val();
+    var num = pw.search(/[0-9]/g);
+    var eng = pw.search(/[a-z]/ig);
+    var file = $(frm.file)[0].files[0];
+    
+   if ($(frm.pw).val() == "") {
+        alert("비밀번호를 입력해주세요");
+        $(frm.pw).focus();
+        return false;
+    }else if(pw.length<8||pw.length>20){
+       	alert("비밀번호를 8자리 ~ 20자리 이내로 입력해주세요.");
+       	$(frm.pw).focus();
+        return false;
+    }else if(pw.search(/\s/) != -1){
+       	alert("비밀번호는 공백 없이 입력해주세요.");
+       	$(frm.pw).focus();
+        return false;
+    }else {
+        if (!confirm("회원가입을 하시겟습니까")) return;
+        
+        frm.submit();
+	}   
 });
 
 
@@ -432,12 +447,6 @@ $(frm).submit( function(e) {
 
    //중복체크후 submit비활성화
    function checkId() {
-      //email phone
-      var email = $(frm.Femail).val() + $(frm.Lemail).val();
-      $(frm.email).val(email);
-      var phone = $(frm.Fphone).val() + "-" + $(frm.Sphone).val() + "-"
-            + $(frm.Lphone).val();
-      $(frm.phone).val(phone);
 
       var inputed = $('.int2').val();
       $.ajax({

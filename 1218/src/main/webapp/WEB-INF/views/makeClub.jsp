@@ -1074,7 +1074,7 @@
 						<td>
 							<div class="input_area">
 								<div class="FormInputText" >
-									<input type="text" class="input_text input_txt" name="c_name" maxlength="5">
+									<input type="text" class="input_text input_txt" name="c_name" maxlength="15">
 								</div>
 							</div>
 							<p class="txt">동아리 주제와 어울리는 이름으로 입력하면 많은 사람들이 동아리를 찾기가 쉬워집니다.</p>
