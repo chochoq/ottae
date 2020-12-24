@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<context:component-scan base-package="com.example.controller" />
+	<context:component-scan base-package="com.example.service" />
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="104857600"/>
+	</beans:bean>
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="c:/zzz/upload" />
+	</beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/createBoard" />
+			<mapping path="/createMasterEvent" />
+			<mapping path="/createMasterNotice" />
+			<mapping path="/createMasterQnA" />
+			<mapping path="/createNotice" />
+
+			<mapping path="/master_clubManage" />
+			<mapping path="/master_groupManage" />
+			<mapping path="/master_userManage" />
+
+			<mapping path="/notice_update" />
+			<mapping path="/QnA_update" />
+			<mapping path="/event_update" />
+
+			<mapping path="/myPage_club" />
+			<mapping path="/myPage_group" />
+			<mapping path="/myPage_userUpdate" />
+
+			<mapping path="/group" />
+			<mapping path="/schedule" />
+			<mapping path="/schedule_makeSchedule" />
+
+			<mapping path="/clubMain" />
+			<mapping path="/club_first" />
+			<mapping path="/makeClub" />
+			<mapping path="/updateClub" />
+			<mapping path="/cb_reply" />
+			<mapping path="/cbRead" />
+			<mapping path="/cbUpdate" />
+			<mapping path="/club_board" />
+			<mapping path="/club_first" />
+			<mapping path="/club_join" />
+			<mapping path="/club_notice" />
+			<mapping path="/club_user" />
+			<mapping path="/cn_reply" />
+			<mapping path="/cnRead" />
+			<mapping path="/cnUpdate" />
+
+			<mapping path="/group" />
+			<mapping path="/makeGroup" />
+			<mapping path="/addMember" />
+			<beans:bean id="AuthInterceptor" class="com.example.interceptor.AuthInterceptor" />
+		</interceptor>
+	</interceptors>
+</beans:beans>
+
