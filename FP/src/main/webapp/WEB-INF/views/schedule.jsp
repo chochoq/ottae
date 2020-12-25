@@ -44,8 +44,8 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
@@ -163,12 +163,12 @@
                         <table id="result" class="resultUser"></table>
                         <script id="tempResult" type="text/x-handlebars-template">
                          <table class="schedTable">
-                         <tr style="margin-bottom: 15px;">
+                        	<tr style="margin-bottom: 15px;">
                             <th class="s_ck">체크</th>
                             <th class="s_name">이름</th>
                             <th class="s_pid">아이디</th>
                          </tr>
-                      </table> 
+                     	 </table> 
                         {{#each .}}                            
                             <tr style="margin-bottom: 15px;">
                             <td><input type="checkbox" value="{{id}}" name="selectedMember"></td>
@@ -182,6 +182,7 @@
                </div>
             </div>
          </div>
+         <!-- 사진출력  -->
         <div style="width: 250px; height:250px;">
           	<div>
                 <img src="http://placehold.it/150x120" id="image" style="width: 248px; height:250px;">  
@@ -226,6 +227,7 @@
 <script>
 	image();
 	
+	//일정사진 출력
 	function image(){
 	$.ajax({
 		type:"get",
@@ -238,39 +240,39 @@
 	}
 
    chk();
-   $(document).ready(function(){
-      $("#searchUser").hide(); 
-      var $header = $('header');
-         var $services = $('.services');
-         $(window).scroll(function(){
-              var $currentSct = $(this).scrollTop();               
-              var $offset = 400;
-              if($currentSct > 0){
-                   $header.addClass('sticky'); 
-              }else{
-                   $header.removeClass('sticky');
-                }
-              //서비스 아이탬 나타나기
-              var $serviceThreshold = $services.offset().top - $offset;
-              var $serviceExecuted = false;
-              if(!$serviceExecuted){
-                  if($currentSct > $serviceThreshold){
-                       $services.addClass('active');
-                       $serviceExecuted = true;  
-                  }
-              }
-         }); 
-         $("#close").click(function(){            
-            window.history.back()       
-         });       
-   });
+   
+	   $(document).ready(function(){
+	      $("#searchUser").hide(); 
+	      var $header = $('header');
+	         var $services = $('.services');
+	         $(window).scroll(function(){
+	              var $currentSct = $(this).scrollTop();               
+	              var $offset = 400;
+	              if($currentSct > 0){
+	                   $header.addClass('sticky'); 
+	              }else{
+	                   $header.removeClass('sticky');
+	                }
+	              //서비스 아이탬 나타나기
+	              var $serviceThreshold = $services.offset().top - $offset;
+	              var $serviceExecuted = false;
+	              if(!$serviceExecuted){
+	                  if($currentSct > $serviceThreshold){
+	                       $services.addClass('active');
+	                       $serviceExecuted = true;  
+	                  }
+	              }
+	         }); 
+	         $("#close").click(function(){            
+	            window.history.back()       
+	         });       
+	   });
+	   
    
    
-   
-   var g_code = "0";
+	  var g_code = "0";
    
       var eventModal = $('#eventModal');
-   
       var modalTitle = $('.modal-title');
       var editAllDay = $('#edit-allDay');
       var editTitle = $('#cal_title');
