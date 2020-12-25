@@ -295,9 +295,9 @@
                </div>
             </div>
            <div class="footer">
-                 <h2 class="h43">소개하기</h2>
+                 <h2 class="h43">인삿말</h2>
                  <div class="memo4">
-                     <p class="p2" id="c_welcome"></p>
+                     <pre class="p2" id="c_welcome"></pre>
                 </div>
            </div>
       </div>         
