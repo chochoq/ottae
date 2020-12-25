@@ -1,19 +1,19 @@
 package com.example.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.domain.CalVO;
-import com.example.domain.GroupVO;
 import com.example.mapper_oracle.CalMapper;
 import com.example.mapper_oracle.GroupMapper;
+import com.example.mapper_oracle.UserMapper;
 
 @Controller
 public class CalController {
@@ -21,7 +21,8 @@ public class CalController {
 	CalMapper calMapper;
 	@Autowired
 	GroupMapper gMapper;
-	
+	@Autowired
+	UserMapper uMapper;
 	// 일정 첫page로 연결한다.
 	@RequestMapping("schedule")
 	public void schedule(HttpSession session) {
@@ -29,8 +30,19 @@ public class CalController {
 
 	@RequestMapping("g_pic")
 	@ResponseBody
-	public GroupVO g_pic(int g_code){
-		return	gMapper.gread(g_code);
+	public HashMap<String, Object> g_pic(int g_code, HttpSession session){
+		HashMap<String, Object> map = new HashMap<>();
+		String id = (String) session.getAttribute("id");
+		if(g_code == 0)	{
+			map.put("upic", gMapper.upic(id));
+			System.out.println(map);
+			return map;
+		}else{
+			map.put("gpic", gMapper.gread(g_code));
+			System.out.println(map);
+			return map;
+		}
+		
 	}
 	
 	// 달력에 내가 원하는 정보 값을 보내준다.

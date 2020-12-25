@@ -107,15 +107,15 @@
   transform: translateY(-7px);
 }
 
-.memo{
-   position: fixed;
-   width:700px;
-   padding:25px;
-   height:600px;
-   border-radius: 20px;
-   background-color: rgba(225,225,225,0.5);
-   box-shadow: 10px 14px 28px rgba(0,0,0,0.25),5px 10px 10px 10px rgba(0,0,0,0.22);
-   margin-left: 580px;
+.memo {
+    position: fixed;
+    width: 600px;
+    padding: 25px;
+    height: 600px;
+    border-radius: 20px;
+    background-color: rgba(225,225,225,0.5);
+    box-shadow: 10px 14px 28px rgba(0,0,0,0.25), 5px 10px 10px 10px rgba(0,0,0,0.22);
+    margin-left: 660px;
 }
 
 .memo2{
@@ -186,7 +186,7 @@
 .btncl{
    position: absolute;
     right: 2rem;
-    top: 44.5rem;
+    top: 45.5rem;
     width: 5rem;
     height: 2rem;
     width: 140px;

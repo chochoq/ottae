@@ -31,10 +31,10 @@
 
 /*Resize the wrap to see the search bar change!*/
 .wrap {
-	width: 30%;
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, -50%);
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .select2 {

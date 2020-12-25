@@ -27,49 +27,7 @@
 <div style="overflow:hidden; ">
       <div class="container3">
          <input type="hidden" id="id" value="${id}"> 
-         <input type="hidden" id="hidden" value="0">
-         <div class="schedule-Top">
-            <select id="joinedGroup"></select>
-            <script id="temp_g_code" type="text/x-handlebars-template">
-           <option value="0">개인일정</option>
-             {{#each .}}
-                 <option value="{{g_code}}">{{g_name}}</option>
-            {{/each}}
-             </script>
-            <!-- 인원 추가하기  -->
-            <div id="searchUser">    
-            	          
-               <div id="popup" class="popup_overlay">
-                     <div class="popup">
-                        <h2>인원추가</h2>
-                        <a class="close" href="#" id="close">&times;</a>
-                        <input type="text" id="query" placeholder="아이디를 검색하시오">
-                        <span><button id="search" class="btnUserse">검색</button></span>
-                        <table id="result" class="resultUser"></table>
-                        <script id="tempResult" type="text/x-handlebars-template">
-                         <table class="schedTable">
-                         <tr style="margin-bottom: 15px;">
-                            <th class="s_ck">체크</th>
-                            <th class="s_name">이름</th>
-                            <th class="s_pid">아이디</th>
-                         </tr>
-                      </table> 
-                        {{#each .}}                            
-                            <tr style="margin-bottom: 15px;">
-                            <td><input type="checkbox" value="{{id}}" name="selectedMember"></td>
-                            <td class="s_name">{{name}}</td>
-                            <td class="s_pid">{{id}}</td>
-                         </tr>                               
-                        {{/each}}
-                        </script>
-                        <button class="bubbly-button" id="complete" >완료</button>
-                     </div>
-               </div>
-            </div>
-         </div>       
-
-   
-         
+         <input type="hidden" id="hidden" value="0">       
         <!-- 일자 클릭시 메뉴오픈 -->
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
@@ -185,11 +143,50 @@
         <!-- /.filter panel -->
     </div>
     </div>
-    <div style="float:left;  margin-top: 270px;  margin-left: 80px; ">
+    <div style="float:left;  margin-top: 160px;  margin-left: 80px; ">
+     <div class="schedule-Top">
+            <select id="joinedGroup"></select>
+            <script id="temp_g_code" type="text/x-handlebars-template">
+           <option value="0">개인일정</option>
+             {{#each .}}
+                 <option value="{{g_code}}">{{g_name}}</option>
+            {{/each}}
+             </script>
+            <!-- 인원 추가하기  -->
+            <div id="searchUser">              
+               <div id="popup" class="popup_overlay">
+                     <div class="popup">
+                        <h2>인원추가</h2>
+                        <a class="close" href="#" id="close">&times;</a>
+                        <input type="text" id="query" placeholder="아이디를 검색하시오">
+                        <span><button id="search" class="btnUserse">검색</button></span>
+                        <table id="result" class="resultUser"></table>
+                        <script id="tempResult" type="text/x-handlebars-template">
+                         <table class="schedTable">
+                         <tr style="margin-bottom: 15px;">
+                            <th class="s_ck">체크</th>
+                            <th class="s_name">이름</th>
+                            <th class="s_pid">아이디</th>
+                         </tr>
+                      </table> 
+                        {{#each .}}                            
+                            <tr style="margin-bottom: 15px;">
+                            <td><input type="checkbox" value="{{id}}" name="selectedMember"></td>
+                            <td class="s_name">{{name}}</td>
+                            <td class="s_pid">{{id}}</td>
+                         </tr>                               
+                        {{/each}}
+                        </script>
+                        <button class="bubbly-button" id="complete" >완료</button>
+                     </div>
+               </div>
+            </div>
+         </div>
         <div style="width: 250px; height:250px;">
-            <div>
-                 <img src="display?fileName=${g_pic}" id = "g_pic" style="width: 248px; height:250px;">  
+          	<div>
+                <img src="http://placehold.it/150x120" id="image" style="width: 248px; height:250px;">  
             </div>  
+	
         </div>
         <div class="" style="width: 250px; margin-top:25px;">                
                 <p for="calendar_view" style="text-align:center; font-size:20px;">등록자별</p>
@@ -209,8 +206,8 @@
                 {{/each}}
                 </script>                                      
                 </div>
-        </div>
-        <input type="button" value="인원추가" onClick="location.href='#popup'" class="btnschedule" id="btnAddmember">
+                <input type="button" value="인원추가" onClick="location.href='#popup'" class="btnschedule">
+        </div>       
         </div>
         <div><jsp:include page="footer.jsp"/></div>      
     <!-- /.container -->
@@ -227,27 +224,22 @@
     <script src="${path}/resources/js/etcSetting.js"></script>
 </body>
 <script>
-	var g_pic = $("#g_pic").val();
+	image();
 	
-	alert(g_pic);
-	
-	getimage();
-	
-	function getimage(){
-		$.ajax({
-			type:"get",
-			url:"g_pic",
-			data:{"g_code":563},
-			success:function(){
-				alert("성공");
-			}
-			
-		});
+	function image(){
+	$.ajax({
+		type:"get",
+		url:"g_pic",
+		data:{"g_code":0},
+		success:function(data){
+			$("#image").attr("src", "display?fileName=" + data.upic.image);
+		}
+	});
 	}
+
    chk();
    $(document).ready(function(){
       $("#searchUser").hide(); 
-      $("#btnAddmember").hide(); 
       var $header = $('header');
          var $services = $('.services');
          $(window).scroll(function(){
@@ -328,6 +320,14 @@
          var selectG_code = $("#joinedGroup").val();
          g_code = selectG_code;
           if(selectG_code != "0"){
+        	 $.ajax({
+             	type : "get",
+             	url : "g_pic",
+             	data:{"g_code":selectG_code},
+             	success:function(data){
+             		$("#image").attr("src", "display?fileName=" + data.gpic.g_pic);
+             	}
+             });
              // 필터링 할 member를 가져온다. 
              $.ajax({
                  type :"get",
@@ -335,23 +335,32 @@
                 dataType : "json",
                 data : {"g_code" : selectG_code},
                 success : function(data){
-                    var temp = Handlebars.compile($("#temp1").html());
-                    $("#joinedMember").html(temp(data));
-                    $("#hidden").val(selectG_code);
-                    $('#calendar').fullCalendar('removeEvents');
-					$('#calendar').fullCalendar('refetchEvents');
+                     var temp = Handlebars.compile($("#temp1").html());
+                      $("#joinedMember").html(temp(data));
+                      $("#hidden").val(selectG_code);
+                      $('#calendar').fullCalendar('removeEvents');
+                   $('#calendar').fullCalendar('refetchEvents');
                    
-                   	$(document).ready(function(){
-                    	$(".filter").change(function(){
-                        	$('#calendar').fullCalendar('removeEvents');
-                        	$('#calendar').fullCalendar('refetchEvents');
-                    	})
-                	});  
-                	$("#searchUser").show();
-                	$("#btnAddmember").show();
+                   $(document).ready(function(){
+                       $(".filter").change(function(){
+                          $('#calendar').fullCalendar('removeEvents');
+                          $('#calendar').fullCalendar('refetchEvents');
+                       })
+                   });  
+                   
+                   $("#searchUser").show();
+                   
                 }
-	        });
+             });
         }else{
+        	$.ajax({
+             	type : "get",
+             	url : "g_pic",
+             	data:{"g_code":selectG_code},
+             	success:function(data){
+             		$("#image").attr("src", "display?fileName=" + data.upic.image);
+             	}
+             });
            var id = $("#id").val();
             var str = "<label class='checkbox-inline'><input class='filter' type='checkbox'";
             str += " value='" + id +"' checked>개인일정</label>" ;
@@ -364,7 +373,7 @@
             
             
             $("#searchUser").hide();
-            $("#btnAddmember").hide();
+            
          }
       })   
       
@@ -396,7 +405,7 @@
                 url : "addMembers",
                 data : {"g_code" : g_code, "gu_pwchk" :gu_pwchk,"id":id},
                 success : function(){
-                   alert("초대가 완료되었습니다.");
+                   alert("완료");
                    $("#query").val("");
                    $("#result").html("검색결과 없음");
                    var selectG_code = $("#joinedGroup").val();

@@ -12,7 +12,8 @@
 <body>
 	<div><jsp:include page="menu.jsp" /></div>
 	<!-- 전체 페이지 시작  -->
-	<div id="div_contents" class="contents" style="padding: 80px 80px 80px 80px;">
+	<div class="mainpages">
+	<div id="div_contents" class="contents">
 		<!-- 공지영역&목록 영역 전체 -->
 		<div class="board_wrap01">
 			<!-- 왼쪽 메뉴 -->
@@ -85,6 +86,7 @@
 		<!-- 하단영역 끝 -->
 	</div>
 	<!-- 전체 페이지 끝  -->
+	</div>
 	<div><jsp:include page="footer.jsp" /></div>
 </body>
 <script>
@@ -147,7 +149,7 @@
 				$("#clupMain").html(temp(data));
 				$("#total").html(data.pm.totalCount);
 				
-				if(data.pm.totalCount==0){
+				if(data.pm.totalCount=='0'){
 		        	$("#result").html("검색결과가 없습니다");
 		        }
 								

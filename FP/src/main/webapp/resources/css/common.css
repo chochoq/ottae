@@ -59,7 +59,10 @@ h1,h2,h3,h4,h5,h6 {
 
 /* LAYOUT */
 /*12-18*/
-.container {width:1170px; margin: 0 auto;}
+.container {
+    width: 1100px;
+    margin: 0 auto;
+}
 .my_container { width:1800px; margin: 0 auto;}
 /* COMMON ELEMONTS */
 

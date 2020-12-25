@@ -24,4 +24,7 @@
       	delete from tbl_group where g_code = #{g_code}
    	</delete>
 	
+	<select id = "upic"	resultType = "com.example.domain.UserVO">
+		select * from tbl_user where id = #{id}
+	</select>
 </mapper>

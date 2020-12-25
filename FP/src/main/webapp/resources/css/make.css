@@ -217,8 +217,16 @@
    border-bottom: 1px solid #eaeaea;
    text-align: left;
    vertical-align: top
+   
 }
-
+.CreateCafe th .makeClupH2{
+    margin-top: 19px;
+	font-size: 15px;
+	margin-left: 5px;
+	font-weight: bold;
+	text-shadow: 0 0 1px #000;
+	width: 100px;
+}
 .CreateCafe .input_title {
    position: relative;
    display: block;
@@ -1142,3 +1150,39 @@
     height: 30px;
     width: 205px;
 }
+
+@media screen and (max-width:768px){
+.CreateCafe .cafe_name .input_txt {
+    width: 300px;
+}
+.title_input {
+    display: block;
+    width: 300px;
+    min-height: 200px;
+    padding: 11px 12px 10px;
+    border: 1px solid #ebecef;
+    box-sizing: border-box;
+    overflow: hidden;
+    resize: none;
+    word-break: break-all;
+    font-size: 15px;
+    letter-spacing: -.23px;
+    line-height: 17px;
+    outline: none;
+    margin-top: 15px;
+}
+
+.buttonMake {
+    margin-left: 190px;
+    margin-top: 20px;
+}
+.CreateCafe .cafe_name .input_txt {
+    width: 300px;
+}
+.buttonMake {
+    margin-left: 190px;
+    margin-top: 20px;
+}
+}
+
+

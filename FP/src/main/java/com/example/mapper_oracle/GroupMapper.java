@@ -18,6 +18,8 @@ public interface GroupMapper {
 	
 	public GroupVO gread(int g_code);
 	
+	public UserVO upic(String id);
+	
 	//마스터 유저 삭제
 	public void deletegroup(int g_code);
 	

@@ -19,16 +19,20 @@
 #joinedGroup{
     background: #FFFFF8;
     height: 60px;
-    border-style: none;
-    border: none;
+    /* border-style: none; */
+    /* border: none; */
     cursor: pointer;
     text-align: center;
     font-size: 28px;
     -webkit-appearance: none;
     margin: auto;
     list-style: none;
-     
+    margin-bottom: 15px;
+    border: 2px solid lightsteelblue;
+    border-radius: 10px;
 }
+     
+
 
 .btnschedule{
    width: 100px;
@@ -45,7 +49,7 @@
    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
    transition: all 0.3s ease 0s;
    cursor: pointer;
-   margin-left: 230px;
+   margin-left: 150px;
    margin-top: 25px;
 }
 
@@ -185,8 +189,8 @@ text-align: center;}
 text-align: center;}
 
 .schedTable{
-   margin: auto;
-   text-align:center; 
+	margin: auto;
+	text-align:center; 
 }
 
 
@@ -209,4 +213,4 @@ text-align: center;}
 }
 tr:nth-of-type(odd) { 
    background: #eee; 
-}   
+}	

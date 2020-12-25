@@ -1691,3 +1691,728 @@ font-weight : bold;
    width: 120px;
 }
 /**/
+
+/* 위스1800 변경 */
+	.board_common01.notice li dl {
+    width: 360px;
+    height: 30px;
+    overflow : hidden ;
+	}
+@media screen and (max-width:1800px){
+	.all_page3 {
+	width: 1080px;
+	margin-left: 340px;
+	padding: 30px 10px 680px 10px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 760px;
+    margin-left: 670px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 760px;
+	margin-left: 670px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+}
+/* 위스1800 변경 */
+
+/* 위스1600 변경 */
+@media screen and (max-width:1600px){
+	.all_page3 {
+	width: 1080px;
+	margin-left: 240px;
+	padding: 30px 10px 680px 10px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 760px;
+    margin-left: 575px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 760px;
+	margin-left: 575px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+}
+/* 위스1600 변경 */
+
+/* 위스1400 변경 */
+@media screen and (max-width:1400px){
+	.all_page3 {
+	width: 1080px;
+	margin-left: 160px;
+	padding: 30px 10px 680px 10px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 760px;
+    margin-left: 490px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 760px;
+	margin-left: 490px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+}
+/* 위스1400 변경 */
+
+/* 위스1300 변경 */
+@media screen and (max-width:1300px){
+	.all_page3 {
+	width: 1080px;
+	margin-left: 90px;
+	padding: 30px 10px 680px 10px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 760px;
+    margin-left: 420px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 760px;
+	margin-left: 420px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+}
+/* 위스1300 변경 */
+
+/* 위스1200 변경 */
+@media screen and (max-width:1200px){
+	.all_page3 {
+	width: 1100px;
+	margin-left: 30px;
+	padding: 30px 10px 680px 10px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 760px;
+    margin-left: 360px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 760px;
+	margin-left: 360px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+}
+/* 위스1200 변경 */
+
+/* 위스1150 변경 */
+@media screen and (max-width:1150px){
+	.all_page3 {
+    width: 1050px;
+    margin-left: 30px;
+    padding: 30px 10px 680px 10px;
+	}
+	.right-top{
+	right: auto;
+	top: 1485px;
+	width: 700px;
+	height: 275px;
+	}
+	.right-botton{
+    right: auto;
+    top: 1485px;
+    width: 700px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 700px;
+    margin-left: 360px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 700px;
+	margin-left: 360px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+	.board_common01.notice li dl {
+    width: 300px;
+    height: 30px;
+    overflow : hidden ;
+	}
+	.board_common01.notice li {
+    list-style: none;
+    height: 50px;
+    width: 580px;
+    border-bottom: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.6);
+    margin-bottom: 1px;
+    padding: 0 0 0 123px;
+    transition: all 0.3s ease 0s;
+	}
+	.all_page2 {
+    width: 1050px;
+    margin: 0px auto;
+    padding: 30px 10px 1000px 10px;
+	}
+	.right_page {
+    margin: 20px 15px 5px 5px;
+    float: right;
+    width: 700px;
+    height: 300px;
+	}
+}
+/* 위스1150 변경 */
+
+/* 위스1100 변경 */
+@media screen and (max-width:1100px){
+	.right-top{
+	right: auto;
+	top: 1485px;
+	width: 660px;
+	height: 275px;
+	}
+	.right-botton{
+    right: auto;
+    top: 1485px;
+    width: 660px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 660px;
+    margin-left: 360px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 660px;
+	margin-left: 360px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+	.board_common01.notice li {
+    list-style: none;
+    height: 50px;
+    width: 540px;
+    border-bottom: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.6);
+    margin-bottom: 1px;
+    padding: 0 0 0 123px;
+    transition: all 0.3s ease 0s;
+	}
+	.all_page2 {
+    width: 1000px;
+    margin: 0px auto;
+    padding: 30px 10px 1000px 10px;
+	}
+	.right_page {
+    margin: 20px 15px 5px 5px;
+    float: right;
+    width: 680px;
+    height: 300px;
+	}
+	.all_page3 {
+    width: 1000px;
+    margin-left: 30px;
+    padding: 30px 10px 680px 10px;
+}
+}
+/* 위스1100 변경 */
+
+/* 위스1050 변경 */
+@media screen and (max-width:1050px){
+	.right-top{
+	right: auto;
+	top: 1485px;
+	width: 620px;
+	height: 275px;
+	}
+	.right-botton{
+    right: auto;
+    top: 1485px;
+    width: 620px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 620px;
+    margin-left: 360px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 620px;
+	margin-left: 360px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+	.board_common01.notice li dl {
+    width: 250px;
+    height: 30px;
+    overflow : hidden ;
+	}
+	.board_common01.notice li {
+    list-style: none;
+    height: 50px;
+    width: 500px;
+    border-bottom: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.6);
+    margin-bottom: 1px;
+    padding: 0 0 0 123px;
+    transition: all 0.3s ease 0s;
+	}
+	.all_page2 {
+    width: 950px;
+    margin: 0px auto;
+    padding: 30px 10px 1000px 10px;
+	}
+	.all_page3 {
+    width: 950px;
+    margin-left: 30px;
+    padding: 30px 10px 680px 10px;
+	}
+	.right_page {
+    margin: 20px 15px 5px 5px;
+    float: right;
+    width: 630px;
+    height: 300px;
+	}
+}
+/* 위스1050 변경 */
+
+/* 위스1000 변경 */
+@media screen and (max-width:1000px){
+	.right-top{
+	right: auto;
+	top: 1485px;
+	width: 580px;
+	height: 275px;
+	}
+	.right-botton{
+    right: auto;
+    top: 1485px;
+    width: 580px;
+	}
+	.all_page3 {
+	width: 900px;
+	margin-left: 10px;
+	padding: 30px 10px 680px 10px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 580px;
+    margin-left: 340px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 580px;
+	margin-left: 340px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+	.id {
+   width: 15%;
+	}
+	.board_common01.notice li dl {
+    width: 200px;
+    height: 30px;
+    overflow : hidden ;
+	}
+	.board_common01.notice li {
+    list-style: none;
+    height: 50px;
+    width: 460px;
+    border-bottom: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.6);
+    margin-bottom: 1px;
+    padding: 0 0 0 123px;
+    transition: all 0.3s ease 0s;
+	}
+	.all_page2 {
+    width: 900px;
+    margin: 0px auto;
+    padding: 30px 10px 1000px 10px;
+	}
+	.all_page3 {
+    width: 900px;
+    margin-left: 30px;
+    padding: 30px 10px 680px 10px;
+	}
+	.right_page {
+    margin: 20px 15px 5px 5px;
+    float: right;
+    width: 580px;
+    height: 300px;
+	}
+}
+/* 위스1000 변경 */
+
+/* 위스950 변경 */
+@media screen and (max-width:950px){
+	.all_page2 {
+    width: 850px;
+    margin: 0px auto;
+    padding: 30px 10px 1000px 10px;
+	}
+	.all_page3 {
+    width: 850px;
+    margin-left: 30px;
+    padding: 30px 10px 680px 10px;
+	}
+	.right_page {
+    margin: 20px 15px 5px 5px;
+    float: right;
+    width: 550px;
+    height: 300px;
+	}
+	.right-top{
+	right: auto;
+	top: 1485px;
+	width: 540px;
+	height: 275px;
+	}
+	.right-botton{
+    right: auto;
+    top: 1485px;
+    width: 540px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 540px;
+    margin-left: 340px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 540px;
+	margin-left: 340px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+	.tel {
+    width: 25%;
+	}
+	.board_common01.notice li {
+    list-style: none;
+    height: 50px;
+    width: 420px;
+    border-bottom: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.6);
+    margin-bottom: 1px;
+    padding: 0 0 0 123px;
+    transition: all 0.3s ease 0s;
+	}
+	.board_common01.notice li dl {
+    width: 130px;
+    height: 30px;
+    overflow : hidden ;
+	}
+}
+/* 위스950 변경 */
+
+/* 위스900 변경 */
+@media screen and (max-width:900px){
+	.all_page2 {
+    width: 800px;
+    margin: 0px auto;
+    padding: 30px 10px 1000px 10px;
+	}
+	.all_page3 {
+    width: 800px;
+    margin-left: 30px;
+    padding: 30px 10px 680px 10px;
+	}
+	.right_page {
+    margin: 20px 15px 5px 5px;
+    float: right;
+    width: 500px;
+    height: 300px;
+	}
+	.right-top{
+	top: 1485px;
+	width: 500px;
+	height: 275px;
+	}
+	.right-botton{
+    right: auto;
+    top: 1485px;
+    width: 500px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 500px;
+    margin-left: 340px;
+    margin-top: 70px;
+	}
+	.listUser2 {
+	width: 500px;
+	margin-left: 340px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+	.board_common01.notice li {
+    list-style: none;
+    height: 50px;
+    width: 380px;
+    border-bottom: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.6);
+    margin-bottom: 1px;
+    padding: 0 0 0 123px;
+    transition: all 0.3s ease 0s;
+	}
+	.board_common01.notice li dl {
+    width: 130px;
+    height: 30px;
+    overflow: hidden;
+    margin-left: 0;
+	}
+	
+}
+/* 위스900 변경 */
+
+/* 위스500 움직임 */
+@media screen and (max-width:500px){
+	.c_Information td {
+		width: 50%;
+		border: 0px solid #dbdbdb;
+		padding: 20px 5px 0px 5px;
+		font-size: 10px;
+	}
+	/*왼쪽 상단*/
+	.up_left_page {
+	   float: left;
+	   margin:80px 5px 5px 15px;
+	   width: 100px;
+	   height: 200px;
+	}
+	.right_page {
+    margin: 20px 15px 5px 5px;
+    float: right;
+    width: 300px;
+    height: 300px;
+	}
+	.down_left_page {
+    border-bottom: 1px solid #d3d3d3;
+    float: left;
+    margin: 70px 5px 5px 15px;
+    width: 100px;
+    height: 350px;
+	}
+	.Kategorie {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+	}
+	.Kategorie li {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: auto;
+    list-style: none;
+    position: relative;
+	}
+	.down_left_page .Kategorie li button {
+    background: none !important;
+    width: 100px;
+    height: 30px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 15px;
+    border: 0px;
+	}
+	.down_left_page .Kategorie li button:HOVER {
+	    color: #000000;
+	    text-decoration: none;
+	    font-size: 15px;
+	    font-weight: bold;
+	    border: 0px;
+	}
+	.down_left_page {
+    border-bottom: 1px solid #d3d3d3;
+    float: left;
+    margin: 70px 5px 5px 15px;
+    width: 100px;
+    height: 220px;
+	}
+	.board_common01.notice li .type {
+	display: none;
+	}
+	.board_common01.notice li dl {
+	margin-block-start: 0em;
+    margin-block-end: 0em;
+    width: 240px;
+    height: 30px;
+    overflow : hidden ;
+	}
+	.board_common01.notice li p {
+	margin-top: 20px;
+	margin-right: 20px;
+	}
+	.board_common01 .m_title:HOVER {
+	font-size :15px;
+    font-weight: bold;
+	}
+	.board_common01.notice li {
+    list-style: none;
+    height: 60px;
+    width: 260px;
+    border-bottom: none;
+    border-bottom: 1px solid rgba(196, 196, 196, 0.6);
+    margin-bottom: 1px;
+    padding: 0 0 0 10px;
+    transition: all 0.3s ease 0s;
+	}
+	.right-botton {
+    overflow: hidden;
+    right: auto;
+    top: 1485px;
+    width: 270px;
+    height: 340px;
+	}
+	.right-top {
+    right: auto;
+    top: 1485px;
+    width: 270px;
+	}
+	.all_page2 {
+    width: 500px;
+    height: 0;
+    margin: 0px auto;
+    padding: 30px 10px 1000px 10px;
+	}
+	.all_page3 {
+	width: 500px;
+	margin-left: 0px;
+	padding: 30px 10px 630px 0px;
+	}
+	.mainTitle2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    border-bottom: 3px solid rgba(196, 196, 196, 1);
+    width: 450px;
+    margin-left: 20px;
+    margin-top: 10px;
+	}
+	.listUser2 {
+    width: 450px;
+    margin-left: 20px;
+    margin-top: 7px;
+    border-bottom: 1px solid #d3d3d3;
+	}
+	.page_wrap2 {
+    text-align: center;
+    font-size: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+	}
+	.mainImg {
+    width: 500px;
+    height: 300px;
+    margin-bottom: 0px;
+	}
+	.right-top .board_common01 ul{
+	padding-inline-start: 0px;
+    height: 190px;
+    overflow: hidden;
+	}
+	.all_page2 .button {
+    float: right;
+    margin-top: 20px;
+    margin-right: 27px;
+	}
+	.all_page2 .right_title {
+    font-size: 30px;
+    margin: 5px;
+	}
+	.all_page2 .down_left_page {
+    border-bottom: 1px solid #d3d3d3;
+    float: left;
+    margin: 30px 5px 5px 15px;
+    width: 100px;
+    height: 260px;
+	}
+	
+	.right_page2 {
+    margin: 20px 640px 5px 5px;
+    float: right;
+    width: 250px;
+    padding: 29px 29px 0;
+    border: 1px solid rgba(196, 196, 196, 1);
+    border-radius: 6px;
+    font-size: 14px;
+}
+.cnUpdate {
+    width: 60px;
+    height: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+.submit {
+    width: 60px;
+    height: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-left: 120px;
+}
+.reset {
+    width: 60px;
+    height: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+}
+/* 위스500 움직임 */

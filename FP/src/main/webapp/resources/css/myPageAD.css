@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.mainpages{
+    margin: 80px 80px 80px 80px; 
+}
+
 a {
     color: #797979;
 }
@@ -145,7 +149,7 @@ tr:nth-of-type(odd) {
 .k_name {width: 35%;}
 .tel {width: 20%;}
 .kategorie {width: 15%;}
-.email {}
+.email {width:15%;}
 .del_button {width: 10%;}
 
 /* 컬럼의 정렬 */
@@ -375,7 +379,7 @@ tr:nth-of-type(odd) {
 
 .del_all2{
    position: absolute;
-    right: 29.4rem;
+    right: 31.5rem;
     top: 3rem;
     line-height: 30px;
     background-color: #005aab;
@@ -468,4 +472,66 @@ tr:nth-of-type(odd) {
 	text-align: center;
     margin: auto;
     margin-top: 15px;
+}
+
+@media screen and (max-width:768px){
+	.sub_sps_sch {
+    text-align: center;
+    }   
+    .board_ty_list ul {
+    position: absolute;
+    left: -3rem;
+    top: 5.2rem;
+    letter-spacing: -1px;
+    }
+    .clupMain2 {
+    margin-left: 70px;
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 50px;
+   }  
+   .page_wrap {
+    text-align: center;
+    font-size: 0;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 90px;
+   }
+   .del_all2 {
+    position: absolute;
+    right: -1.5rem;
+    top: 2.5rem;
+    line-height: 30px;
+    background-color: #005aab;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    }   
+    .mainpages{
+    margin-left:50px;
+    margin-right:50px; 
+    }
+    .clupMain {
+    transform: translateX(17%);
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 50px;
+    }
+    .del_all {
+    position: absolute;
+    right: -3rem;
+    top: 3rem;
+    line-height: 30px;
+    background-color: #005aab;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}  
+u_email{width:50px; }
 }

@@ -15,36 +15,36 @@
 <body>
 <div><jsp:include page="menu.jsp" /></div>
 <p class="clupTitle">공지사항</p>
-	<div id="div_contents" class="contents2">
-		<div class="board_wrap01">
-			<div class="board_ty_list">
-				<ul>
-					<li><a href="notice">공지사항</a></li>
-					<li><a href="event">이벤트</a></li>
-					<li><a href="QnA">Q&A</a></li>
-				</ul>
-			</div>	
-			<div class="textbox">
-			   <div class="titler" >
-			       <div class="title_read" style="height: 50px;">${nvo.n_title}</div>
-			       <div class="title_time"><fmt:formatDate  value="${nvo.n_regdate}" pattern="yyyy-MM-dd"/></div>
-			   </div>
-			   <div class="cont">
-			       <div  class="cont_read" style="height: 40px;overflow-y:visible">
-						${nvo.n_content}
-					</div>
-			   </div> 
-			   <a id="return"><button class="btnReturn">목록</button></a>
-			</div>	
-		</div>	
-	</div>
+   <div id="div_contents" class="contents2">
+      <div class="board_wrap01">
+         <div class="board_ty_list">
+            <ul>
+               <li><a href="notice">공지사항</a></li>
+               <li><a href="event">이벤트</a></li>
+               <li><a href="QnA">Q&A</a></li>
+            </ul>
+         </div>   
+         <div class="textbox">
+            <div class="titler" >
+                <div class="title_read" style="height: 50px;">${nvo.n_title}</div>
+                <div class="title_time"><fmt:formatDate  value="${nvo.n_regdate}" pattern="yyyy-MM-dd"/></div>
+            </div>
+            <div class="cont">
+                <div  class="cont_read" style="height: 40px;overflow-y:visible">
+                  ${nvo.n_content}
+               </div>
+            </div> 
+            <a id="return"><button class="btnReturn">목록</button></a>
+         </div>   
+      </div>   
+   </div>
 <div><jsp:include page="footer.jsp" /></div>
 </body>
 <script>
 $(document).ready(function() {
-	$("#return").click(function(){				
-		window.history.back() 		
-	});	    
+   $("#return").click(function(){            
+      window.history.back()       
+   });       
 });
 </script>
 </html>

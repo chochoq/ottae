@@ -38,7 +38,7 @@
             font-size: 20px;
         }
         /*Resize the wrap to see the search bar change!*/
-        .wrap {
+        .wrap2 {
             width: 30%;
             margin: auto;
             margin-top: 150px;
@@ -101,7 +101,7 @@
       <!-- 내가 가입한  동아리 -->
        <c:if test="${not empty myList}"> 
          <div  class="detail" style="font-size:40px; margin-top:80px; margin-bottom:50px;"><h1>가입한동아리</h1></div>    
-               <div class="swiper-container2">
+               <div class="swiper-container2" >
                   <div class="swiper-wrapper">
                      <!-- Slides  넣을곳 -->
                         <c:forEach items="${myList}" var="mylist">
@@ -122,7 +122,7 @@
             </div>
          </c:if>
          <!-- 검색 -->
-         <div class="wrap">   
+         <div class="wrap2">   
             <div class="search">
                <select class="select2">
                    <option value="c_name">동아리 이름</option>
@@ -150,7 +150,7 @@
                      <td class="m_pid">{{c_pid}}</td>
                      <td class="m_spot">{{c_spot}}</td>
                      <td class="m_category">{{c_category}}</td>
-                     <td class="m_btn"><input type="button" value="이동하기" class="btn_m" onClick="location.href='club_first?c_code={{c_code}}'"></td>
+                     <td class="m_btn"><input type="button" value="이동하기" class="btn_m"></td>
                  </tr>
          {{/each}}
          </script>
@@ -351,7 +351,7 @@
                   slideShadows : false
                // 슬라이더 그림자 : 3D 효과를 강조하기 위한 회전시 흐릿한 효과
             },
-            speed : 500,// 슬라이드 속도 2초
+            speed : 500,// 슬라이드 속도 0.5초
             navigation : {
                   nextEl : '.swiper-button-next', // 다음 버튼 클래스명
                   prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
@@ -406,6 +406,7 @@
    // 동아리 검색 결과를 ajax을 통해 보여준다. 
     $("#btnSearch").on("click",function(){
        keyword = $("#keyword").val();
+       alert(keyword);
        
        getSearchResult();
        
@@ -421,12 +422,14 @@
      
      //검색 결과를 가져오는 기능을 하는 함수를 만든다.
    function getSearchResult(){
+        alert(page + keyword);
         $.ajax({
           type : "get",
          url : "searchcir",
          data : {"keyword":keyword,"page":page},
          dataType : "json",
          success:function(data) {
+            alert("..........");
             var temp=Handlebars.compile($("#temp").html());
                  $("#searchResult").html(temp(data));
                  

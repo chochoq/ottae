@@ -91,9 +91,9 @@
        <div class="inner-footer">
            <div class="social-links"> 
               <ul>
-                    <li class="social-items"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                    <li class="social-items"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li class="social-items"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li class="social-items"><a href="https://www.facebook.com/groups/193679545790819/"><i class="fab fa-facebook-square"></i></a></li>
+                    <li class="social-items"><a href="https://twitter.com/20_OTTAE?s=09"><i class="fab fa-twitter"></i></a></li>
+                    <li class="social-items"><a href="https://www.instagram.com/20_ottae/"><i class="fab fa-instagram"></i></a></li>
                     <li class="social-items"><a href="#"><i class="fab fa-tumblr-square"></i></a></li>
                </ul>
               </div>             
