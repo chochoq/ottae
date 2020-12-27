@@ -38,6 +38,7 @@
             </table>
             <div id="btnJoin"></div>
          </div>
+         
       <div class = "right_page">
          <h2 class = "right_title">회원관리</h2>         
            <!-- 회원 리스트 -->

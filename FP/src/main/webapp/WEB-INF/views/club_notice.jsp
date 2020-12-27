@@ -38,7 +38,7 @@
 			</table>
 			<div id="btnJoin"></div>
 		</div>	
-<!-- 공지사항 부분 -->
+		<!-- 공지사항 부분 -->
 		<div class="right_page">
 			<h2 class="right_title">공지사항</h2>
 			<div class="button">
@@ -74,7 +74,8 @@
 				<div class="page_nation" id="page_nation"></div>
 			</div>
 		</div>
-<!-- 공지사항 부분 끝 -->
+		<!-- 공지사항 부분 끝 -->
+		
 		<div class="down_left_page">
 			<p class="mainTitle">메뉴</p>
 			<ul class="Kategorie">
@@ -87,6 +88,7 @@
 				<li>
 					<button onClick="location.href='club_board?c_code=${c_code}'" class="c_free">자유게시판</button>
 				</li>
+				
 				<c:if test="${clubMaster == 1}">
 					<li>
 						<button onClick="location.href='club_user'" class="c_notice">회원관리</button>
@@ -100,50 +102,52 @@
 	</div>
 	<div><jsp:include page="footer.jsp" /></div>
 </body>
-<script>
-var page=1;
-getList();
-function getList(){
-	$.ajax({
-    	type:"get",
-        url:"noticePageList",
-        data:{"page":page},
-        dataType:"json",
-		success:function(data){
-           	var temp=Handlebars.compile($("#temp").html());
-           	$("#noticeList").html(temp(data));
-		
-           	var str="";
-           	var endPage=0;
-           	if(data.pm.prev){
-           		str += "<a  class='arrow pprev' href='1'></a>";
-                str += "<a  class='arrow prev' href='"+ (data.pm.startPage-1) +"'></a>"
-	        }       
-           	for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
-                 if(page==i){
-                    str += "<a href='"+ i +"' class='active'>" + i +"</a>";
-                    endpage=i;
-                 }else{
-                    str += "<a href='"+ i +"'>" + i +"</a>";
-                    endpage=i;
-                 }
-			}
-       		if(data.pm.next){
-       			str += "<a  class='arrow pprev' href='"+endpage+"'></a>";
-                str += "<a  class='arrow next' href='"+(data.pm.endPage+1)+"'></a>";
-            }
-       		$("#page_nation").html(str);
-       		
-		}
-  	});
-}
 
-//페이지네이션
-$("#page_nation").on("click","a",function(e){
-    e.preventDefault();
-    page=$(this).attr("href");
-    
-    getCulist();
- });
+<script>
+	var page=1;
+	getList();
+	
+	function getList(){
+		$.ajax({
+	    	type:"get",
+	        url:"noticePageList",
+	        data:{"page":page},
+	        dataType:"json",
+			success:function(data){
+	           	var temp=Handlebars.compile($("#temp").html());
+	           	$("#noticeList").html(temp(data));
+			
+	           	var str="";
+	           	var endPage=0;
+	           	if(data.pm.prev){
+	           		str += "<a  class='arrow pprev' href='1'></a>";
+	                str += "<a  class='arrow prev' href='"+ (data.pm.startPage-1) +"'></a>"
+		        }       
+	           	for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
+	                 if(page==i){
+	                    str += "<a href='"+ i +"' class='active'>" + i +"</a>";
+	                    endpage=i;
+	                 }else{
+	                    str += "<a href='"+ i +"'>" + i +"</a>";
+	                    endpage=i;
+	                 }
+				}
+	       		if(data.pm.next){
+	       			str += "<a  class='arrow pprev' href='"+endpage+"'></a>";
+	                str += "<a  class='arrow next' href='"+(data.pm.endPage+1)+"'></a>";
+	            }
+	       		$("#page_nation").html(str);
+	       		
+			}
+	  	});
+	}
+	
+	//페이지네이션
+	$("#page_nation").on("click","a",function(e){
+	    e.preventDefault();
+	    page=$(this).attr("href");
+	    
+	    getCulist();
+	 });
 </script>
 </html>
