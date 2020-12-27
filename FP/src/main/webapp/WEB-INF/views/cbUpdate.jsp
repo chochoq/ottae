@@ -15,71 +15,75 @@
 	<div><jsp:include page="menu.jsp" /></div>
 	<div class="all_page4">
 		<div>
-			<img id="mainImge" class="mainImg" src="display?fileName=${cvo.c_pic}">		</div>
+			<img id="mainImge" class="mainImg" src="display?fileName=${cvo.c_pic}">
+		</div>
+		
 		<div class="up_left_page">
 			<p class="mainTitle">동아리정보</p>
 			<table class="c_Information">
 				<tr>
-					<td class="c_master"><i class="fas fa-crown"
-						style="font-size: 25px; color: yellow;"></i></td>
+					<td class="c_master">
+					<i class="fas fa-crown" style="font-size: 25px; color: yellow;"></i></td>
 					<td>${cvo.c_pid}</td>
 				</tr>
 				<tr>
-					<td class="c_people"><i class="fas fa-male"
-						style="font-size: 35px; margin-left: 8px; margin-right: 13px;"></i></td>
+					<td class="c_people">
+					<i class="fas fa-male" style="font-size: 35px; margin-left: 8px; margin-right: 13px;"></i></td>
 					<td>${maincount}</td>
 				</tr>
 				<tr>
-					<td class="c_Area"><i class="fas fa-map-marker-alt"
-						style="font-size: 25px; margin-left: 5px; margin-right: 5px;"></i></td>
+					<td class="c_Area">
+					<i class="fas fa-map-marker-alt" style="font-size: 25px; margin-left: 5px; margin-right: 5px;"></i></td>
 					<td>${cvo.c_spot}</td>
 				</tr>
 			</table>
 			<div id="btnJoin"></div>
 		</div>
+		
+		<!-- 글 수정 div -->
 		<div class="right_page2">
-		<form action="cbUpdatePost" method="post" name="frm">
-		   	<input type="hidden" name="cb_no" value="${cbvo.cb_no}">
-		   	
-		   	<div class="head-title">
-				<textarea class="head-title-title" name="cb_title">${cbvo.cb_title}</textarea>
-				<h5 class="head-title-username">${cnvo.id}</h5>
-				<h5 class="head-title-date"><fmt:formatDate  value="${cbvo.cb_regdate}" pattern="yyyy-MM-dd HH:mm:ss"/></h5>
-			</div>
-			<div class="right_page2-cot">
-				<textarea class="right_page2-cot-cot" name="cb_content">${cbvo.cb_content}</textarea>
-			</div>
-			<div class="btncnUpdate">
-			<input type="submit" value="수정" class="cnUpdate"> 
-			<input type="reset" value="취소" class="cnUpdate"> 
-			<input type="button" value="삭제" id="btnDelete" class="cnUpdate">
-			</div>
-		</form>
-		<jsp:include page="cb_reply.jsp"></jsp:include>
-	</div>
+			<form action="cbUpdatePost" method="post" name="frm">
+			   	<input type="hidden" name="cb_no" value="${cbvo.cb_no}">
+			   	
+			   	<div class="head-title">
+					<textarea class="head-title-title" name="cb_title">${cbvo.cb_title}</textarea>
+					<h5 class="head-title-username">${cnvo.id}</h5>
+					<h5 class="head-title-date"><fmt:formatDate  value="${cbvo.cb_regdate}" pattern="yyyy-MM-dd HH:mm:ss"/></h5>
+				</div>
+				<div class="right_page2-cot">
+					<textarea class="right_page2-cot-cot" name="cb_content">${cbvo.cb_content}</textarea>
+				</div>
+				<div class="btncnUpdate">
+				<input type="submit" value="수정" class="cnUpdate"> 
+				<input type="reset" value="취소" class="cnUpdate"> 
+				<input type="button" value="삭제" id="btnDelete" class="cnUpdate">
+				</div>
+			</form>
+			<jsp:include page="cb_reply.jsp"></jsp:include>
+		</div>
 	
-	<div class="down_left_page">
-		<p class="mainTitle">메뉴</p>
-		<ul class="Kategorie">
-			<li>
-				<button onClick="location.href='club_first?c_code=${c_code}'" class="c_notice">동아리 메인</button>
-			</li>
-			<li>
-				<button onClick="location.href='club_notice?c_code=${c_code}'" class="c_notice">공지사항</button>
-			</li>
-			<li>
-				<button onClick="location.href='club_board?c_code=${c_code}'" class="c_free">자유게시판</button>
-			</li>
-			<c:if test="${clubMaster == 1}">
+		<div class="down_left_page">
+			<p class="mainTitle">메뉴</p>
+			<ul class="Kategorie">
 				<li>
-					<button onClick="location.href='club_user'" class="c_notice">회원관리</button>
+					<button onClick="location.href='club_first?c_code=${c_code}'" class="c_notice">동아리 메인</button>
 				</li>
 				<li>
-					<button onClick="location.href='updateClub'" class="c_free">동아리관리</button>
+					<button onClick="location.href='club_notice?c_code=${c_code}'" class="c_notice">공지사항</button>
 				</li>
-			</c:if>
-		</ul>
-	</div>
+				<li>
+					<button onClick="location.href='club_board?c_code=${c_code}'" class="c_free">자유게시판</button>
+				</li>
+				<c:if test="${clubMaster == 1}">
+					<li>
+						<button onClick="location.href='club_user'" class="c_notice">회원관리</button>
+					</li>
+					<li>
+						<button onClick="location.href='updateClub'" class="c_free">동아리관리</button>
+					</li>
+				</c:if>
+			</ul>
+		</div>
 	</div>
 	<div><jsp:include page="footer.jsp" /></div>
 </body>

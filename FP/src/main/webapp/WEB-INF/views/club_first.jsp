@@ -15,39 +15,41 @@
 	<div><jsp:include page="menu.jsp" /></div>
 	<div class="all_page3">
 		<div id="popup" class="popup_overlay">
-      <form action="joinClub" method="post">
-         <div class="popup">
-            <h2>가입신청</h2>
-            <a class="close" href="#">&times;</a>
-            
-            <div class="popup_content">
-               <!-- 개인정보 체크박스 12-18 -->
-               <h3>개인정보 공개</h3>
-               <div class="switch-field">
-                  <input type="radio" id="radio-one" name="cu_pchk" value="y" checked/>
-                  <label for="radio-one">Yes</label>
-                  <input type="radio" id="radio-two" name="cu_pchk" value="n" />
-                  <label for="radio-two">No</label>
-               </div>
-               <!-- 개인정보 체크박스 -->
-               <!-- 즐겨찾기 체크박스 -->
-               <h3>즐겨찾기</h3>
-               <div class="switch-field">
-                  <input type="radio" id="radio-three" name="cu_fchk" value="y" checked/>
-                  <label for="radio-three">Yes</label>
-                  <input type="radio" id="radio-five" name="cu_fchk" value="n" />
-                  <label for="radio-five">No</label>
-               </div>
-               <!-- 즐겨찾기 체크박스 -->
-            </div>
-            <input type="submit" class="ok" value="신청">
-         </div>
-      </form> 
-      </div>
+	      <form action="joinClub" method="post">
+	         <div class="popup">
+	            <h2>가입신청</h2>
+	            <a class="close" href="#">&times;</a>
+	            <div class="popup_content">
+	               <!-- 개인정보 체크박스 시작 -->
+	               <h3>개인정보 공개</h3>
+	               <div class="switch-field">
+	                  <input type="radio" id="radio-one" name="cu_pchk" value="y" checked/>
+	                  <label for="radio-one">Yes</label>
+	                  <input type="radio" id="radio-two" name="cu_pchk" value="n" />
+	                  <label for="radio-two">No</label>
+	               </div>
+	               <!-- 개인정보 체크박스 끝-->
+	               
+	               <!-- 즐겨찾기 체크박스 시작-->
+	               <h3>즐겨찾기</h3>
+	               <div class="switch-field">
+	                  <input type="radio" id="radio-three" name="cu_fchk" value="y" checked/>
+	                  <label for="radio-three">Yes</label>
+	                  <input type="radio" id="radio-five" name="cu_fchk" value="n" />
+	                  <label for="radio-five">No</label>
+	               </div>
+	               <!-- 즐겨찾기 체크박스 끝-->
+	            </div>
+	            <input type="submit" class="ok" value="신청">
+	         </div>
+	      </form> 
+      	</div>
 
 		<div>
 			<img id="mainImge" class="mainImg" src="display?fileName=${cvo.c_pic}">
 		</div>
+		
+		<!-- 동아리정보 -->
 		<div class="up_left_page">
 			<p class="mainTitle">동아리정보</p>
 			<table class="c_Information">
@@ -69,6 +71,7 @@
 			</table>
 			<div id="btnJoin"></div>
 		</div>
+		
 		<div class="right_page">
 		    <div class="right-top">
 			<h2 class="right_title"></h2>
@@ -103,6 +106,7 @@
 				</ul>
 			</div>
 			</div>
+			
 			<div class="right-botton">
 			<div class="button">
 				<button onClick="location.href='createBoard'" class="btn_notice">글쓰기</button>
@@ -134,6 +138,7 @@
 			</div>
 		</div>
 		</div>
+		
 		<div class="down_left_page">
 			<p class="mainTitle">메뉴</p>
 			<ul class="Kategorie">
@@ -154,6 +159,7 @@
 			</ul>
 		</div>
 	</div>
+	
 	<div id="divMaster" clubMaster="${clubMaster}" c_code="${c_code}">
 		<div class="clupApproval">
 			<p class="mainTitle2">승인관리</p>
@@ -176,12 +182,13 @@
 			</tr>
 			{{/each}}
 		</script>  
-			
 		</div>
+		
 	 	<div class="page_wrap2">
 			<div class="page_nation" id="page_nation"></div>		
 		</div>
 	</div>
+	
 	<div><jsp:include page="footer.jsp" /></div>
 </body>
 
@@ -189,107 +196,107 @@
 
 
 <script>
-$("#divMaster").hide(); // Hide
-var page=1;
-var c_code=$("#divMaster").attr("c_code");
 
-
-
-
-getCulist();
-
-$("#tblCulist").on("click","button",function(){
-	var c_code=$(this).attr("c_code");
-   	var cu_id=$(this).attr("cu_id");
-    if(!confirm( cu_id + "님을 승인하시겠습니까?")) return;
-    $.ajax({
-        type:"post",
-        url:"approveCu",
-        data:{"c_code":c_code,"id":cu_id},
-        success:function(){
-           	getCulist();
-        }
-   	});
-});
-
-function getCulist(){
-	var clubMaster=$("#divMaster").attr("clubMaster");
+	$("#divMaster").hide(); // Hide
+	var page=1;
 	var c_code=$("#divMaster").attr("c_code");
-	if(clubMaster == 1){
-		$("#divMaster").show(); //Show
-		$.ajax({
-	    	type:"get",
-	        url:"waitCulist",
-	        data:{"page":page,"c_code":c_code},
-	        dataType:"json",
-			success:function(data){
-	           	var temp=Handlebars.compile($("#temp").html());
-	           	$("#tblCulist").html(temp(data));
-	           	
-	           	var str="";
-	           	if(data.pm.prev){
-	                 str += "<a href='"+ (data.pm.startPage-1) +"'>◀</a>"
-	           	}       
-	           	for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
-	                 if(page==i){
-	                    str += "[<a href='"+ i +"' class='active'>" + i +"</a>]";
-	                 }else{
-	                    str += "[<a href='"+ i +"'>" + i +"</a>]";
-	                 }
+	
+	getCulist();
+	
+	//회원 가입신청 받는다
+	$("#tblCulist").on("click","button",function(){
+		var c_code=$(this).attr("c_code");
+	   	var cu_id=$(this).attr("cu_id");
+	    if(!confirm( cu_id + "님을 승인하시겠습니까?")) return;
+	    $.ajax({
+	        type:"post",
+	        url:"approveCu",
+	        data:{"c_code":c_code,"id":cu_id},
+	        success:function(){
+	           	getCulist();
+	        }
+	   	});
+	});
+	
+	
+	function getCulist(){
+		var clubMaster=$("#divMaster").attr("clubMaster");
+		var c_code=$("#divMaster").attr("c_code");
+		if(clubMaster == 1){
+			$("#divMaster").show(); //Show
+			$.ajax({
+		    	type:"get",
+		        url:"waitCulist",
+		        data:{"page":page,"c_code":c_code},
+		        dataType:"json",
+				success:function(data){
+		           	var temp=Handlebars.compile($("#temp").html());
+		           	$("#tblCulist").html(temp(data));
+		           	
+		           	var str="";
+		           	if(data.pm.prev){
+		                 str += "<a href='"+ (data.pm.startPage-1) +"'>◀</a>"
+		           	}       
+		           	for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
+		                 if(page==i){
+		                    str += "[<a href='"+ i +"' class='active'>" + i +"</a>]";
+		                 }else{
+		                    str += "[<a href='"+ i +"'>" + i +"</a>]";
+		                 }
+					}
+		       		if(data.pm.next){
+		            	str += "<a href='"+ (data.pm.endPage+1) +"'>▶</a>"
+		            }
+		          	$("#page_nation").html(str);
 				}
-	       		if(data.pm.next){
-	            	str += "<a href='"+ (data.pm.endPage+1) +"'>▶</a>"
-	            }
-	          	$("#page_nation").html(str);
-			}
-	  	});
-	}else{
-		$("#btnJoin").show(); //Show
-		$.ajax({
-	    	type:"get",
-	        url:"chkJoin",
-	        dataType:"json",
-			success:function(data){
-				var chk=data;
-				var str="";
-				if(chk== 0){
-					str = "<input type='button' value='가입신청' id='btnJoinClub' class='clupJoin' onClick=location.href='#popup'>"	
-					$("#userManage").hide();
-				}else if(chk==1){
-					str = "<p class='clupjoin2'>승인 대기중인 계정입니다.</p>"	
-					$("#userManage").hide();
-				}else{
-					$("#btnJoin").hide(); // Hide
-					str = ""
+		  	});
+		}else{
+			$("#btnJoin").show(); //Show
+			$.ajax({
+		    	type:"get",
+		        url:"chkJoin",
+		        dataType:"json",
+				success:function(data){
+					var chk=data;
+					var str="";
+					if(chk== 0){
+						str = "<input type='button' value='가입신청' id='btnJoinClub' class='clupJoin' onClick=location.href='#popup'>"	
+						$("#userManage").hide();
+					}else if(chk==1){
+						str = "<p class='clupjoin2'>승인 대기중인 계정입니다.</p>"	
+						$("#userManage").hide();
+					}else{
+						$("#btnJoin").hide(); // Hide
+						str = ""
+					}
+					$("#btnJoin").html(str);
+					
 				}
-				$("#btnJoin").html(str);
-				
-			}
-		});		
-		
+			});		
+			
+		}
 	}
-}
-
-//페이지네이션
-$("#page_nation").on("click","a",function(e){
-    e.preventDefault();
-    page=$(this).attr("href");
-    
-    getCulist();
- });
- 
-//popup
-$(document).ready(function() {
-   $(".x").click(function(){            
-      window.history.back()       
-   });       
-});
-//popup
-$(document).ready(function() {
-   $(".close").click(function(){            
-      window.history.back()       
-   });       
-});
+	
+	$("#page_nation").on("click","a",function(e){
+	    e.preventDefault();
+	    page=$(this).attr("href");
+	    
+	    getCulist();
+	 });
+	 
+	//popup
+	$(document).ready(function() {
+	   $(".x").click(function(){            
+	      window.history.back()       
+	   });       
+	});
+	
+	//popup
+	$(document).ready(function() {
+	   $(".close").click(function(){            
+	      window.history.back()       
+	   });       
+	});
 
 </script>
 </html>

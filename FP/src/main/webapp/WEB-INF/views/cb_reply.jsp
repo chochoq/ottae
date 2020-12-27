@@ -97,7 +97,6 @@
 			success:function(data){
 	           	var temp=Handlebars.compile($("#temp").html());
 	           	$("#divReply").html(temp(data));
-	           	
 				// 내용을 선택하면 삭제 버튼이 나오도록 한다
 				var id = $("#userID").val();
 				var clubMaster = $("#clubMaster").val();
@@ -116,8 +115,6 @@
 						}
 					}
 				})
-	           	
-	           	
 	           	var str="";
 	           	if(data.pm.prev){
 	                 str += "<a href='"+ (data.pm.startPage-1) +"'>◀</a>"

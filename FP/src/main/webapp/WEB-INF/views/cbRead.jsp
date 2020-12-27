@@ -21,18 +21,18 @@
 			<p class="mainTitle">동아리정보</p>
 			<table class="c_Information">
 				<tr>
-					<td class="c_master"><i class="fas fa-crown"
-						style="font-size: 25px; color: yellow;"></i></td>
+					<td class="c_master">
+					<i class="fas fa-crown" style="font-size: 25px; color: yellow;"></i></td>
 					<td>${cvo.c_pid}</td>
 				</tr>
 				<tr>
-					<td class="c_people"><i class="fas fa-male"
-						style="font-size: 35px; margin-left: 8px; margin-right: 13px;"></i></td>
+					<td class="c_people">
+					<i class="fas fa-male" style="font-size: 35px; margin-left: 8px; margin-right: 13px;"></i></td>
 					<td>${maincount}</td>
 				</tr>
 				<tr>
-					<td class="c_Area"><i class="fas fa-map-marker-alt"
-						style="font-size: 25px; margin-left: 5px; margin-right: 5px;"></i></td>
+					<td class="c_Area">
+					<i class="fas fa-map-marker-alt" style="font-size: 25px; margin-left: 5px; margin-right: 5px;"></i></td>
 					<td>${cvo.c_spot}</td>
 				</tr>
 			</table>
@@ -65,6 +65,8 @@
 			<li>
 				<button onClick="location.href='club_board?c_code=${c_code}'" class="c_free">자유게시판</button>
 			</li>
+			
+			<!-- 관리자일때 보이는 메뉴 -->
 			<c:if test="${clubMaster == 1}">
 				<li>
 					<button onClick="location.href='club_user'" class="c_notice">회원관리</button>

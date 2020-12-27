@@ -11,11 +11,13 @@
 <title>동아리 자유 게시판</title>
 </head>
 <body>
-	<div><jsp:include page="menu.jsp" /></div>
+	<div><jsp:include page="menu.jsp"/></div>
 	<div class="all_page2">
 		<div>
 			<img id="mainImge" class="mainImg" src="display?fileName=${cvo.c_pic}">
 		</div>
+		
+		<!-- 동아리 정보 div -->
 		<div class="up_left_page">
 			<p class="mainTitle">동아리정보</p>
 			<table class="c_Information">
@@ -38,7 +40,7 @@
 			<div id="btnJoin"></div>
 		</div>
 		
-<!-- 공지사항 부분 -->
+		<!-- 공지사항 목록 div -->
 		<div class="right_page">
 			<h2 class="right_title">자유게시판</h2>
 			<div class="button">
@@ -46,6 +48,7 @@
 					<button onClick="location.href='createBoard'" class="btn_notice2">글쓰기</button>
 				</c:if>
 			</div>
+			
 			<br> <br>
 			<div class="board_common01 notice">
 				<ul style="padding-inline-start: 0px;" id="boardList"> </ul>
@@ -70,12 +73,12 @@
 				{{/each}}
 				</script> 
 			</div>
+			
 			<div class="page_wrap">
 				<div class="page_nation" id="page_nation"></div>
 			</div>
 		</div>
-<!-- 공지사항 부분 끝 -->
-		
+		<!-- 공지사항 목록 끝 -->
 		
 		<div class="down_left_page">
 			<p class="mainTitle">메뉴</p>
@@ -103,43 +106,45 @@
 	<div><jsp:include page="footer.jsp" /></div>
 </body>
 <script>
-var page=1;
-getList();
-function getList(){
-	$.ajax({
-    	type:"get",
-        url:"boardPageList",
-        data:{"page":page},
-        dataType:"json",
-		success:function(data){
-           	var temp=Handlebars.compile($("#temp").html());
-           	$("#boardList").html(temp(data));
-           	
-           	var str="";
-           	if(data.pm.prev){
-                 str += "<a href='"+ (data.pm.startPage-1) +"'>◀</a>"
-           	}       
-           	for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
-                 if(page==i){
-                    str += "[<a href='"+ i +"' class='active'>" + i +"</a>]";
-                 }else{
-                    str += "[<a href='"+ i +"'>" + i +"</a>]";
-                 }
+	var page=1;
+	getList();
+	
+	//페이지네이션
+	function getList(){
+		$.ajax({
+	    	type:"get",
+	        url:"boardPageList",
+	        data:{"page":page},
+	        dataType:"json",
+			success:function(data){
+	           	var temp=Handlebars.compile($("#temp").html());
+	           	$("#boardList").html(temp(data));
+	           	
+	           	var str="";
+	           	if(data.pm.prev){
+	                 str += "<a href='"+ (data.pm.startPage-1) +"'>◀</a>"
+	           	}       
+	           	for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
+	                 if(page==i){
+	                    str += "[<a href='"+ i +"' class='active'>" + i +"</a>]";
+	                 }else{
+	                    str += "[<a href='"+ i +"'>" + i +"</a>]";
+	                 }
+				}
+	       		if(data.pm.next){
+	            	str += "<a href='"+ (data.pm.endPage+1) +"'>▶</a>"
+	            }
+	          	$("#page_nation").html(str);
 			}
-       		if(data.pm.next){
-            	str += "<a href='"+ (data.pm.endPage+1) +"'>▶</a>"
-            }
-          	$("#page_nation").html(str);
-		}
-  	});
-}
-
-//페이지네이션
-$("#page_nation").on("click","a",function(e){
-    e.preventDefault();
-    page=$(this).attr("href");
-    
-    getCulist();
- });
+	  	});
+	}
+	
+	//페이지네이션
+	$("#page_nation").on("click","a",function(e){
+	    e.preventDefault();
+	    page=$(this).attr("href");
+	    
+	    getCulist();
+	 });
 </script>
 </html>
