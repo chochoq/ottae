@@ -60,39 +60,63 @@
       <main class="content">
          <section class="services my_container clearfix">
             <div class="service_item">
-               <span class="icon"><img src="http://placehold.it/150x180"></span>
-               <h4>이-름</h4>
-               <p>자기소개를 합시다.무슨일을 헀는지 하라던가 나는 뭘했더라?..</p>
+               <span class="icon"><img src="display?fileName=김선관.jpg"></span>
+               <h4>김선관</h4>
+               <p>
+                 회의 진행, 일정 조율 <br>
+              JSP, Controller<br>
+              CSS, JSP 결합
+               </p>
                <span class="status"></span>
             </div>
             <div class="service_item">
-               <span class="icon"><img src="http://placehold.it/150x180"></span>
-               <h4>이-름</h4>
-               <p>자기소개를 합시다.무슨일을 헀는지 하라던가 나는 뭘했더라?..</p>
+               <span class="icon"><img src="display?fileName=조새벽.jpg"></span>
+               <h4>조새벽</h4>
+               <p>
+                회의 정리 및 일정 공유 <br>
+             JSP, fullCalender<br>
+              유효성 검토
+               </p>
                <span class="status"></span>
             </div>
             <div class="service_item">
-               <span class="icon"><img src="http://placehold.it/150x180"></span>
-               <h4>이-름</h4>
-               <p>자기소개를 합시다.무슨일을 헀는지 하라던가 나는 뭘했더라?..</p>
+               <span class="icon"><img src="display?fileName=전영진.jpg"></span>
+               <h4>전영진</h4>
+               <p>
+                 스토리 보드 작성 <br>
+              CSS , JSP<br>
+              정적 CSS 전담
+               </p>
                <span class="status"></span>
             </div>
             <div class="service_item">
-               <span class="icon"><img src="http://placehold.it/150x180"></span>
-               <h4>이-름</h4>
-               <p>자기소개를 합시다.무슨일을 헀는지 하라던가 나는 뭘했더라?..</p>
+               <span class="icon"><img src="display?fileName=최대식.jpg"></span>
+               <h4>최대식</h4>
+               <p>
+                DB 설계 및 기입 <br>
+              Controller, DB<br>
+             Service, Model
+               </p>
                <span class="status"></span>
             </div>
             <div class="service_item">
-               <span class="icon"><img src="http://placehold.it/150x180"></span>
-               <h4>이-름</h4>
-               <p>자기소개를 합시다.무슨일을 헀는지 하라던가 나는 뭘했더라?..</p>
+               <span class="icon"><img src="display?fileName=이장희.jpg"></span>
+               <h4>이장희</h4>
+               <p>
+                스토리 보드 작성 <br>
+             JSP , fullCalender <br>
+            유효성 검토
+               </p>
                <span class="status"></span>
             </div>
             <div class="service_item">
-               <span class="icon"><img src="http://placehold.it/150x180"></span>
-               <h4>이-름</h4>
-               <p>자기소개를 합시다.무슨일을 헀는지 하라던가 나는 뭘했더라?..</p>
+               <span class="icon"><img src="display?fileName=안동현.jpg"></span>
+               <h4>안동현</h4>
+               <p>
+                스토리 보드 작성 <br>
+             CSS 전체 구상 및 구현<br>
+            동적 CSS 전담
+               </p>
                <span class="status"></span>
             </div>
          </section><!--//services -->
@@ -295,9 +319,9 @@
                </div>
             </div>
            <div class="footer">
-                 <h2 class="h43">인삿말</h2>
+                 <h2 class="h43">소개하기</h2>
                  <div class="memo4">
-                     <pre class="p2" id="c_welcome"></pre>
+                     <p class="p2" id="c_welcome"></p>
                 </div>
            </div>
       </div>         

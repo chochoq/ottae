@@ -40,10 +40,11 @@
 	var page=1;
 	getList();
 	
+	//리플 삭제
 	$("#divReply").on("click","button",function(){
 		var cbr_no=$(this).attr("cbr_no");
 	   	var rn=$(this).attr("rn");
-	    if(!confirm( rn + "번 댓글을 삭제하실래요?")) return;
+	    if(!confirm( "댓글을 삭제하시겟습니까?")) return;
 	    $.ajax({
 	        type:"post",
 	        url:"cbrDelete",
@@ -54,12 +55,14 @@
 	   	});
 	});
 	
+	//덱스트를 클릭했을경우 btnReply 클릭펑션 실행
 	$("#txtReply").keydown(function(key){
 	  	if(key.keyCode==13){
 	    	$("#btnReply").click();
 	  	}
 	});
 	
+	//리플 입력 summit
 	$("#btnReply").on("click",function(){
 	  	var reply=$("#txtReply").val();     
 	    if(reply==""){
@@ -77,6 +80,7 @@
 	       	}
 	  	});
 	})
+	
 	//페이지네이션
 	$("#page_nation").on("click","a",function(e){
   		e.preventDefault();
