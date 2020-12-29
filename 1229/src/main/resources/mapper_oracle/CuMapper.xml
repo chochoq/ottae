@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper_oracle.CuMapper">
+	
+	<select id="totalCount" resultType="int">
+		select count(*) from tbl_cu INNER join tbl_user on tbl_user.id=tbl_cu.id where c_code=#{c_code} and tbl_cu.cu_schk='n'
+	</select>
+	
+	<select id="totalCountAll" resultType="int">
+		select count(*) from tbl_cu INNER join tbl_user on tbl_user.id=tbl_cu.id where c_code=#{c_code}
+	</select>
+	
+	<select id="wCulist" resultType="com.example.domain.CuVO">
+        select * from
+       	(select rownum rn,cuvo.* from 
+       	(select * from tbl_cu INNER join tbl_user on tbl_user.id=tbl_cu.id where c_code=#{c_code} and tbl_cu.cu_schk='n') cuvo)
+       	where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})
+  	</select>
+  	
+  	<select id="allCulist" resultType="com.example.domain.CuVO">
+        select * from
+       	(select rownum rn,cuvo.* from 
+       	(select * from tbl_cu INNER join tbl_user on tbl_user.id=tbl_cu.id where c_code=#{c_code}) cuvo)
+       	where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})
+  	</select>
+   
+	<update id="approveCu">
+		UPDATE tbl_cu SET cu_schk = 'y' where c_code=#{c_code} and id=#{id}
+	</update>
+	
+	<select id="chkCu" resultType="String">
+		select tbl_cu.cu_schk from tbl_cu where id=#{id} and c_code=#{c_code}
+	</select>
+	
+	<insert id="addMember">
+		insert INTO tbl_cu(c_code,id,cu_pchk,cu_schk,cu_fchk) VALUES(#{c_code},#{id},#{cu_pchk},#{cu_schk},#{cu_fchk})
+	</insert>
+	
+	<select id="myClub" resultType="com.example.domain.ClubVO">
+		select tbl_cir.* from tbl_cir INNER JOIN tbl_cu on tbl_cir.c_code = tbl_cu.c_code where tbl_cu.id = #{id}
+  	</select>
+  	
+  	<delete id="outCu">
+  		delete from tbl_cu where c_code=#{c_code} and id=#{id}
+  	</delete>
+  	
+  	<delete id = "deletecu">
+        delete from tbl_cu where id = #{id}
+   	</delete>
+     
+    <delete id = "deletepcu">
+      	delete from tbl_cu where c_code = #{c_code}
+   	</delete>
+   	
+   	<delete id = "deletemycu">
+   		delete from tbl_cu where id = #{id} and c_code = #{c_code}
+   	</delete>
+   	
+  	
+  	<select id = "countcuid" resultType = "int">
+        select count(*) from tbl_cu where id = #{id}
+     </select>
+     
+     <select id = "searchmax" resultType = "String">
+        select max(c_code) from tbl_cu where id = #{id}
+     </select>
+     
+     <select id = "searchpid" resultType = "int">
+        select count(*) from tbl_cir where c_pid = #{id} and c_code = #{c_code}
+     </select>
+     
+     <select id = "maincount" resultType = "int">
+      	select count(*) from tbl_cu where c_code = #{c_code}
+   	</select>
+   	
+   	
+   	<select id="getCuInfo" resultType="com.example.domain.CuVO">
+		select tbl_cu.* from tbl_cu where c_code =#{c_code} and id = #{id}
+  	</select>
+  	
+   	
+   
+</mapper>
