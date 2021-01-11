@@ -120,7 +120,7 @@ public class MypageController {
 	@RequestMapping("myclubinfo")
 	@ResponseBody
 	public HashMap<String, Object> myclist(int page, Criteria cri,HttpSession session) {
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 		cri.setId((String) session.getAttribute("id"));
 		
 		PageMaker pm = new PageMaker();
@@ -154,7 +154,7 @@ public class MypageController {
 	@RequestMapping("myglist")
 	@ResponseBody
 	public HashMap<String, Object> mYglist(int page, Criteria cri,HttpSession session) {
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 		
 		PageMaker pm = new PageMaker();
 		cri.setId((String) session.getAttribute("id"));

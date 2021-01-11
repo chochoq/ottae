@@ -36,7 +36,7 @@ public class CnController {
    	@RequestMapping("noticePageList")
 	@ResponseBody
 	public HashMap<String , Object> noticeList(int page, HttpSession session){
-   		HashMap<String , Object> map= new HashMap<>();
+   		HashMap<String , Object> map= new HashMap();
    		
    		PageMaker pm = new PageMaker();
 		Criteria cri = new Criteria();

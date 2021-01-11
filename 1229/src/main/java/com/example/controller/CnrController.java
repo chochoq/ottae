@@ -37,7 +37,7 @@ public class CnrController {
    @RequestMapping(value="getCnReply")
    public HashMap<String , Object> getCnReply(int page,HttpSession session){
 	   System.out.println("확인");
-      HashMap<String,Object> map= new HashMap<>();
+      HashMap<String,Object> map= new HashMap();
       int cn_no = (Integer) session.getAttribute("cn_no");
 
       PageMaker pm = new PageMaker();

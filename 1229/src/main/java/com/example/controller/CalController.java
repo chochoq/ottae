@@ -31,7 +31,7 @@ public class CalController {
 	@RequestMapping("g_pic")
 	@ResponseBody
 	public HashMap<String, Object> g_pic(int g_code, HttpSession session){
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 		String id = (String) session.getAttribute("id");
 		if(g_code == 0)	{
 			map.put("upic", gMapper.upic(id));

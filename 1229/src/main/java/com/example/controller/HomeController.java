@@ -51,7 +51,7 @@ public class HomeController {
 	@RequestMapping("readClub")
 	@ResponseBody
 	public HashMap<String, Object> myclist(String c_code) {
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 
 		map.put("cvo", cMapper.cread(c_code));
 		map.put("maincount", cuMapper.maincount(c_code));
@@ -62,7 +62,7 @@ public class HomeController {
 	@ResponseBody
 	public HashMap<String, Object> searchcir(int page, Criteria cri){
 		System.out.println(page + cri.getKeyword());
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 		PageMaker pm = new PageMaker();
 	    cri.setPage(page);
 	    pm.setCri(cri);

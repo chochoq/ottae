@@ -36,7 +36,7 @@ public class CbrController {
    // 댓글 list 가져오기
    @RequestMapping(value="getCbReply")
    public HashMap<String , Object> getCbReply(int page,HttpSession session){
-      HashMap<String , Object> map= new HashMap<>();
+      HashMap<String , Object> map= new HashMap();
       int cb_no = (Integer) session.getAttribute("cb_no");
 
       PageMaker pm = new PageMaker();

@@ -34,7 +34,7 @@ public class CbController {
    	@RequestMapping("boardPageList")
 	@ResponseBody
 	public HashMap<String , Object> boardPageList(int page, HttpSession session){
-   		HashMap<String , Object> map= new HashMap<>();
+   		HashMap<String , Object> map= new HashMap();
    		
    		PageMaker pm = new PageMaker();
 		Criteria cri = new Criteria();

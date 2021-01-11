@@ -37,7 +37,7 @@ public class MasterController {
 	@RequestMapping("mulist")
 	@ResponseBody
 	public HashMap<String, Object> mulist(int page, Criteria cri){
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 		PageMaker pm = new PageMaker();
 		cri.setPage(page);
 		pm.setCri(cri);
@@ -69,7 +69,7 @@ public class MasterController {
 	@RequestMapping("mclist")
 	@ResponseBody
 	public HashMap<String, Object> mclist(int page, Criteria cri){
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 		PageMaker pm = new PageMaker();
 		cri.setPage(page);
 		pm.setCri(cri);
@@ -96,7 +96,7 @@ public class MasterController {
 	@RequestMapping("mglist")
 	@ResponseBody
 	public HashMap<String, Object> mglist(int page, Criteria cri){
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, Object> map = new HashMap();
 		PageMaker pm = new PageMaker();
 		cri.setPage(page);
 		pm.setCri(cri);

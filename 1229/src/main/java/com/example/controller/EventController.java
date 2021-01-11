@@ -30,7 +30,7 @@ public class EventController {
 	@RequestMapping("eventList")
 	@ResponseBody
 	public HashMap<String , Object> eventList(int page,String query){
-		HashMap<String , Object> map= new HashMap<>();
+		HashMap<String , Object> map= new HashMap();
 		   
 		PageMaker pm = new PageMaker();
 		Criteria cri = new Criteria(1,5);

@@ -28,7 +28,7 @@ public class CuController {
 	public HashMap<String , Object> getClupUser(HttpSession session, int page){
 		String c_code = (String) session.getAttribute("c_code");
 		
-		HashMap<String , Object> map= new HashMap<>();
+		HashMap<String , Object> map= new HashMap();
 		
 		PageMaker pm = new PageMaker();
 		Criteria cri = new Criteria(1,5);
@@ -48,7 +48,7 @@ public class CuController {
 	@RequestMapping(value="waitCulist")
 	@ResponseBody
 	public HashMap<String , Object> waitCulist(CuVO vo, int page){
-		HashMap<String , Object> map= new HashMap<>();
+		HashMap<String , Object> map= new HashMap();
 		
 		PageMaker pm = new PageMaker();
 		Criteria cri = new Criteria();
