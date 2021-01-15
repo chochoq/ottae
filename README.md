@@ -7,49 +7,22 @@
 ----
 
 
-> 💥기 술 스 텍💥
+# 💥기 술 스 텍💥
 
-  전자정부 프레임워크 사용
+ > 전자정부 프레임워크 사용
 
-   ###Language
 
-  - HTML/CSS/JS
+|Language|DB|lib|Framework|IDE|Server|Task|
+|------|---|---|---|---|---|---|
+|DB|Oracle SQL|AJAX|Spring|eclipse|tomcat|노션
+|JAVA| 👀|jquery|MyBatis|Oracle SQL Developer| 👀|git
+| 👀| 👀|handlebars|test| 👀| 👀|gitHub
 
-  - JAVA
+---
 
-  ### DB
+# 클래스 다이어그램
 
-  - Oracle SQL
-
-  ### lib
-
-  - AJAX
-
-  - jquery
-
-  - handlebars
-
-  ### Framework
-
-  - Spring + MyBatis
-
-  ### IDE
-
-  - eclipse
-
-  - Oracle SQL Developer
-
-  ### Server
-
-  - tomcat
-
-  ### Task
-
-  - 노션
-
-  - 깃과 깃헙
-  
-  -------
+---
   
 
 # ⭐️주 요 기 능⭐️
@@ -65,7 +38,6 @@
   사전에 접근을 제한함으로 ***오류 발생가능성 사전 차단***
 
 - 실행
-
 1. 로그아웃 상태일 때  
 
 <img src ="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F65c2b19d-ab56-4560-ad76-5eb780e92c50%2FUntitled.png?table=block&id=e8a0651b-a56e-4a2a-bde9-bab8714a6b94&width=2000&userId=&cache=v2">
