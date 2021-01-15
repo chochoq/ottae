@@ -61,7 +61,8 @@
 
     - 실행시
         - 비로그인시
-
+    <img src=https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65c2b19d-ab56-4560-ad76-5eb780e92c50/Untitled.png>
+    <img src=https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65c2b19d-ab56-4560-ad76-5eb780e92c50/Untitled.png>
       ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65c2b19d-ab56-4560-ad76-5eb780e92c50/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65c2b19d-ab56-4560-ad76-5eb780e92c50/Untitled.png)
 
         - 회원 로그인 시
