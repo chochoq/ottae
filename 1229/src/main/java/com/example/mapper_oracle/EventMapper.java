@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.domain.Criteria;
-import com.example.domain.EventVO;
+import com.example.domain.customerService.EventVO;
 
 public interface EventMapper {
 	

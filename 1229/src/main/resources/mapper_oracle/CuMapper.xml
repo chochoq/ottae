@@ -10,14 +10,14 @@
 		select count(*) from tbl_cu INNER join tbl_user on tbl_user.id=tbl_cu.id where c_code=#{c_code}
 	</select>
 	
-	<select id="wCulist" resultType="com.example.domain.CuVO">
+	<select id="wCulist" resultType="com.example.domain.club.CuVO">
         select * from
        	(select rownum rn,cuvo.* from 
        	(select * from tbl_cu INNER join tbl_user on tbl_user.id=tbl_cu.id where c_code=#{c_code} and tbl_cu.cu_schk='n') cuvo)
        	where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})
   	</select>
   	
-  	<select id="allCulist" resultType="com.example.domain.CuVO">
+  	<select id="allCulist" resultType="com.example.domain.club.CuVO">
         select * from
        	(select rownum rn,cuvo.* from 
        	(select * from tbl_cu INNER join tbl_user on tbl_user.id=tbl_cu.id where c_code=#{c_code}) cuvo)
@@ -36,7 +36,7 @@
 		insert INTO tbl_cu(c_code,id,cu_pchk,cu_schk,cu_fchk) VALUES(#{c_code},#{id},#{cu_pchk},#{cu_schk},#{cu_fchk})
 	</insert>
 	
-	<select id="myClub" resultType="com.example.domain.ClubVO">
+	<select id="myClub" resultType="com.example.domain.club.ClubVO">
 		select tbl_cir.* from tbl_cir INNER JOIN tbl_cu on tbl_cir.c_code = tbl_cu.c_code where tbl_cu.id = #{id}
   	</select>
   	
@@ -74,7 +74,7 @@
    	</select>
    	
    	
-   	<select id="getCuInfo" resultType="com.example.domain.CuVO">
+   	<select id="getCuInfo" resultType="com.example.domain.club.CuVO">
 		select tbl_cu.* from tbl_cu where c_code =#{c_code} and id = #{id}
   	</select>
   	

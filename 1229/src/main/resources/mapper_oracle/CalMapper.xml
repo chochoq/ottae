@@ -13,16 +13,16 @@
 	</delete>
 
 	
-	<select id="scheduleList" resultType="com.example.domain.CalVO">
+	<select id="scheduleList" resultType="com.example.domain.group.CalVO">
       	select tbl_cal.*, tbl_gu.g_code from tbl_gu inner join tbl_cal on tbl_gu.id = tbl_cal.username
       	where g_code = #{g_code} and tbl_cal.schk = '1' and tbl_gu.gu_pwchk = 'Y'
    	</select>
    	
-   	<select id="myscheduleList" resultType="com.example.domain.CalVO">
+   	<select id="myscheduleList" resultType="com.example.domain.group.CalVO">
          select * from tbl_cal where username = #{id}
 	</select>
    
-   	<select id="calmygroup"  resultType = "com.example.domain.GuVO">
+   	<select id="calmygroup"  resultType = "com.example.domain.group.GuVO">
      	select * from tbl_gu where id = #{id} and g_code = #{g_code}
    	</select>
    	

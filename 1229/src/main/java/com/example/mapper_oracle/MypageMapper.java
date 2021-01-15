@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.example.domain.ClubVO;
+import com.example.domain.club.ClubVO;
 import com.example.domain.Criteria;
-import com.example.domain.GuVO;
-import com.example.domain.UserVO;
+import com.example.domain.group.GuVO;
+import com.example.domain.user.UserVO;
 
 public interface MypageMapper {
 

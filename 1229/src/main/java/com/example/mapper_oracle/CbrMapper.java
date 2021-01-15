@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.example.domain.CbrVO;
+import com.example.domain.club.CbrVO;
 import com.example.domain.Criteria;
 
 public interface CbrMapper {

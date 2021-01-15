@@ -28,7 +28,7 @@
       	delete from tbl_gu where g_code = #{g_code}
    	</delete>
    	
-   	<select id="getNotyetGrouplist" resultType = "com.example.domain.GuVO">
+   	<select id="getNotyetGrouplist" resultType = "com.example.domain.group.GuVO">
    		select * from tbl_gu inner join tbl_group on tbl_gu.g_code = tbl_group.g_code where id=#{id} and gu_pwchk='N'
    	</select>
 </mapper>

@@ -6,7 +6,7 @@
       values (seq_cnrno.nextval, #{c_code}, #{id}, sysdate, #{cnr_content},#{cn_no})
    </insert>
    
-   <select id="ListCnr" resultType="com.example.domain.CnrVO">
+   <select id="ListCnr" resultType="com.example.domain.club.CnrVO">
        select * from 
        (select rownum rn,tbl_cnr.* from tbl_cnr where cn_no=#{cn_no} order by cnr_no) 
        where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})

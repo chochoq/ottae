@@ -6,11 +6,11 @@
       values(seq_mno.nextval, #{id}, #{n_title}, sysdate, #{n_content})
    </insert>
    
-   <select id = "nread" resultType = "com.example.domain.NoticeVO">
+   <select id = "nread" resultType = "com.example.domain.customerService.NoticeVO">
       select * from tbl_notice where n_no = #{n_no}
    </select>
 
-   <select id="nlist" resultType="com.example.domain.NoticeVO">
+   <select id="nlist" resultType="com.example.domain.customerService.NoticeVO">
       select * from
       (select rownum rn, tbl_notice.* from tbl_notice where n_title like
       '%'||#{query}||'%' order by n_regdate desc)

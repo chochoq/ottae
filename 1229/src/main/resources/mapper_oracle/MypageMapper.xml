@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper_oracle.MypageMapper">
 
-   <select id="myinfo" resultType="com.example.domain.UserVO">
+   <select id="myinfo" resultType="com.example.domain.user.UserVO">
       select * from tbl_user where id =
       #{id}
    </select>
@@ -15,7 +15,7 @@
       where id = #{id}
    </update>
 
-   <select id="myclist" resultType="com.example.domain.ClubVO">
+   <select id="myclist" resultType="com.example.domain.club.ClubVO">
       select * from
       (select rownum rn, tbl_cir.c_code, tbl_cir.c_name, tbl_cir.c_pid,
       tbl_cir.c_category, tbl_cir.c_regdate, tbl_cu.cu_schk
@@ -57,7 +57,7 @@
       where g_name like '%'||#{keyword}||'%' and tbl_gu.id = #{id}
    </select>
    
-   <select id ="myglist" resultType = "com.example.domain.GuVO">
+   <select id ="myglist" resultType = "com.example.domain.group.GuVO">
          select tbl_group.*, tbl_gu.id, tbl_gu.gu_pwchk from tbl_group INNER JOIN tbl_gu on tbl_group.g_code = tbl_gu.g_code
          where tbl_group.g_name like '%'||#{keyword}||'%' and tbl_gu.id = #{id} and tbl_gu.gu_pwchk='Y' order by tbl_group.g_regdate desc
       </select>

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.example.domain.CnrVO;
+import com.example.domain.club.CnrVO;
 import com.example.domain.Criteria;
 
 public interface CnrMapper {

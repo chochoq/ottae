@@ -6,11 +6,11 @@
       values(seq_eno.nextval, #{id}, #{e_title}, sysdate, #{e_content})
    </insert>
    
-   <select id = "eread" resultType = "com.example.domain.EventVO">
+   <select id = "eread" resultType = "com.example.domain.customerService.EventVO">
       select * from tbl_event where e_no = #{e_no}
    </select>
    
-   <select id = "elist" resultType = "com.example.domain.EventVO">
+   <select id = "elist" resultType = "com.example.domain.customerService.EventVO">
        select * from 
       (select rownum rn, tbl_event.* from tbl_event where e_title like '%'||#{query}||'%' order by e_regdate desc)
       where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})

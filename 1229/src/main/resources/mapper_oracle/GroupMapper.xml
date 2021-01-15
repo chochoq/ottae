@@ -6,17 +6,17 @@
 		insert into tbl_group(g_code, g_name,g_pass,g_pic, g_regdate) values(seq_group.nextval, #{g_name},#{g_pass},#{g_pic}, sysdate)
 	</insert>
 	
-	<select id ="mygroup" resultType = "com.example.domain.GuVO">
+	<select id ="mygroup" resultType = "com.example.domain.group.GuVO">
 		select * from tbl_group INNER JOIN tbl_gu on tbl_group.g_code = tbl_gu.g_code
 		where id = #{id} and tbl_gu.gu_pwchk='Y'
 	</select>
 	
-	<select id = "guget" resultType = "com.example.domain.UserVO">
+	<select id = "guget" resultType = "com.example.domain.user.UserVO">
 		select tbl_gu.id, tbl_user.name from tbl_gu inner join tbl_user on tbl_gu.id = tbl_user.id 
 		where g_code = #{g_code} and tbl_gu.gu_pwchk='Y'
 	</select>
 	
-	<select id = "gread" resultType = "com.example.domain.GroupVO">
+	<select id = "gread" resultType = "com.example.domain.group.GroupVO">
 		select * from tbl_group where g_code = #{g_code}
 	</select>
 	
@@ -24,7 +24,7 @@
       	delete from tbl_group where g_code = #{g_code}
    	</delete>
 	
-	<select id = "upic"	resultType = "com.example.domain.UserVO">
+	<select id = "upic"	resultType = "com.example.domain.user.UserVO">
 		select * from tbl_user where id = #{id}
 	</select>
 </mapper>

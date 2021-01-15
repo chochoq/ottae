@@ -7,31 +7,31 @@
       values(seq_cno.nextval, #{c_pid} , #{c_welcome}, #{c_condition}, #{c_name}, #{c_category}, '태그', #{c_pic}, #{c_spot}, #{c_pchk}, sysdate)
    </insert>
    
-   <select id = "cread" resultType = "com.example.domain.ClubVO">
+   <select id = "cread" resultType = "com.example.domain.club.ClubVO">
       select * from tbl_cir where c_code = #{c_code}
    </select>
 
-   <select id = "getGameList" resultType = "com.example.domain.ClubVO">
+   <select id = "getGameList" resultType = "com.example.domain.club.ClubVO">
          select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='게임' order by c_regdate desc) 
          where rn between 1 and 10
       </select>
       
-      <select id = "getSportList" resultType = "com.example.domain.ClubVO">
+      <select id = "getSportList" resultType = "com.example.domain.club.ClubVO">
          select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='운동' order by c_regdate desc) 
          where rn between 1 and 10
       </select>
       
-      <select id = "getStudyList" resultType = "com.example.domain.ClubVO">
+      <select id = "getStudyList" resultType = "com.example.domain.club.ClubVO">
          select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='공부' order by c_regdate desc) 
          where rn between 1 and 10
       </select>
       
-      <select id = "getHobbyList" resultType = "com.example.domain.ClubVO">
+      <select id = "getHobbyList" resultType = "com.example.domain.club.ClubVO">
          select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='취미' order by c_regdate desc) 
          where rn between 1 and 10
       </select>
       
-      <select id = "getEtcList" resultType = "com.example.domain.ClubVO">
+      <select id = "getEtcList" resultType = "com.example.domain.club.ClubVO">
          select * from (select rownum rn,tbl_cir.* from tbl_cir where c_category='기타' order by c_regdate desc) 
          where rn between 1 and 10
       </select>
@@ -62,13 +62,13 @@
       select count(*) from tbl_cir where c_name like '%'||#{keyword}||'%'
    </select>
 
-   <select id="searchcir" resultType="com.example.domain.ClubVO">
+   <select id="searchcir" resultType="com.example.domain.club.ClubVO">
       select * from
       (select rownum rn, tbl_cir.* from tbl_cir where c_name like '%'||#{keyword}||'%' order by c_code desc)
       where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})
    </select>
 <!-- <<<<<<<<<<<<<<<<<<<<<임시>>>>>>>>>>>>>>>>>>>>>>> -->
-      <select id = "clubList" resultType = "com.example.domain.ClubVO">
+      <select id = "clubList" resultType = "com.example.domain.club.ClubVO">
          select * from tbl_cir
       </select>
 </mapper>

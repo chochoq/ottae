@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.example.domain.GuVO;
+import com.example.domain.group.GuVO;
 
 public interface GuMapper {
 	public void addMember(GuVO gvo);

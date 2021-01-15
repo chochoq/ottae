@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper_oracle.UserMapper">
 
-	<select id="read" resultType="com.example.domain.UserVO">
+	<select id="read" resultType="com.example.domain.user.UserVO">
 		select * from tbl_user where id = #{id}
 	</select>
 
@@ -14,7 +14,7 @@
 		seq_uno.nextval)
 	</insert>
 
-	<select id="list" resultType="com.example.domain.UserVO">
+	<select id="list" resultType="com.example.domain.user.UserVO">
 		select * from tbl_user where id
 		like '%'||#{query}||'%' order by uno desc
 	</select>

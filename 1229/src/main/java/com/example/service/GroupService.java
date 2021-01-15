@@ -9,9 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.domain.ClubVO;
-import com.example.domain.GroupVO;
-import com.example.domain.GuVO;
+import com.example.domain.group.GroupVO;
+import com.example.domain.group.GuVO;
 import com.example.mapper_oracle.GroupMapper;
 import com.example.mapper_oracle.GuMapper;
 

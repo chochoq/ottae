@@ -6,11 +6,11 @@
       values(seq_qno.nextval, #{id}, #{q_title}, sysdate, #{q_content})
    </insert>
    
-   <select id = "qread" resultType = "com.example.domain.QnAVO">
+   <select id = "qread" resultType = "com.example.domain.customerService.QnAVO">
       select * from tbl_qna where q_no = #{q_no}
    </select>
    
-      <select id = "qlist" resultType = "com.example.domain.QnAVO">
+      <select id = "qlist" resultType = "com.example.domain.customerService.QnAVO">
       select * from 
          (select rownum rn, tbl_qna.* from tbl_qna where q_title like '%'||#{query}||'%' order by q_regdate desc)
          where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})

@@ -2,7 +2,7 @@ package com.example.mapper_oracle;
 
 import java.util.List;
 
-import com.example.domain.UserVO;
+import com.example.domain.user.UserVO;
 
 public interface UserMapper {
 	public String getTime();

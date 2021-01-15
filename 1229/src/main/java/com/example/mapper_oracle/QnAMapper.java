@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.domain.Criteria;
-import com.example.domain.QnAVO;
+import com.example.domain.customerService.QnAVO;
 
 public interface QnAMapper {
 	

@@ -2,9 +2,9 @@ package com.example.mapper_oracle;
 
 import java.util.List;
 
-import com.example.domain.GroupVO;
-import com.example.domain.GuVO;
-import com.example.domain.UserVO;
+import com.example.domain.group.GroupVO;
+import com.example.domain.group.GuVO;
+import com.example.domain.user.UserVO;
 
 public interface GroupMapper {
 	

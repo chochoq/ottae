@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.example.domain.ClubVO;
+import com.example.domain.club.ClubVO;
 import com.example.domain.Criteria;
-import com.example.domain.CuVO;
+import com.example.domain.club.CuVO;
 
 public interface CuMapper {
 

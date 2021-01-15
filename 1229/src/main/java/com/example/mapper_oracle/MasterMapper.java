@@ -2,10 +2,10 @@ package com.example.mapper_oracle;
 
 import java.util.List;
 
-import com.example.domain.ClubVO;
+import com.example.domain.club.ClubVO;
 import com.example.domain.Criteria;
-import com.example.domain.GroupVO;
-import com.example.domain.UserVO;
+import com.example.domain.group.GroupVO;
+import com.example.domain.user.UserVO;
 
 public interface MasterMapper {
 

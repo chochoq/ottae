@@ -1,6 +1,8 @@
 package com.example.domain;
 
-public class Criteria extends ClubVO{
+import com.example.domain.club.ClubVO;
+
+public class Criteria extends ClubVO {
 	private int page;
 	private int perPageNum;
 	private String searchType;

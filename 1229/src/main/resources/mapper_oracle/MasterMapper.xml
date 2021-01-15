@@ -24,7 +24,7 @@
        </if>
    </select>
    
-   <select id = "mulist" resultType = "com.example.domain.UserVO">
+   <select id = "mulist" resultType = "com.example.domain.user.UserVO">
       select * from 
       ( select rownum rn, tbl_user.* from tbl_user 
       <if test="searchType=='id'">
@@ -64,7 +64,7 @@
        </if>
    </select>
    
-   <select id = "mclist" resultType = "com.example.domain.ClubVO">
+   <select id = "mclist" resultType = "com.example.domain.club.ClubVO">
       select * from 
       ( select rownum rn, tbl_cir.* from tbl_cir 
       <if test="searchType=='c_pid'">
@@ -88,7 +88,7 @@
 
    </select>
    
-   <select id = "mglist" resultType = "com.example.domain.GroupVO">
+   <select id = "mglist" resultType = "com.example.domain.group.GroupVO">
       select * from 
       (select rownum rn, tbl_group.* from tbl_group where g_name like '%'||#{keyword}||'%' order by tbl_group.g_regdate desc)
        where rn between (#{pageStart} + 1) and (#{pageStart} + #{perPageNum})

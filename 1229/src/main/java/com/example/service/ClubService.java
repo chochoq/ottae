@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.domain.ClubVO;
-import com.example.domain.CuVO;
+import com.example.domain.club.ClubVO;
+import com.example.domain.club.CuVO;
 import com.example.mapper_oracle.CbMapper;
 import com.example.mapper_oracle.CbrMapper;
 import com.example.mapper_oracle.ClubMapper;
@@ -58,11 +58,12 @@ public class ClubService {
 		cbMapper.cbDelete(cb_no);
 	}
 
-	// 동아리를 만든다 이떄 cu table에 만든 사람까지 추가한다
+	// 동아리를 만들 때 cu table에 만든 사람까지 추가한다
 	@Transactional
 	public void makeClub(ClubVO vo, HttpSession session) {
 		cMapper.insert(vo);
-		CuVO cvo = new CuVO();
+		CuVO cvo;
+		cvo = new CuVO();
 		cvo.setC_code(cMapper.max(vo.getC_pid()));
 		cvo.setId((String) session.getAttribute("id"));
 		cvo.setCu_fchk('n');
@@ -101,7 +102,7 @@ public class ClubService {
 					mapper.deleteclub(c_code1);
 				}
 			} else {
-
+				return;
 			}
 		}
 	}

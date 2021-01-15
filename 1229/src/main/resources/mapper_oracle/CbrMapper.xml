@@ -6,7 +6,7 @@
       values (seq_cbrno.nextval, #{c_code}, #{id}, sysdate, #{cbr_content},#{cb_no})
    </insert>
    
-   <select id="ListCbr" resultType="com.example.domain.CbrVO">
+   <select id="ListCbr" resultType="com.example.domain.club.CbrVO">
        select * from 
        (select rownum rn,tbl_cbr.* from tbl_cbr where cb_no=#{cb_no} order by cbr_no) 
        where rn between (#{cri.pageStart}+1) and (#{cri.pageStart}+#{cri.perPageNum})

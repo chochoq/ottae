@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.domain.Criteria;
-import com.example.domain.NoticeVO;
+import com.example.domain.customerService.NoticeVO;
 
 public interface NoticeMapper {
 	

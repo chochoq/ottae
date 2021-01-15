@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.example.domain.CalVO;
-import com.example.domain.GuVO;
+import com.example.domain.group.CalVO;
+import com.example.domain.group.GuVO;
 
 public interface CalMapper {
 	public void makeCal(CalVO vo);
