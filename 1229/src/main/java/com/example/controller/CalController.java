@@ -17,6 +17,8 @@ import com.example.mapper_oracle.UserMapper;
 
 @Controller
 public class CalController {
+	//일정 컨트롤러
+
 	@Autowired
 	CalMapper calMapper;
 	@Autowired

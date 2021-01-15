@@ -16,6 +16,9 @@ import com.example.mapper_oracle.CnrMapper;
 
 @RestController
 public class CnrController {
+
+   //리플
+
    @Autowired
    CnrMapper cnrmapper;
    

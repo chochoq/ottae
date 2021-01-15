@@ -16,6 +16,9 @@ import com.example.mapper_oracle.CbrMapper;
 
 @RestController
 public class CbrController {
+
+   //동아리 게시물 컨트롤러
+
    @Autowired
    CbrMapper cbrmapper;
    

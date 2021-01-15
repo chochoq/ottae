@@ -21,6 +21,9 @@ import com.example.service.ClubService;
 
 @Controller
 public class CbController {
+
+	//동아리컨트롤러
+
 	@Autowired
 	ClubMapper cMapper;
 	@Autowired
@@ -73,7 +76,7 @@ public class CbController {
 		return "redirect:club_board?c_code="+vo.getC_code();
 	}
 	
-	// 자유게시판을 읽을때 작성자가 들어갔을떄는 update page로, 일반 회원이 들어갔을떄는 read page로 연결해준다
+	// 자유게시판을 읽을때 작성자가 들어갔을떄는 update page, 일반 회원이 들어갔을떄는 read page 연결해준다
 	@RequestMapping("cbRead")
 	public String cbRead(int cb_no, Model model,HttpSession session) {
 		String c_code = (String) session.getAttribute("c_code");
@@ -92,7 +95,7 @@ public class CbController {
 		return "cbRead";
 	}
 	
-	// 게시물을 업데이트 했을 떄 실행
+	// 게시물을 업데이트 했을 때 실행
 	@RequestMapping(value = "cbUpdatePost", method = RequestMethod.POST)
 	public String cbUpdatepost(CbVO vo, HttpSession session) {
 		vo.setId((String) session.getAttribute("id"));
@@ -101,7 +104,7 @@ public class CbController {
 	    return "redirect:club_board?c_code="+vo.getC_code();
 	}
 	
-	// 게시물을 삭제할떄 실행
+	// 게시물을 삭제할 때 실행
 	@RequestMapping("cbDelete")
 	public String cndelete(int cb_no, HttpSession session){
 		service.cbDelete(cb_no);

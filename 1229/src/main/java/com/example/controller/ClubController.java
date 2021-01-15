@@ -28,6 +28,9 @@ import com.example.service.ClubService;
 
 @Controller
 public class ClubController {
+
+	//동아리 메인
+
 	@Autowired
 	ClubMapper cMapper;
 	

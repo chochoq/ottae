@@ -25,6 +25,8 @@ import com.example.service.GroupService;
 
 @Controller
 public class GroupController {
+
+	//그룹멤버
 	
 	@Resource(name="uploadPath")
 	String path;

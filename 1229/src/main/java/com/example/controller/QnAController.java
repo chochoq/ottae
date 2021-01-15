@@ -18,6 +18,8 @@ import com.example.mapper_oracle.QnAMapper;
 
 @Controller
 public class QnAController {
+	//고객센터 QnA
+
 	@Autowired
 	QnAMapper mapper;
 	   

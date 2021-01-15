@@ -19,6 +19,9 @@ import com.example.mapper_oracle.CuMapper;
 
 @Controller
 public class HomeController {
+
+	//메인페이지
+
 	@Autowired
 	ClubMapper cMapper;
 	

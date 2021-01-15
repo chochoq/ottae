@@ -17,6 +17,9 @@ import com.example.service.ClubService;
 
 @Controller
 public class CuController {
+
+	//동아리 회원
+
 	@Autowired
 	CuMapper cumapper;
 	@Autowired

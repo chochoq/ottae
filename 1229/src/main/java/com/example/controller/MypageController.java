@@ -33,6 +33,7 @@ import com.example.service.MasterService;
 
 @Controller
 public class MypageController {
+	//마이페이지
 
 	@Resource(name = "uploadPath")
 	String path;

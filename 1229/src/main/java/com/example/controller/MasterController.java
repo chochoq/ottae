@@ -20,6 +20,10 @@ import com.example.service.MasterService;
 
 @Controller
 public class MasterController {
+
+	//관리자페이지
+
+
 	@Resource(name = "uploadPath")
 	String path;
 	@Autowired

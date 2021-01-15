@@ -18,6 +18,9 @@ import com.example.mapper_oracle.EventMapper;
 
 @Controller
 public class EventController {
+
+	//고객센터 이벤트게시판
+
 	@Autowired
 	EventMapper mapper;
 	
