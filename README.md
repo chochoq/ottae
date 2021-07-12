@@ -5,8 +5,6 @@
 ### 모임 구성원과 약속을 잡기 위해 일정을 확인하고 싶을 때 혹은 취미 등을 위해 근처에 같은 목적을 가진 사람을 만나는 것은 어떨까 하는 생각에 시작하게 되었습니다.
 
 
-### 프로젝트 설명 상세
-https://www.notion.so/9117cc0ebe0c417d8dbb36d40fe21a78
 
 
 ----
@@ -22,10 +20,6 @@ https://www.notion.so/9117cc0ebe0c417d8dbb36d40fe21a78
 |DB|Oracle SQL|AJAX|Spring|eclipse|tomcat|노션
 |JAVA| 👀|jquery|MyBatis|Oracle SQL Developer| 👀|git
 | 👀| 👀|handlebars|test| 👀| 👀|gitHub
-
----
-
-# 클래스 다이어그램
 
 ---
   
@@ -82,6 +76,9 @@ https://www.notion.so/9117cc0ebe0c417d8dbb36d40fe21a78
   ***특정 문자 조합 사용*** 시 작성 가능
 
   “ajax”을 이용하여 ***실시간 유효성 체크***
+
+  ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/43b58272-173c-4df1-b48b-c68c59909d97/o_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210712%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210712T170552Z&X-Amz-Expires=86400&X-Amz-Signature=108e247cc3cd6bf2a53793c29250b6cb565fcca4f7b6450ca218dd92179a5c27&X-Amz-SignedHeaders=host)
+
 - 실행시
 
 
@@ -104,6 +101,9 @@ https://www.notion.so/9117cc0ebe0c417d8dbb36d40fe21a78
 
   CRUD 작업 진행 시 ***실시간 업데이트***시
 
+![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0894ac7e-6851-4110-9a58-2e18615f6839/o_.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210712%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210712T170552Z&X-Amz-Expires=86400&X-Amz-Signature=0430f4c0aed21f6e11cc639833593db93a00bc44b27d61925b3068ecb892a66b&X-Amz-SignedHeaders=host)
+
+
 - 실행시
 
 ![](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F4d17c034-e690-471c-9d39-f2287ff49e81%2FUntitled.png?table=block&id=241ae9bd-9152-46b4-ad17-bc568e299565&width=1250&userId=&cache=v2)
@@ -111,3 +111,11 @@ https://www.notion.so/9117cc0ebe0c417d8dbb36d40fe21a78
 ![](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6b3d030f-98da-4ee0-afcf-3ef38a1d5482%2FUntitled.png?table=block&id=b3689d0f-e2d2-4166-a697-9e7e9c79de42&width=1340&userId=&cache=v2)
 ![](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5d7f40c5-5229-4a59-bc59-08fe8c69b983%2FUntitled.png?table=block&id=182e810a-10ef-465b-a577-fca0eab4d6dd&width=1250&userId=&cache=v2)
 ![](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F14a8a592-887d-4cb0-95ca-95314ce49855%2FUntitled.png?table=block&id=661b33cc-bb42-4df8-9cea-52bacfdedb4b&width=1250&userId=&cache=v2)
+
+
+
+
+---
+
+
+[📓 프로젝트 설명 및 후기 노션 📓](https://www.notion.so/9117cc0ebe0c417d8dbb36d40fe21a78)
